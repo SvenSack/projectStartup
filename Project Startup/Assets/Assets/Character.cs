@@ -66,7 +66,7 @@ public class Character : MonoBehaviour
                     if (teamManager.enemyTeam[i].isDead == false)
                     {
                         //Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
-                        Vector3 distanceVector = transform.position - teamManager.enemyTeam[i].transform.position;
+                        Vector3 distanceVector = (teamManager.enemyTeam[i].transform.position - transform.position).normalized;
                         if (closest == 0 || closest > distanceVector.magnitude)
                         {
                             closest = distanceVector.magnitude;
@@ -84,7 +84,7 @@ public class Character : MonoBehaviour
                     if (teamManager.yourTeam[i].isDead == false)
                     {
                         //Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
-                        Vector3 distanceVector = transform.position - teamManager.yourTeam[i].transform.position;
+                        Vector3 distanceVector = (teamManager.yourTeam[i].transform.position - transform.position).normalized;
                         if (closest1 == 0 || closest1 > distanceVector.magnitude)
                         {
                             closest1 = distanceVector.magnitude;
@@ -118,6 +118,15 @@ public class Character : MonoBehaviour
 
     private void Move()
     {
-        
+        // check current rotation against the rotation of the target vector, correct as needed, then translate forward
+        Vector3 targetVector = (aggroTarget.transform.position - transform.position).normalized;
+        float angleDifference = Vector3.Angle(targetVector, transform.forward);
+        //Debug.DrawRay(transform.position, targetVector, Color.blue, 2.0f);
+        //Debug.DrawRay(transform.position, transform.forward, Color.green, 2.0f);
+        if (angleDifference != 0)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * 5.0f);
+        }
+        transform.Translate(Vector3.forward*(Time.deltaTime*movementSpeed));
     }
 }
