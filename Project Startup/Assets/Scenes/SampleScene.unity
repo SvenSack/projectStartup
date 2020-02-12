@@ -569,6 +569,16 @@ PrefabInstance:
       propertyPath: name
       value: Jeremy
       objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: defense
+      value: 1.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 0.12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
 --- !u!1001 &1074888378
@@ -652,6 +662,21 @@ PrefabInstance:
         type: 3}
       propertyPath: name
       value: Bernd
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: range
+      value: 2.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackDamage
+      value: 2.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 1.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
@@ -795,6 +820,21 @@ PrefabInstance:
       propertyPath: name
       value: Derf
       objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: range
+      value: 6.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackDamage
+      value: 2.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 0.47
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
 --- !u!1001 &1254590413
@@ -868,6 +908,16 @@ PrefabInstance:
         type: 3}
       propertyPath: name
       value: Pillows
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackDamage
+      value: 1.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
@@ -1087,6 +1137,21 @@ PrefabInstance:
         type: 3}
       propertyPath: name
       value: Rolf
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: range
+      value: 3.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackDamage
+      value: 1.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 3.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
@@ -1426,6 +1491,16 @@ PrefabInstance:
         type: 3}
       propertyPath: name
       value: Fluffles
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: defense
+      value: 1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: attackCooldown
+      value: 0.43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}

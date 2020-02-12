@@ -8,11 +8,11 @@ public class Character : MonoBehaviour
     [Range(1.0f, 10.0f)] public float movementSpeed = 1.0f;
     [Range(1.0f, 100.0f)] public float health = 1.0f;
     [Range(1.0f, 10.0f)] public float attackDamage = 1.0f;
-    [Range(0.1f, 4.0f)] public float attackSpeed = 1.0f;
+    [Range(0.1f, 4.0f)] public float attackCooldown = 1.0f;
     [Range(1.0f, 10.0f)] public float defense = 1.0f;
     public string name = "Sven, greatest of all Programmers";
     private bool fighting;
-    private float attackCooldown;
+    private float attackCooldownValue;
 
     private TeamManager teamManager;
     
@@ -53,6 +53,22 @@ public class Character : MonoBehaviour
             if (fighting)
             {
                 // check if aggroTarget TargetInRange, if yes, check attackCooldown against attack speed if yes Attack, else increase by deltatime, else make fighting false
+                if (TargetInRange(aggroTarget))
+                {
+                    if (attackCooldownValue >= attackCooldown)
+                    {
+                        attackCooldownValue = 0;
+                        Attack();
+                    }
+                    else
+                    {
+                        attackCooldownValue += Time.deltaTime;
+                    }
+                }
+                else
+                {
+                    fighting = false;
+                }
             }
         }
     }
@@ -115,6 +131,11 @@ public class Character : MonoBehaviour
     private void Attack()
     {
         // deal damage to the target mitigated by defense
+        if (attackDamage > aggroTarget.defense)
+        {
+            aggroTarget.health -= attackDamage - aggroTarget.defense;
+            Debug.Log(name + " has attacked " + aggroTarget.name + " for " + (attackDamage - aggroTarget.defense));
+        }
     }
 
     private void Die()
