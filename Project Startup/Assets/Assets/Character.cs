@@ -140,9 +140,54 @@ public class Character : MonoBehaviour
 
     private void Die()
     {
-        isDead = true;
         // check if all on my team are dead, if yes, finish game
         // run through all living characters, check if they have me as their AggroTarget, if yes, make them FindAggroTarget
+        isDead = true;
+        transform.LeanScale(new Vector3(0,0,0), 1.5f);
+        bool deathCheck = true;
+        switch (isOnYourTeam)
+        {
+            case true:
+                foreach (var enemy in teamManager.enemyTeam)
+                {
+                    if (enemy.isDead != true)
+                        deathCheck = false;
+                }
+
+                if (deathCheck)
+                {
+                    // game over
+                }
+                else
+                {
+                    foreach (var enemy in teamManager.enemyTeam)
+                    {
+                        if (enemy.aggroTarget == this && enemy.isDead == false)
+                            enemy.FindAggroTarget();
+                    }
+                }
+                break;
+            case false:
+                foreach (var enemy in teamManager.yourTeam)
+                {
+                    if (enemy.isDead != true)
+                        deathCheck = false;
+                }
+
+                if (deathCheck)
+                {
+                    // game over
+                }
+                else
+                {
+                    foreach (var enemy in teamManager.yourTeam)
+                    {
+                        if (enemy.aggroTarget == this && enemy.isDead == false)
+                            enemy.FindAggroTarget();
+                    }
+                }
+                break;
+        }
     }
 
     private void Move()
