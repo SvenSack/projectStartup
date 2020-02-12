@@ -38,12 +38,16 @@ public class Character : MonoBehaviour
             {
                 Die();
             }
-        
+            
+            Rotate();
         
             if (!fighting)
             {
                 Move();
-                // check if aggroTarget TargetInRange if yes, make fighting true
+                if (TargetInRange(aggroTarget))
+                {
+                    fighting = true;
+                }
             }
 
             if (fighting)
@@ -65,8 +69,8 @@ public class Character : MonoBehaviour
                 {
                     if (teamManager.enemyTeam[i].isDead == false)
                     {
-                        //Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
-                        Vector3 distanceVector = (teamManager.enemyTeam[i].transform.position - transform.position).normalized;
+                        // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
+                        Vector3 distanceVector = teamManager.enemyTeam[i].transform.position - transform.position;
                         if (closest == 0 || closest > distanceVector.magnitude)
                         {
                             closest = distanceVector.magnitude;
@@ -83,8 +87,8 @@ public class Character : MonoBehaviour
                 {
                     if (teamManager.yourTeam[i].isDead == false)
                     {
-                        //Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
-                        Vector3 distanceVector = (teamManager.yourTeam[i].transform.position - transform.position).normalized;
+                        // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
+                        Vector3 distanceVector = teamManager.yourTeam[i].transform.position - transform.position;
                         if (closest1 == 0 || closest1 > distanceVector.magnitude)
                         {
                             closest1 = distanceVector.magnitude;
@@ -93,15 +97,19 @@ public class Character : MonoBehaviour
                     }
                 }
                 aggroTarget = teamManager.yourTeam[closestIndex1];
-                Debug.Log(name + " has decided to target " + aggroTarget.name);
+                // Debug.Log(name + " has decided to target " + aggroTarget.name);
                 break;
         }
     }
 
-    public bool TargetInRange(Character Target)
+    public bool TargetInRange(Character target)
     {
         // check if target is in range, return accordingly
-        return true;
+        Vector3 targetVector = target.transform.position - transform.position;
+        // Debug.Log(name + "says his target is " + targetVector.magnitude + " away");
+        if (targetVector.magnitude <= range)
+            return true;
+        return false;
     }
 
     private void Attack()
@@ -118,15 +126,19 @@ public class Character : MonoBehaviour
 
     private void Move()
     {
-        // check current rotation against the rotation of the target vector, correct as needed, then translate forward
+        transform.Translate(Vector3.forward*(Time.deltaTime*movementSpeed));
+    }
+
+    private void Rotate()
+    {
+        // check current rotation against the rotation of the target vector, correct as needed
         Vector3 targetVector = (aggroTarget.transform.position - transform.position).normalized;
         float angleDifference = Vector3.Angle(targetVector, transform.forward);
-        //Debug.DrawRay(transform.position, targetVector, Color.blue, 2.0f);
-        //Debug.DrawRay(transform.position, transform.forward, Color.green, 2.0f);
+        // Debug.DrawRay(transform.position, targetVector, Color.blue, 2.0f);
+        // Debug.DrawRay(transform.position, transform.forward, Color.green, 2.0f);
         if (angleDifference != 0)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * 5.0f);
         }
-        transform.Translate(Vector3.forward*(Time.deltaTime*movementSpeed));
     }
 }
