@@ -134,7 +134,7 @@ public class Character : MonoBehaviour
         if (attackDamage > aggroTarget.defense)
         {
             aggroTarget.health -= attackDamage - aggroTarget.defense;
-            Debug.Log(name + " has attacked " + aggroTarget.name + " for " + (attackDamage - aggroTarget.defense));
+            // Debug.Log(name + " has attacked " + aggroTarget.name + " for " + (attackDamage - aggroTarget.defense));
         }
     }
 
