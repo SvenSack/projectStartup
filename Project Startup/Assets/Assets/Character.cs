@@ -42,7 +42,7 @@ public class Character : MonoBehaviour
         
             if (!fighting)
             {
-                // move towards aggroTarget at movementSpeed
+                Move();
                 // check if aggroTarget TargetInRange if yes, make fighting true
             }
 
@@ -114,5 +114,10 @@ public class Character : MonoBehaviour
         isDead = true;
         // check if all on my team are dead, if yes, finish game
         // run through all living characters, check if they have me as their AggroTarget, if yes, make them FindAggroTarget
+    }
+
+    private void Move()
+    {
+        
     }
 }
