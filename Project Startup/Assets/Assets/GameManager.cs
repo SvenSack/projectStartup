@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool FightRunning;
+    public TeamManager teamManager;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,18 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void StartFight()
+    {
+        FightRunning = true;
+        foreach (var character in teamManager.enemyTeam)
+        {
+            character.FindAggroTarget();
+        }
+        foreach (var character in teamManager.yourTeam)
+        {
+            character.FindAggroTarget();
+        }
     }
 }

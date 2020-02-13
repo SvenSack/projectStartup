@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     private float attackCooldownValue;
 
     private TeamManager teamManager;
+    private GameManager gameManager;
     
     public bool isOnYourTeam;
     public bool isDead;
@@ -25,14 +26,13 @@ public class Character : MonoBehaviour
     void Start()
     {
         teamManager = GameObject.FindGameObjectWithTag("TeamManager").GetComponent<TeamManager>();
-        if(!isDead)
-            FindAggroTarget();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        if (!isDead && gameManager.FightRunning)
         {
             if (health <= 0)
             {
