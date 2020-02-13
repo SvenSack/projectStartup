@@ -57,7 +57,7 @@ public class Tile : MonoBehaviour
         return false;
     }
 
-    private void CenterUnit()
+    public void CenterUnit()
     {
         heldUnit.transform.position = placementSpot.position;
     }

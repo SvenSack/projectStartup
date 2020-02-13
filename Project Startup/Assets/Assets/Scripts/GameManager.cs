@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class GameManager : MonoBehaviour
     public TeamManager teamManager;
 
     private int castMask;
+    private int floorMask;
 
     private Tile originTile;
     private bool fromTile;
+    private bool holdingUnit;
     private GameObject hideInFight;
 
     public bool inventoryOpen;
@@ -20,6 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         castMask = LayerMask.GetMask("Tiles");
+        floorMask = LayerMask.GetMask("Floor");
         hideInFight = GameObject.FindGameObjectWithTag("HideInFight");
     }
 
@@ -39,6 +43,7 @@ public class GameManager : MonoBehaviour
                     {
                         originTile = hit.transform.gameObject.GetComponent<Tile>();
                         fromTile = true;
+                        holdingUnit = true;
                     }
                 }
             }
@@ -53,6 +58,7 @@ public class GameManager : MonoBehaviour
                         if (targetTile.UnitPlace(originTile.heldUnit, originTile) != true)
                         {
                             // snap unit back
+                            DropUnit();
                         }
                     }
                     else
@@ -64,7 +70,20 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
+                DropUnit();
+                
             }
+        }
+
+        if (holdingUnit)
+        {
+            RaycastHit hit; 
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100.0f, floorMask))
+            {
+                originTile.heldUnit.transform.position = hit.point + new Vector3(0, 0.5f, 0);
+            }
+                
         }
         
     }
@@ -101,5 +120,12 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(.4f);
         inventoryButton.Rotate(new Vector3(0,0,180));
+    }
+
+    private void DropUnit()
+    {
+        originTile.CenterUnit();
+        originTile = null;
+        holdingUnit = false;
     }
 }

@@ -8,6 +8,8 @@ TagManager:
   - TileBoard
   - GameManager
   - HideInFight
+  - InventoryBoard
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - 
   - 
   - Tiles
-  - 
+  - Floor
   - 
   - 
   - 

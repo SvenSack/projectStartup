@@ -7,6 +7,7 @@ public class InventoryManager : MonoBehaviour
     public List<Character> inventory = new List<Character>();
     public GameObject[] possibleCharacters = new GameObject[6];
     
+    
     // Start is called before the first frame update
     void Start()
     {
