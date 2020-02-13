@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public bool fightRunning;
     public TeamManager teamManager;
+    public InventoryManager inventoryManager;
 
     private int castMask;
     private int floorMask;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        castMask = LayerMask.GetMask("Tiles");
+        castMask = LayerMask.GetMask("Tiles", "UI");
         floorMask = LayerMask.GetMask("Floor");
         hideInFight = GameObject.FindGameObjectWithTag("HideInFight");
     }
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if ( Physics.Raycast (ray,out hit,100.0f, castMask))
                 {
-                    if (fromTile)
+                    if (fromTile && hit.transform.gameObject.layer == 8)
                     {
                         Tile targetTile = hit.transform.gameObject.GetComponent<Tile>();
                         if (targetTile.UnitPlace(originTile.heldUnit, originTile) != true)
@@ -60,6 +61,15 @@ public class GameManager : MonoBehaviour
                             // snap unit back
                             DropUnit();
                         }
+                        else
+                        {
+                            holdingUnit = false;
+                        }
+                    }
+                    else if (hit.transform.gameObject.layer == 5 && hit.transform.gameObject.CompareTag("InventoryBoard"))
+                    {
+                        // place into inventory, remove from board list
+                        
                     }
                     else
                     {
@@ -70,7 +80,8 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
-                DropUnit();
+                else
+                    DropUnit();
                 
             }
         }

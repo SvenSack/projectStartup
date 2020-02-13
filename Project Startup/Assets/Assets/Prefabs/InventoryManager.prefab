@@ -43,3 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639e505071c6b6848944d41abf44c1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: []
+  possibleCharacters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  inventoryCard: {fileID: 2705697417698426210, guid: 403476b86a981fc4a89fc0b04aa0a977,
+    type: 3}
+  debugInventorySize: 5
+  debugPopulate: 1

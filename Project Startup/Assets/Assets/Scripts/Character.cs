@@ -11,6 +11,8 @@ public class Character : MonoBehaviour
     [Range(0.1f, 4.0f)] public float attackCooldown = 1.0f;
     [Range(1.0f, 10.0f)] public float defense = 1.0f;
     public string name = "Sven, greatest of all Programmers";
+    public Sprite profilePic;
+    public int instanceNumber;
     private bool fighting;
     private float attackCooldownValue;
 

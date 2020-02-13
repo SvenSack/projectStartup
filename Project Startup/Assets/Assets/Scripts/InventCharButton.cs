@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventCharButton : MonoBehaviour
 {
@@ -26,6 +28,7 @@ public class InventCharButton : MonoBehaviour
         name = nam;
         indexNumber = index;
         image = img;
+        ApplyData();
     }
 
     public void ToggleDetails()
@@ -40,5 +43,16 @@ public class InventCharButton : MonoBehaviour
         }
 
         showDetails = !showDetails;
+    }
+
+    private void ApplyData()
+    {
+        TextMeshProUGUI tmp = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        tmp.text = name;
+        if (name.Length > 6)
+        {
+            tmp.fontSize -= 2;
+        }
+        transform.GetChild(0).GetChild(1).gameObject.GetComponent<Image>().sprite = image;
     }
 }
