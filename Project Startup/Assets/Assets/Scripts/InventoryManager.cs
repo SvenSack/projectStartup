@@ -68,5 +68,20 @@ public class InventoryManager : MonoBehaviour
         card.transform.SetParent(inventoryBoard, true);
         return card;
     }
+
+    public GameObject TakeFromInventory(int index)
+    {
+        GameObject target = inventory[index];
+        RemoveInventoryCard(index);
+        return target;
+    }
+
+    private void RemoveInventoryCard(int index)
+    {
+        GameObject card = inventoryCards[index];
+        inventory.Remove(inventory[index]);
+        inventoryCards.Remove(inventoryCards[index]);
+        Destroy(card);
+    }
 }
 

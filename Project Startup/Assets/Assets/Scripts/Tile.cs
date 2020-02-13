@@ -45,7 +45,7 @@ public class Tile : MonoBehaviour
     
     public bool UnitPlace(Character unit)
     {
-        // check if I am on your team, if yes then swap me
+        // check if I am on your team, if yes then place me
         if (isYours)
         {
             // place the currently held unit back into the inventory

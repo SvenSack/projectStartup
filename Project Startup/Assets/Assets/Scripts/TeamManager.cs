@@ -17,4 +17,41 @@ public class TeamManager : MonoBehaviour
     {
         
     }
+
+    public void Remove(GameObject character)
+    {
+        for (int i = 0; i < yourTeam.Length; i++)
+        {
+            if (yourTeam[i].gameObject == character)
+            {
+                yourTeam[i] = null;
+                break;
+            }
+        }
+    }
+
+    public void Add(Character character)
+    {
+        for (int i = 0; i < yourTeam.Length; i++)
+        {
+            if (yourTeam[i] == null)
+            {
+                yourTeam[i] = character;
+                break;
+            }
+        }
+    }
+
+    public bool CheckSpot()
+    {
+        for (int i = 0; i < yourTeam.Length; i++)
+        {
+            if (yourTeam[i] == null)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
