@@ -8,9 +8,12 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Assets" t="Include">
-          <e p="Character.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
-          <e p="TeamManager.cs" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="Character.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+            <e p="TeamManager.cs" t="Include" />
+            <e p="Tile.cs" t="Include" />
+          </e>
         </e>
         <e p="LeanTween" t="Include">
           <e p="Editor" t="Include">

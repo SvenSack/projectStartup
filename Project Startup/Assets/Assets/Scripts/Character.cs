@@ -32,7 +32,7 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDead && gameManager.FightRunning)
+        if (!isDead && gameManager.fightRunning)
         {
             if (health <= 0)
             {
