@@ -17,7 +17,8 @@ public class Tile : MonoBehaviour
         teamManager = GameObject.FindGameObjectWithTag("TeamManager").GetComponent<TeamManager>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         placementSpot = transform.GetChild(0).GetChild(0);
-        CenterUnit();
+        if(heldUnit != null)
+            CenterUnit();
     }
 
     // Update is called once per frame

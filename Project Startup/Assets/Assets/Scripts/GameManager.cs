@@ -11,11 +11,16 @@ public class GameManager : MonoBehaviour
 
     private Tile originTile;
     private bool fromTile;
+    private GameObject hideInFight;
+
+    public bool inventoryOpen;
+    public Transform inventoryButton;
     
     // Start is called before the first frame update
     void Start()
     {
         castMask = LayerMask.GetMask("Tiles");
+        hideInFight = GameObject.FindGameObjectWithTag("HideInFight");
     }
 
     // Update is called once per frame
@@ -30,7 +35,7 @@ public class GameManager : MonoBehaviour
                 if ( Physics.Raycast (ray,out hit,100.0f, castMask))
                 {
                     // Debug.Log("You selected " + hit.transform.name);
-                    if (hit.transform.gameObject.GetComponent<Tile>().heldUnit != null)
+                    if (hit.transform.gameObject.GetComponent<Tile>().heldUnit != null && hit.transform.gameObject.GetComponent<Tile>().isYours)
                     {
                         originTile = hit.transform.gameObject.GetComponent<Tile>();
                         fromTile = true;
@@ -67,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void StartFight()
     {
         fightRunning = true;
+        hideInFight.SetActive(false);
         foreach (var character in teamManager.enemyTeam)
         {
             character.FindAggroTarget();
@@ -76,6 +82,24 @@ public class GameManager : MonoBehaviour
             character.FindAggroTarget();
         }
     }
+
+    public void ToggleInventory()
+    {
+        if (inventoryOpen)
+        {
+            inventoryButton.parent.LeanMoveX(Screen.width,.5f);
+        }
+        else
+        {
+            inventoryButton.parent.LeanMoveX(Screen.width - 240,.5f);
+        }
+        inventoryOpen = !inventoryOpen;
+        StartCoroutine(RotateButton());
+    }
     
-    
+    private IEnumerator RotateButton()
+    {
+        yield return new WaitForSeconds(.4f);
+        inventoryButton.Rotate(new Vector3(0,0,180));
+    }
 }
