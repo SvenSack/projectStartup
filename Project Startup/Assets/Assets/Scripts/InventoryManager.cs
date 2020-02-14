@@ -63,10 +63,13 @@ public class InventoryManager : MonoBehaviour
     public GameObject AddInventoryCard(int index)
     {
         GameObject card = Instantiate(inventoryCard);
-        Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(75.0f * inventoryCards.Count-225.0f*Mathf.Floor((float)inventoryCards.Count /3), -60.0f*Mathf.Floor((float)inventoryCards.Count /3), 0);
+        float xValue = 75.0f * inventoryCards.Count - 225.0f * Mathf.Floor((float) inventoryCards.Count / 3);
+        float yValue = -60.0f * Mathf.Floor((float) inventoryCards.Count / 3);
+        Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
         inventoryCards.Add(card);
         Character character = possibleCharacters[index].GetComponent<Character>();
         card.GetComponent<InventCharButton>().Set(character.name, index , character.profilePic);
+        // inventory.Add(possibleCharacters[index]);
         card.transform.position = cardPosition;
         card.transform.SetParent(inventoryBoard, true);
         return card;
@@ -83,6 +86,13 @@ public class InventoryManager : MonoBehaviour
         GameObject card = inventoryCards[index];
         inventory.Remove(inventory[index]);
         inventoryCards.Remove(inventoryCards[index]);
+        for (int i = index; i < inventoryCards.Count; i++)
+        {
+            float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
+            float yValue = -60.0f * Mathf.Floor((float) i / 3);
+            Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
+            inventoryCards[i].transform.position = cardPosition;
+        }
         Destroy(card);
     }
 }

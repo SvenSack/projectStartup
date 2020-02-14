@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if ( Physics.Raycast (ray,out hit,100.0f, castMask))
                 {
-                    if (hit.transform.gameObject.GetComponent<Tile>().heldUnit != null && hit.transform.gameObject.GetComponent<Tile>().isYours)
+                    if (hit.transform.gameObject.GetComponent<Tile>().heldUnit != null &&
+                        hit.transform.gameObject.GetComponent<Tile>().isYours)
                     {
                         originTile = hit.transform.gameObject.GetComponent<Tile>();
                         fromTile = true;
@@ -91,6 +92,7 @@ public class GameManager : MonoBehaviour
                         else
                         {
                             holdingUnit = false;
+                            fromTile = false;
                         }
                     }
                     else if (!fromTile && holdingUnit)
@@ -200,6 +202,7 @@ public class GameManager : MonoBehaviour
     {
         originTile.CenterUnit();
         originTile = null;
+        fromTile = false; 
         holdingUnit = false;
     }
 
