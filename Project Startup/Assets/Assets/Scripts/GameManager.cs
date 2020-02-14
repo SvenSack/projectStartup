@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
@@ -17,6 +19,8 @@ public class GameManager : MonoBehaviour
     private bool holdingUnit;
     private Character heldUnit;
     private GameObject hideInFight;
+    public GraphicRaycaster gRayCaster;
+    public EventSystem eventSystem;
 
     public bool inventoryOpen;
     public Transform inventoryButton;
@@ -24,7 +28,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        castMask = LayerMask.GetMask("Tiles", "UI");
+        castMask = LayerMask.GetMask("Tiles");
         floorMask = LayerMask.GetMask("Floor");
         hideInFight = GameObject.FindGameObjectWithTag("HideInFight");
     }
@@ -40,31 +44,43 @@ public class GameManager : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if ( Physics.Raycast (ray,out hit,100.0f, castMask))
                 {
-                    GameObject target = hit.transform.gameObject;
-                    if (target.layer == 8)
+                    if (hit.transform.gameObject.GetComponent<Tile>().heldUnit != null && hit.transform.gameObject.GetComponent<Tile>().isYours)
                     {
-                        if (hit.transform.gameObject.GetComponent<Tile>().heldUnit != null && hit.transform.gameObject.GetComponent<Tile>().isYours)
-                        {
-                            originTile = hit.transform.gameObject.GetComponent<Tile>();
-                            fromTile = true;
-                            holdingUnit = true;
-                        }
+                        originTile = hit.transform.gameObject.GetComponent<Tile>();
+                        fromTile = true;
+                        holdingUnit = true;
                     }
-
-                    if (target.layer == 5)
+                }
+                else
+                {
+                    List<RaycastResult> castHits = new List<RaycastResult>();
+                    PointerEventData eventPoint = new PointerEventData(eventSystem);
+                    eventPoint.position = Input.mousePosition;
+                    gRayCaster.Raycast(eventPoint, castHits);
+                    if (castHits.Count > 0)
                     {
-                        // SVEN MACH HIER WEITER DU DEPP, du musst noch sicherstellen das es ein inventoryElement ist,
-                        // dann das script finden, den index lesen, und inventoryManager.TakeFromInventory nehmen um das object
-                        // in heldObject dieses scriptes zu speichern. Wenn es dann noch nicht funktioniert, gib mir die schuld ^^"
+                        for (int i = 0; i < castHits.Count; i++)
+                        {
+                            InventCharButton element = castHits[i].gameObject.GetComponentInParent<InventCharButton>();
+                            if (element != null)
+                            {
+                                // take unit from inventory
+                                Debug.Log(element.name);
+                                heldUnit = inventoryManager.TakeFromInventory(element.indexNumber).GetComponent<Character>();
+                                holdingUnit = true;
+                                break;
+                            }
+                        }
                     }
                 }
             }
-            if ( Input.GetMouseButtonUp (0)){ 
+            if ( Input.GetMouseButtonUp (0))
+            { 
                 RaycastHit hit; 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if ( Physics.Raycast (ray,out hit,100.0f, castMask))
+                if (Physics.Raycast(ray, out hit, 100.0f, castMask))
                 {
-                    if (fromTile && hit.transform.gameObject.layer == 8)
+                    if (fromTile)
                     {
                         Tile targetTile = hit.transform.gameObject.GetComponent<Tile>();
                         if (targetTile.UnitPlace(originTile.heldUnit, originTile) != true)
@@ -77,13 +93,14 @@ public class GameManager : MonoBehaviour
                             holdingUnit = false;
                         }
                     }
-                    else if (!fromTile && hit.transform.gameObject.layer == 8 && holdingUnit)
+                    else if (!fromTile && holdingUnit)
                     {
                         Tile targetTile = hit.transform.gameObject.GetComponent<Tile>();
                         if (targetTile.heldUnit != null && targetTile.isYours)
                         {
                             // swap unit with held unit
                             inventoryManager.AddInventoryCard(targetTile.heldUnit.instanceNumber);
+                            Destroy(targetTile.heldUnit.gameObject);
                             targetTile.heldUnit = heldUnit;
                             targetTile.CenterUnit();
                             holdingUnit = false;
@@ -95,7 +112,7 @@ public class GameManager : MonoBehaviour
                             if (targetTile.UnitPlace(heldUnit) != true)
                             {
                                 // snap unit back into inventory
-                                inventoryManager.AddInventoryCard(heldUnit.instanceNumber);
+                                DropInventoryUnit();
                             }
                             else
                             {
@@ -106,19 +123,25 @@ public class GameManager : MonoBehaviour
                         else
                         {
                             // snap unit back into inventory and give feedback that team is full
-                            inventoryManager.AddInventoryCard(heldUnit.instanceNumber);
+                            DropInventoryUnit();
                         }
                     }
-                    else if (hit.transform.gameObject.layer == 5 && hit.transform.gameObject.CompareTag("InventoryBoard"))
-                    {
+                }
+                else if (false)
+                {
                         // place into inventory, remove from board list
                         inventoryManager.AddInventoryCard(originTile.heldUnit.instanceNumber);
                         teamManager.Remove(originTile.heldUnit.gameObject);
                         holdingUnit = false;
-                    }
                 }
                 else
-                    DropUnit();
+                {
+                    if(fromTile)
+                        DropUnit();
+                    else if(heldUnit != null)
+                        DropInventoryUnit();
+                }
+                    
                 
             }
         }
@@ -178,5 +201,13 @@ public class GameManager : MonoBehaviour
         originTile.CenterUnit();
         originTile = null;
         holdingUnit = false;
+    }
+
+    private void DropInventoryUnit()
+    {
+        inventoryManager.AddInventoryCard(heldUnit.instanceNumber);
+        Destroy(heldUnit.gameObject);
+        holdingUnit = false;
+        heldUnit = null;
     }
 }

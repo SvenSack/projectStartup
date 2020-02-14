@@ -36,8 +36,11 @@ public class InventoryManager : MonoBehaviour
 
     public Character NewCharacter(int index)
     {
-        GameObject newChar = Instantiate(possibleCharacters[index]);
+        Quaternion rot = new Quaternion(0,0,0,0);
+        rot.eulerAngles = new Vector3(0,0,0);
+        GameObject newChar = Instantiate(possibleCharacters[index], new Vector3(0,0,0), rot);
         Character character = newChar.GetComponent<Character>();
+        character.isOnYourTeam = true;
         return character;
     }
 
@@ -71,9 +74,8 @@ public class InventoryManager : MonoBehaviour
 
     public GameObject TakeFromInventory(int index)
     {
-        GameObject target = inventory[index];
         RemoveInventoryCard(index);
-        return target;
+        return NewCharacter(index).gameObject;
     }
 
     private void RemoveInventoryCard(int index)
