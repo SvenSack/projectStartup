@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
                             if (element != null)
                             {
                                 // take unit from inventory
-                                Debug.Log(element.name);
+                                // Debug.Log(element.name);
                                 heldUnit = inventoryManager.TakeFromInventory(element.indexNumber).GetComponent<Character>();
                                 holdingUnit = true;
                                 break;

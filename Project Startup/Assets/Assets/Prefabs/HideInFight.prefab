@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 94661696383831747}
   - component: {fileID: 8886929482937961238}
   m_Layer: 0
-  m_Name: InventoryElementPlacer
+  m_Name: InventoryElementPlaceHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8414624973817818393}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec004386613705341a063a48b8cb1295, type: 3}
   m_Name: 
@@ -145,7 +145,7 @@ RectTransform:
   m_GameObject: {fileID: 9213361245853336963}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.76935, y: 0.75974846, z: 0.76935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9213361246960160513}
   - {fileID: 94661696383831747}
@@ -155,7 +155,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 450, y: 0}
-  m_SizeDelta: {x: 250, y: 634}
+  m_SizeDelta: {x: 250, y: 480}
   m_Pivot: {x: 0.04, y: 0.5}
 --- !u!222 &9213361245853336960
 CanvasRenderer:

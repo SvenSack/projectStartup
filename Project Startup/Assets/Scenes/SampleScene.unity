@@ -2971,26 +2971,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1549597472}
     m_Modifications:
-    - target: {fileID: 1091689100880294750, guid: e29dddb2bdf245a4fbf0480aed79d867,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8414624973817818393, guid: e29dddb2bdf245a4fbf0480aed79d867,
-        type: 3}
-      propertyPath: m_Name
-      value: InventoryElementPlaceHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 8414624973817818393, guid: e29dddb2bdf245a4fbf0480aed79d867,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8886929482937961238, guid: e29dddb2bdf245a4fbf0480aed79d867,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9213361246238085986, guid: e29dddb2bdf245a4fbf0480aed79d867,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
