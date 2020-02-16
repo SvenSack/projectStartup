@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
-            if ( Input.GetMouseButtonUp (0))
+            if ( Input.GetMouseButtonUp (0) && holdingUnit)
             { 
                 RaycastHit hit; 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -143,14 +143,21 @@ public class GameManager : MonoBehaviour
                         if (castHits[i].gameObject.CompareTag("InventoryBoard"))
                         {
                             // place into inventory, remove from board list
-                            inventoryManager.AddInventoryCard(originTile.heldUnit.instanceNumber);
-                            teamManager.Remove(originTile.heldUnit.gameObject);
-                            inventoryManager.inventory.Add(inventoryManager.possibleCharacters[originTile.heldUnit.instanceNumber]);
-                            Destroy(originTile.heldUnit.gameObject);
-                            originTile.heldUnit = null;
-                            originTile = null;
-                            fromTile = false;
-                            holdingUnit = false;
+                            if (originTile != null)
+                            {
+                                inventoryManager.AddInventoryCard(originTile.heldUnit.instanceNumber);
+                                teamManager.Remove(originTile.heldUnit.gameObject);
+                                inventoryManager.inventory.Add(inventoryManager.possibleCharacters[originTile.heldUnit.instanceNumber]);
+                                Destroy(originTile.heldUnit.gameObject);
+                                originTile.heldUnit = null;
+                                originTile = null;
+                                fromTile = false;
+                                holdingUnit = false;
+                            }
+                            else
+                            {
+                                DropInventoryUnit();
+                            }
                         }
                     }
                 }
