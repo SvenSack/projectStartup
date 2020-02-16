@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     public bool inventoryOpen;
     public Transform inventoryButton;
+    public InventoryHover inventoryHover;
     
     // Start is called before the first frame update
     void Start()
@@ -66,16 +67,14 @@ public class GameManager : MonoBehaviour
                             if (element != null)
                             {
                                 // take unit from inventory
-                                // Debug.Log(element.name);
-                                heldUnit = inventoryManager.TakeFromInventory(element.indexNumber).GetComponent<Character>();
-                                holdingUnit = true;
+                                inventoryHover.HoldThis(element.gameObject);
                                 break;
                             }
                         }
                     }
                 }
             }
-            if ( Input.GetMouseButtonUp (0) && holdingUnit)
+            if ( Input.GetMouseButtonUp (0))
             { 
                 RaycastHit hit; 
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -182,7 +181,10 @@ public class GameManager : MonoBehaviour
                 if(fromTile)
                     originTile.heldUnit.transform.position = hit.point + new Vector3(0, 0.5f, 0);
                 else
+                {
                     heldUnit.transform.position = hit.point + new Vector3(0, 0.5f, 0);
+                }
+                 
             }
                 
         }
@@ -233,10 +235,21 @@ public class GameManager : MonoBehaviour
 
     private void DropInventoryUnit()
     {
+        if (inventoryHover.isHolding)
+        {
+            TakeUnitFromInventory(inventoryHover.heldObject.GetComponent<InventCharButton>());
+            inventoryHover.DropIt();
+        }
         inventoryManager.AddInventoryCard(heldUnit.instanceNumber);
         inventoryManager.inventory.Add(inventoryManager.possibleCharacters[heldUnit.instanceNumber]);
         Destroy(heldUnit.gameObject);
         holdingUnit = false;
         heldUnit = null;
+    }
+
+    public void TakeUnitFromInventory(InventCharButton element)
+    {
+        heldUnit = inventoryManager.TakeFromInventory(element.indexNumber).GetComponent<Character>();
+        holdingUnit = true;
     }
 }

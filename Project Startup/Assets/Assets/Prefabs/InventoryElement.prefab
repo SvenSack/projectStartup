@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5771960971905654456}
   - component: {fileID: 3035117066213858157}
+  - component: {fileID: 5210184589058631302}
   m_Layer: 0
   m_Name: InventoryElement
   m_TagString: Untagged
@@ -45,6 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indexNumber: 0
+--- !u!225 &5210184589058631302
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2705697417698426210}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3973557135413632851
 GameObject:
   m_ObjectHideFlags: 0
