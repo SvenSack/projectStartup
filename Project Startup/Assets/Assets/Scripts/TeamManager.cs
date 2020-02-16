@@ -22,11 +22,12 @@ public class TeamManager : MonoBehaviour
     {
         for (int i = 0; i < yourTeam.Length; i++)
         {
-            if (yourTeam[i].gameObject == character)
-            {
-                yourTeam[i] = null;
-                break;
-            }
+            if(yourTeam[i] != null)
+                if (yourTeam[i].gameObject == character)
+                {
+                    yourTeam[i] = null;
+                    break;
+                }
         }
     }
 

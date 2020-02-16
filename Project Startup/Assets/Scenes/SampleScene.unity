@@ -2191,6 +2191,61 @@ PrefabInstance:
       propertyPath: m_Name
       value: TileBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 3932996459011956635, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996459089151113, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996459141190664, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996459292752782, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996459530353804, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996459889743999, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996460203799919, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996460381507960, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996460432372225, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996460580696333, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932996460937034546, guid: 08409026d8cad134abbe755947f0ea73,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5052897320897662166, guid: 08409026d8cad134abbe755947f0ea73,
         type: 3}
       propertyPath: heldUnit
@@ -2802,47 +2857,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
-        type: 3}
-      propertyPath: possibleCharacters.Array.data[0]
-      value: 
-      objectReference: {fileID: 1421010931713177888, guid: 4e883a4b31c7d3147b16df765772f114,
-        type: 3}
-    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
-        type: 3}
-      propertyPath: possibleCharacters.Array.data[1]
-      value: 
-      objectReference: {fileID: 3558602790957092355, guid: a3b86ee060c2eb94c97b58c2f6c8ae48,
-        type: 3}
-    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
-        type: 3}
-      propertyPath: possibleCharacters.Array.data[2]
-      value: 
-      objectReference: {fileID: 1625905170243258065, guid: 871a580c3b2afaa4483f12383f32e23b,
-        type: 3}
-    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
-        type: 3}
-      propertyPath: possibleCharacters.Array.data[3]
-      value: 
-      objectReference: {fileID: 1294334836057935819, guid: f1d971bdba5804c41b6f6c3e76b041be,
-        type: 3}
-    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
-        type: 3}
-      propertyPath: possibleCharacters.Array.data[4]
-      value: 
-      objectReference: {fileID: 468567747110116589, guid: b89888027213b634eb3b6007a95958c0,
-        type: 3}
-    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
-        type: 3}
-      propertyPath: possibleCharacters.Array.data[5]
-      value: 
-      objectReference: {fileID: 4252377351243344315, guid: 79dacfcef250e7d40b5d31c77f145800,
-        type: 3}
-    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
-        type: 3}
-      propertyPath: debugInventorySize
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7268194609761929249, guid: 071343144b85fa54bbc94d15485e8e28,
         type: 3}

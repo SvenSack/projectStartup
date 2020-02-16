@@ -48,7 +48,6 @@ public class Tile : MonoBehaviour
         // check if I am on your team, if yes then place me
         if (isYours)
         {
-            // place the currently held unit back into the inventory
             heldUnit = unit;
             CenterUnit();
             return true;

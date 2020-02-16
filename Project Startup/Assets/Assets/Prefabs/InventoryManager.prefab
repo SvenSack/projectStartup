@@ -45,13 +45,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: []
   possibleCharacters:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1421010931713177888, guid: 4e883a4b31c7d3147b16df765772f114, type: 3}
+  - {fileID: 3558602790957092355, guid: a3b86ee060c2eb94c97b58c2f6c8ae48, type: 3}
+  - {fileID: 1625905170243258065, guid: 871a580c3b2afaa4483f12383f32e23b, type: 3}
+  - {fileID: 1294334836057935819, guid: f1d971bdba5804c41b6f6c3e76b041be, type: 3}
+  - {fileID: 468567747110116589, guid: b89888027213b634eb3b6007a95958c0, type: 3}
+  - {fileID: 4252377351243344315, guid: 79dacfcef250e7d40b5d31c77f145800, type: 3}
   inventoryCard: {fileID: 2705697417698426210, guid: 403476b86a981fc4a89fc0b04aa0a977,
     type: 3}
-  debugInventorySize: 5
+  debugInventorySize: 12
   debugPopulate: 1

@@ -69,7 +69,6 @@ public class InventoryManager : MonoBehaviour
         inventoryCards.Add(card);
         Character character = possibleCharacters[index].GetComponent<Character>();
         card.GetComponent<InventCharButton>().Set(character.name, index , character.profilePic);
-        // inventory.Add(possibleCharacters[index]);
         card.transform.position = cardPosition;
         card.transform.SetParent(inventoryBoard, true);
         return card;
