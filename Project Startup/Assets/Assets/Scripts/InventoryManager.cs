@@ -94,5 +94,27 @@ public class InventoryManager : MonoBehaviour
         }
         Destroy(card);
     }
+
+    public void ToggleInventoryDetails(GameObject target)
+    {
+        int index = 0;
+        for (int i = 0; i < inventoryCards.Count; i++)
+        {
+            if (inventoryCards[i] == target)
+            {
+                index = i;
+                break;
+            }
+        }
+
+        if (inventoryCards[index].GetComponent<InventCharButton>().ToggleDetails())
+        {
+            // move them out of the way to make space
+        }
+        else
+        {
+            // move them back in to fill space
+        }
+    }
 }
 

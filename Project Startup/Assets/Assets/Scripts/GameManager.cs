@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     public bool inventoryOpen;
     public Transform inventoryButton;
     public InventoryHover inventoryHover;
+
+    private bool checkingDrag;
+    private Coroutine dragCheck;
     
     // Start is called before the first frame update
     void Start()
@@ -42,11 +45,16 @@ public class GameManager : MonoBehaviour
             // get units from drag and place them on drop
             if ( Input.GetMouseButtonDown (0))
             {
-                StartCoroutine(waitToConfirmDrag(0.1f, Input.mousePosition));
+                dragCheck = StartCoroutine(waitToConfirmDrag(0.1f, Input.mousePosition));
             }
             if ( Input.GetMouseButtonUp (0))
-            { 
-                UnitRelease(Input.mousePosition);
+            {
+                if (checkingDrag)
+                {
+                    StopCoroutine(dragCheck);
+                }
+                else if(holdingUnit || fromTile)
+                    UnitRelease(Input.mousePosition);
             }
         }
 
@@ -271,7 +279,24 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // Debug.Log("I was only clicked");
+            Debug.Log("I was only clicked");
+            List<RaycastResult> castHits = new List<RaycastResult>();
+            PointerEventData eventPoint = new PointerEventData(eventSystem);
+            eventPoint.position = pointerPosition;
+            gRayCaster.Raycast(eventPoint, castHits);
+            if (castHits.Count > 0)
+            {
+                for (int i = 0; i < castHits.Count; i++)
+                {
+                    InventCharButton element = castHits[i].gameObject.GetComponentInParent<InventCharButton>();
+                    if (element != null)
+                    {
+                        // take unit from inventory
+                        inventoryManager.ToggleInventoryDetails(element.gameObject);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

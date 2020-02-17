@@ -9,7 +9,7 @@ public class InventCharButton : MonoBehaviour
     private string name = "Please Senpai, I want a name UwU";
     public int indexNumber;
     private Sprite image;
-    private bool showDetails;
+    public bool showDetails;
 
     // Start is called before the first frame update
     void Start()
@@ -31,18 +31,19 @@ public class InventCharButton : MonoBehaviour
         ApplyData();
     }
 
-    public void ToggleDetails()
+    public bool ToggleDetails()
     {
+        showDetails = !showDetails;
         if (showDetails)
         {
             // show the additional stats
+            return true;
         }
         else
         {
             // hide the stats
+            return false;
         }
-
-        showDetails = !showDetails;
     }
 
     private void ApplyData()
