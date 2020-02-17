@@ -45,7 +45,7 @@ public class InventoryHover : MonoBehaviour, IPointerExitHandler
     {
         if (isHolding)
         {
-            Debug.Log("OWO whewe awe you going ?");
+            // Debug.Log("OWO whewe awe you going ?");
             gameManager.TakeUnitFromInventory(heldObject.GetComponent<InventCharButton>());
             DropIt();
         }
