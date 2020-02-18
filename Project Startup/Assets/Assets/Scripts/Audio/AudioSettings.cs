@@ -13,8 +13,8 @@ public class AudioSettings : MonoBehaviour
     {
         if (!muted)
         {
-            musicMixer.SetFloat("MusicVolume", volume);
-            currentVolume = volume;
+            musicMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+            currentVolume = Mathf.Log10(volume) * 20;
         }
     }
 
@@ -30,15 +30,21 @@ public class AudioSettings : MonoBehaviour
             // Disable the music
             muted = true;
             musicMixer.SetFloat("MusicVolume", -80.0f);
-        } 
-        
-        /*
-        if (muted)
-        {
-            muted = false;
-            musicMixer.SetFloat("MusicVolume", currentVolume);
         }
-        */
-        
+    }
+
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetFloat("MusicVol", currentVolume);
+        PlayerPrefs.SetInt("MutedBool", (muted ? 1: 0));
+    }
+
+    public void LoadSettings()
+    {
+        // Load the previous audio level
+        musicMixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVol"));
+
+        // Load whether it was muted bool
+        muted = (PlayerPrefs.GetInt("MutedBool") != 0);
     }
 }
