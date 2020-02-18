@@ -11,10 +11,24 @@ public class InventCharButton : MonoBehaviour
     private Sprite image;
     public bool showDetails;
 
+    private RectTransform backDrop;
+    private GameObject stats;
+    private InventoryManager inventoryManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventoryManager = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>();
+        backDrop = transform.GetChild(0).GetComponent<RectTransform>();
+        stats = transform.GetChild(1).gameObject;
+        Slider[] sliders = stats.GetComponentsInChildren<Slider>();
+        Character myCharacter = inventoryManager.possibleCharacters[indexNumber].GetComponent<Character>();
+        sliders[0].value = myCharacter.health;
+        sliders[1].value = myCharacter.defense;
+        sliders[2].value = myCharacter.attackDamage;
+        sliders[3].value = 4.1f - myCharacter.attackCooldown;
+        sliders[4].value = myCharacter.range;
+        stats.SetActive(false);
     }
 
     // Update is called once per frame
@@ -37,18 +51,22 @@ public class InventCharButton : MonoBehaviour
         if (showDetails)
         {
             // show the additional stats
+            backDrop.LeanSize(new Vector2(200, 50), .2f);
+            stats.SetActive(true);
             return true;
         }
         else
         {
             // hide the stats
+            backDrop.LeanSize(new Vector2(50, 50), .2f);
+            stats.SetActive(false);
             return false;
         }
     }
 
     private void ApplyData()
     {
-        TextMeshProUGUI tmp = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI tmp = transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         tmp.text = name;
         if (name.Length > 6)
         {

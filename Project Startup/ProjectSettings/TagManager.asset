@@ -10,6 +10,7 @@ TagManager:
   - HideInFight
   - InventoryBoard
   - Floor
+  - InventoryManager
   layers:
   - Default
   - TransparentFX

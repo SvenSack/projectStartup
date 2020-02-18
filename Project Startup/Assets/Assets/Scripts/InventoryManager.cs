@@ -97,7 +97,7 @@ public class InventoryManager : MonoBehaviour
 
     public void ToggleInventoryDetails(GameObject target)
     {
-        int index = 0;
+        int index = inventoryCards.Count + 1;
         for (int i = 0; i < inventoryCards.Count; i++)
         {
             if (inventoryCards[i] == target)
@@ -109,11 +109,57 @@ public class InventoryManager : MonoBehaviour
 
         if (inventoryCards[index].GetComponent<InventCharButton>().ToggleDetails())
         {
-            // move them out of the way to make space
+            // toggle it off for all that are currently open
+            foreach (var card in inventoryCards)
+            {
+                if (inventoryCards[index] != card && card.GetComponent<InventCharButton>().showDetails)
+                {
+                    ToggleInventoryDetails(card);
+                }
+            }
+            // get all elements from the same and its following rows and move them down and to the left by one
+            int row = (int) Mathf.Floor((float) index / 3);
+            for (int i = index -2; i < inventoryCards.Count; i++)
+            {
+                if (i != index)
+                {
+                    if ((int)Mathf.Floor((float) i / 3) == row && (float) i / 3 < (float) index / 3)
+                    {
+                        float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
+                        float yValue = -60.0f * (Mathf.Floor((float) i / 3)+1);
+                        Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
+                        inventoryCards[i].LeanMove(cardPosition, 0.2f);
+                    }
+                    else if (Mathf.Floor((float) i / 3) >= row)
+                    {
+                        float xValue = 75.0f * (i-1) - 225.0f * Mathf.Floor((float) (i-1) / 3);
+                        float yValue = -60.0f * (Mathf.Floor((float) (i-1) / 3)+1);
+                        Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
+                        inventoryCards[i].LeanMove(cardPosition, 0.2f);
+                    }
+                }
+                else
+                {
+                    float yValue = -60.0f * Mathf.Floor((float) i / 3);
+                    Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(0, yValue, 0);
+                    inventoryCards[i].LeanMove(cardPosition, 0.2f);
+                }
+            }
         }
         else
         {
-            // move them back in to fill space
+            // get all elements that used to be on the same row and put them back
+            int row = (int) Mathf.Floor((float) index / 3);
+            for (int i = index -2; i < inventoryCards.Count; i++)
+            {
+                if (Mathf.Floor((float) i / 3) >= row)
+                {
+                    float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
+                    float yValue = -60.0f * Mathf.Floor((float) i / 3);
+                    Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
+                    inventoryCards[i].LeanMove(cardPosition, 0.2f);
+                }
+            }
         }
     }
 }

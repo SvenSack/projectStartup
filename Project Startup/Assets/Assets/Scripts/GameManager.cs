@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             // get units from drag and place them on drop
             if ( Input.GetMouseButtonDown (0))
             {
-                dragCheck = StartCoroutine(waitToConfirmDrag(0.1f, Input.mousePosition));
+                dragCheck = StartCoroutine(waitToConfirmDrag(0.2f, Input.mousePosition));
             }
             if ( Input.GetMouseButtonUp (0))
             {
@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
         {
             inventoryButton.parent.LeanMoveX(Screen.width - 240,.5f);
         }
+        StopCoroutine(dragCheck);
         inventoryOpen = !inventoryOpen;
         StartCoroutine(RotateButton());
     }
@@ -279,7 +280,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("I was only clicked");
+            // Debug.Log("I was only clicked");
             List<RaycastResult> castHits = new List<RaycastResult>();
             PointerEventData eventPoint = new PointerEventData(eventSystem);
             eventPoint.position = pointerPosition;
@@ -288,10 +289,10 @@ public class GameManager : MonoBehaviour
             {
                 for (int i = 0; i < castHits.Count; i++)
                 {
+                    // Debug.Log("I hit " + castHits[i].gameObject.name);
                     InventCharButton element = castHits[i].gameObject.GetComponentInParent<InventCharButton>();
                     if (element != null)
                     {
-                        // take unit from inventory
                         inventoryManager.ToggleInventoryDetails(element.gameObject);
                         break;
                     }
