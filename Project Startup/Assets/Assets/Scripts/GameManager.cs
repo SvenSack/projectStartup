@@ -168,7 +168,14 @@ public class GameManager : MonoBehaviour
                     if (element != null)
                     {
                         // take unit from inventory
-                        inventoryHover.HoldThis(element.gameObject);
+                        if(element.showDetails)
+                            inventoryManager.ToggleInventoryDetails(element.gameObject);
+                        if (Input.mousePosition.x < Screen.width-250)
+                        {
+                            TakeUnitFromInventory(element);
+                        }
+                        else
+                            inventoryHover.HoldThis(element.gameObject);
                         break;
                     }
                 }

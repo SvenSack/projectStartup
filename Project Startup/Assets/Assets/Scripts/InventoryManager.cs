@@ -87,10 +87,15 @@ public class InventoryManager : MonoBehaviour
         inventoryCards.Remove(inventoryCards[index]);
         for (int i = index; i < inventoryCards.Count; i++)
         {
+            if (inventoryCards[i].GetComponent<InventCharButton>().showDetails)
+            {
+                ToggleInventoryDetails(inventoryCards[i]);
+                break;
+            }
             float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
             float yValue = -60.0f * Mathf.Floor((float) i / 3);
             Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
-            inventoryCards[i].transform.position = cardPosition;
+            inventoryCards[i].LeanMove(cardPosition, 0.2f);
         }
         Destroy(card);
     }
