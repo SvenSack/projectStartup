@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class InventCharButton : MonoBehaviour
 {
     private string name = "Please Senpai, I want a name UwU";
-    public int indexNumber;
+    public int charIndex;
     private Sprite image;
     public bool showDetails;
 
@@ -22,7 +22,7 @@ public class InventCharButton : MonoBehaviour
         backDrop = transform.GetChild(0).GetComponent<RectTransform>();
         stats = transform.GetChild(1).gameObject;
         Slider[] sliders = stats.GetComponentsInChildren<Slider>();
-        Character myCharacter = inventoryManager.possibleCharacters[indexNumber].GetComponent<Character>();
+        Character myCharacter = inventoryManager.possibleCharacters[charIndex].GetComponent<Character>();
         sliders[0].value = myCharacter.health;
         sliders[1].value = myCharacter.defense;
         sliders[2].value = myCharacter.attackDamage;
@@ -40,7 +40,7 @@ public class InventCharButton : MonoBehaviour
     public void Set(string nam, int index, Sprite img)
     {
         name = nam;
-        indexNumber = index;
+        charIndex = index;
         image = img;
         ApplyData();
     }

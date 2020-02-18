@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     public void TakeUnitFromInventory(InventCharButton element)
     {
-        heldUnit = inventoryManager.TakeFromInventory(element.indexNumber).GetComponent<Character>();
+        heldUnit = inventoryManager.TakeFromInventory(element.gameObject).GetComponent<Character>();
         holdingUnit = true;
     }
 
@@ -168,7 +168,14 @@ public class GameManager : MonoBehaviour
                     if (element != null)
                     {
                         // take unit from inventory
-                        inventoryHover.HoldThis(element.gameObject);
+                        if(element.showDetails)
+                            inventoryManager.ToggleInventoryDetails(element.gameObject);
+                        if (Input.mousePosition.x < Screen.width-250)
+                        {
+                            TakeUnitFromInventory(element);
+                        }
+                        else
+                            inventoryHover.HoldThis(element.gameObject);
                         break;
                     }
                 }

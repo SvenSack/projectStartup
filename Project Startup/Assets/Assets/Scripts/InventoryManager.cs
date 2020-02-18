@@ -74,38 +74,50 @@ public class InventoryManager : MonoBehaviour
         return card;
     }
 
-    public GameObject TakeFromInventory(int index)
+    public GameObject TakeFromInventory(GameObject target)
     {
-        RemoveInventoryCard(index);
+        int index = target.GetComponent<InventCharButton>().charIndex;
+        RemoveInventoryCard(target);
         return NewCharacter(index).gameObject;
     }
 
-    private void RemoveInventoryCard(int index)
+    private void RemoveInventoryCard(GameObject target)
     {
-        GameObject card = inventoryCards[index];
+        int index = FetchCardIndex(target);
+        
         inventory.Remove(inventory[index]);
-        inventoryCards.Remove(inventoryCards[index]);
+        inventoryCards.Remove(target);
         for (int i = index; i < inventoryCards.Count; i++)
         {
+            if (inventoryCards[i].GetComponent<InventCharButton>().showDetails)
+            {
+                ToggleInventoryDetails(inventoryCards[i]);
+                break;
+            }
             float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
             float yValue = -60.0f * Mathf.Floor((float) i / 3);
             Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
-            inventoryCards[i].transform.position = cardPosition;
+            inventoryCards[i].LeanMove(cardPosition, 0.2f);
         }
-        Destroy(card);
+        Destroy(target);
+    }
+
+    private int FetchCardIndex(GameObject cardObject)
+    {
+        for (int i = 0; i < inventoryCards.Count; i++)
+        {
+            if (inventoryCards[i] == cardObject)
+            {
+                return i;
+            }
+        }
+
+        return inventoryCards.Count + 1;
     }
 
     public void ToggleInventoryDetails(GameObject target)
     {
-        int index = inventoryCards.Count + 1;
-        for (int i = 0; i < inventoryCards.Count; i++)
-        {
-            if (inventoryCards[i] == target)
-            {
-                index = i;
-                break;
-            }
-        }
+        int index = FetchCardIndex(target);
 
         if (inventoryCards[index].GetComponent<InventCharButton>().ToggleDetails())
         {
