@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     public void TakeUnitFromInventory(InventCharButton element)
     {
-        heldUnit = inventoryManager.TakeFromInventory(element.indexNumber).GetComponent<Character>();
+        heldUnit = inventoryManager.TakeFromInventory(element.gameObject).GetComponent<Character>();
         holdingUnit = true;
     }
 
