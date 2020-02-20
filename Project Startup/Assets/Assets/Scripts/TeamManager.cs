@@ -42,6 +42,32 @@ public class TeamManager : MonoBehaviour
             }
         }
     }
+    
+    public void Add(Character character, bool isEnemy)
+    {
+        if (!isEnemy)
+        {
+            for (int i = 0; i < yourTeam.Length; i++)
+            {
+                if (yourTeam[i] == null)
+                {
+                    yourTeam[i] = character;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < enemyTeam.Length; i++)
+            {
+                if (enemyTeam[i] == null)
+                {
+                    enemyTeam[i] = character;
+                    break;
+                }
+            }
+        }
+    }
 
     public bool CheckSpot()
     {

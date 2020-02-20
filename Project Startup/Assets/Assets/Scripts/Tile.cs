@@ -17,8 +17,7 @@ public class Tile : MonoBehaviour
         teamManager = GameObject.FindGameObjectWithTag("TeamManager").GetComponent<TeamManager>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         placementSpot = transform.GetChild(0).GetChild(0);
-        if(heldUnit != null)
-            CenterUnit();
+        CenterUnit();
     }
 
     // Update is called once per frame
@@ -55,9 +54,26 @@ public class Tile : MonoBehaviour
 
         return false;
     }
+    
+    public void UnitPlace(Character unit, bool ignoreRules)
+    {
+        // place unit regardless of other factors
+        if (ignoreRules)
+        {
+            heldUnit = unit;
+            CenterUnit();
+        }
+    }
 
     public void CenterUnit()
     {
-        heldUnit.transform.position = placementSpot.position;
+        if (heldUnit != null)
+        {
+            heldUnit.transform.position = placementSpot.position;
+            if (!heldUnit.isOnYourTeam)
+            {
+                heldUnit.transform.eulerAngles = new Vector3(0,180,0);
+            }
+        }
     }
 }

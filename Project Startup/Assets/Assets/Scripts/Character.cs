@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,7 @@ public class Character : MonoBehaviour
 
     private TeamManager teamManager;
     private GameManager gameManager;
+    private InventoryManager inventoryManager;
     
     public bool isOnYourTeam;
     public bool isDead;
@@ -33,6 +35,7 @@ public class Character : MonoBehaviour
     {
         teamManager = GameObject.FindGameObjectWithTag("TeamManager").GetComponent<TeamManager>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        inventoryManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame
@@ -164,7 +167,7 @@ public class Character : MonoBehaviour
         if (amount < 0)
             amount = 0;
         health -= amount;
-        if (health >= 0)
+        if (health > 0)
         {
             healthBar.value = health;
             return false;
@@ -187,42 +190,64 @@ public class Character : MonoBehaviour
         switch (isOnYourTeam)
         {
             case true:
-                foreach (var enemy in teamManager.enemyTeam)
+                foreach (var enemy in teamManager.yourTeam)
                 {
-                    if (enemy.isDead != true)
-                        deathCheck = false;
+                    if(enemy != null)
+                        if (enemy.isDead != true)
+                            deathCheck = false;
                 }
 
                 if (deathCheck)
                 {
-                    // game over
+                    // game over, loss
+                    gameManager.FightOver(false);
+                    foreach (var enemy in teamManager.enemyTeam)
+                    {
+                        if(enemy != null)
+                            if (enemy.isDead == false)
+                            {
+                                enemy.StartCelebration();
+                            }
+                    }
                 }
                 else
                 {
                     foreach (var enemy in teamManager.enemyTeam)
                     {
-                        if (enemy.aggroTarget == this && enemy.isDead == false)
-                            enemy.FindAggroTarget();
+                        if(enemy != null)
+                            if (enemy.aggroTarget == this && enemy.isDead == false)
+                                enemy.FindAggroTarget();
                     }
                 }
                 break;
             case false:
-                foreach (var enemy in teamManager.yourTeam)
+                foreach (var enemy in teamManager.enemyTeam)
                 {
-                    if (enemy.isDead != true)
-                        deathCheck = false;
+                    if(enemy != null)
+                        if (enemy.isDead != true)
+                            deathCheck = false;
                 }
 
                 if (deathCheck)
                 {
-                    // game over
+                    // game over, win
+                    gameManager.FightOver(true);
+                    foreach (var enemy in teamManager.yourTeam)
+                    {
+                        if(enemy != null)
+                            if (enemy.isDead == false)
+                            {
+                                enemy.StartCelebration();
+                            }
+                    }
                 }
                 else
                 {
                     foreach (var enemy in teamManager.yourTeam)
                     {
-                        if (enemy.aggroTarget == this && enemy.isDead == false)
-                            enemy.FindAggroTarget();
+                        if(enemy != null)
+                            if (enemy.aggroTarget == this && enemy.isDead == false)
+                                enemy.FindAggroTarget();
                     }
                 }
                 break;
@@ -246,5 +271,21 @@ public class Character : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * 5.0f);
         }
+    }
+
+    IEnumerator Celebrate()
+    {
+        yield return new WaitForSeconds(Random.Range(0,.4f));
+        transform.LeanMove(transform.position + new Vector3(0, 2, 0), 0.2f);
+        yield return new WaitForSeconds(.3f);
+        transform.LeanMove(transform.position + new Vector3(0, -2, 0), 0.4f);
+        yield return new WaitForSeconds(.7f);
+        if(gameManager.endScreen)
+            StartCoroutine(Celebrate());
+    }
+
+    public void StartCelebration()
+    {
+        StartCoroutine(Celebrate());
     }
 }

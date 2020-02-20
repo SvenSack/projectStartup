@@ -9,6 +9,7 @@ using Slider = UnityEngine.UI.Slider;
 public class GameManager : MonoBehaviour
 {
     public bool fightRunning;
+    public bool endScreen;
     public TeamManager teamManager;
     public InventoryManager inventoryManager;
 
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     private Character heldUnit;
     private GameObject hideInFight;
     private GameObject showInFight;
+    private GameObject showOnVictory;
+    private GameObject showOnDefeat;
     public GraphicRaycaster gRayCaster;
     public EventSystem eventSystem;
 
@@ -38,13 +41,17 @@ public class GameManager : MonoBehaviour
         floorMask = LayerMask.GetMask("Floor");
         hideInFight = GameObject.FindGameObjectWithTag("HideInFight");
         showInFight = GameObject.FindGameObjectWithTag("ShowInFight");
+        showOnVictory = GameObject.FindGameObjectWithTag("ShowOnVictory");
+        showOnDefeat = GameObject.FindGameObjectWithTag("ShowOnDefeat");
         showInFight.SetActive(false);
+        showOnVictory.SetActive(false);
+        showOnDefeat.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!fightRunning)
+        if (!fightRunning && !endScreen)
         {
             // get units from drag and place them on drop
             if ( Input.GetMouseButtonDown (0))
@@ -338,6 +345,45 @@ public class GameManager : MonoBehaviour
                         break;
                     }
                 }
+            }
+        }
+    }
+
+    public void FightOver(bool youWon)
+    {
+        fightRunning = false;
+        endScreen = true;
+        showInFight.SetActive(false);
+        if (youWon)
+        {
+            // display victory screen
+            showOnVictory.SetActive(true);
+        }
+        else
+        {
+            // display loss screen
+            showOnDefeat.SetActive(true);
+        }
+    }
+
+    public void Retry()
+    {
+        endScreen = false;
+        showOnDefeat.SetActive(false);
+        hideInFight.SetActive(true);
+        Tile[] tiles = GameObject.FindGameObjectWithTag("TileBoard").GetComponentsInChildren<Tile>();
+        teamManager.yourTeam = new Character[3];
+        teamManager.enemyTeam = new Character[3];
+        foreach (var tile in tiles)
+        {
+            if (tile.heldUnit != null)
+            {
+                Character newChar = inventoryManager.NewCharacter(tile.heldUnit.instanceNumber);
+                bool oldAlignment = tile.heldUnit.isOnYourTeam;
+                newChar.isOnYourTeam = oldAlignment;
+                Destroy(tile.heldUnit.gameObject);
+                tile.UnitPlace(newChar, true);
+                teamManager.Add(newChar, !newChar.isOnYourTeam);
             }
         }
     }
