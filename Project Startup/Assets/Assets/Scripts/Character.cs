@@ -83,16 +83,17 @@ public class Character : MonoBehaviour
                 int closestIndex = teamManager.enemyTeam.Length+1;
                 for (int i = 0; i < teamManager.enemyTeam.Length; i++)
                 {
-                    if (teamManager.enemyTeam[i].isDead == false)
-                    {
-                        // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
-                        Vector3 distanceVector = teamManager.enemyTeam[i].transform.position - transform.position;
-                        if (closest == 0 || closest > distanceVector.magnitude)
+                    if(teamManager.enemyTeam[i] != null)
+                        if (teamManager.enemyTeam[i].isDead == false)
                         {
-                            closest = distanceVector.magnitude;
-                            closestIndex = i;
+                            // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
+                            Vector3 distanceVector = teamManager.enemyTeam[i].transform.position - transform.position;
+                            if (closest == 0 || closest > distanceVector.magnitude)
+                            {
+                                closest = distanceVector.magnitude;
+                                closestIndex = i;
+                            }
                         }
-                    }
                 }
                 aggroTarget = teamManager.enemyTeam[closestIndex];
                 break;
@@ -101,16 +102,17 @@ public class Character : MonoBehaviour
                 int closestIndex1 = teamManager.yourTeam.Length+1;
                 for (int i = 0; i < teamManager.yourTeam.Length; i++)
                 {
-                    if (teamManager.yourTeam[i].isDead == false)
-                    {
-                        // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
-                        Vector3 distanceVector = teamManager.yourTeam[i].transform.position - transform.position;
-                        if (closest1 == 0 || closest1 > distanceVector.magnitude)
+                    if(teamManager.yourTeam[i] != null)
+                        if (teamManager.yourTeam[i].isDead == false)
                         {
-                            closest1 = distanceVector.magnitude;
-                            closestIndex1 = i;
+                            // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
+                            Vector3 distanceVector = teamManager.yourTeam[i].transform.position - transform.position;
+                            if (closest1 == 0 || closest1 > distanceVector.magnitude)
+                            {
+                                closest1 = distanceVector.magnitude;
+                                closestIndex1 = i;
+                            }
                         }
-                    }
                 }
                 aggroTarget = teamManager.yourTeam[closestIndex1];
                 // Debug.Log(name + " has decided to target " + aggroTarget.name);
