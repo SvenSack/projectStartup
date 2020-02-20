@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,9 +17,11 @@ public class Character : MonoBehaviour
     public int instanceNumber;
     private bool fighting;
     private float attackCooldownValue;
+    private bool isUpgraded;
 
     private TeamManager teamManager;
     private GameManager gameManager;
+    private InventoryManager inventoryManager;
     
     public bool isOnYourTeam;
     public bool isDead;
@@ -32,6 +35,7 @@ public class Character : MonoBehaviour
     {
         teamManager = GameObject.FindGameObjectWithTag("TeamManager").GetComponent<TeamManager>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        inventoryManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame
@@ -83,16 +87,17 @@ public class Character : MonoBehaviour
                 int closestIndex = teamManager.enemyTeam.Length+1;
                 for (int i = 0; i < teamManager.enemyTeam.Length; i++)
                 {
-                    if (teamManager.enemyTeam[i].isDead == false)
-                    {
-                        // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
-                        Vector3 distanceVector = teamManager.enemyTeam[i].transform.position - transform.position;
-                        if (closest == 0 || closest > distanceVector.magnitude)
+                    if(teamManager.enemyTeam[i] != null)
+                        if (teamManager.enemyTeam[i].isDead == false)
                         {
-                            closest = distanceVector.magnitude;
-                            closestIndex = i;
+                            // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
+                            Vector3 distanceVector = teamManager.enemyTeam[i].transform.position - transform.position;
+                            if (closest == 0 || closest > distanceVector.magnitude)
+                            {
+                                closest = distanceVector.magnitude;
+                                closestIndex = i;
+                            }
                         }
-                    }
                 }
                 aggroTarget = teamManager.enemyTeam[closestIndex];
                 break;
@@ -101,16 +106,17 @@ public class Character : MonoBehaviour
                 int closestIndex1 = teamManager.yourTeam.Length+1;
                 for (int i = 0; i < teamManager.yourTeam.Length; i++)
                 {
-                    if (teamManager.yourTeam[i].isDead == false)
-                    {
-                        // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
-                        Vector3 distanceVector = teamManager.yourTeam[i].transform.position - transform.position;
-                        if (closest1 == 0 || closest1 > distanceVector.magnitude)
+                    if(teamManager.yourTeam[i] != null)
+                        if (teamManager.yourTeam[i].isDead == false)
                         {
-                            closest1 = distanceVector.magnitude;
-                            closestIndex1 = i;
+                            // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
+                            Vector3 distanceVector = teamManager.yourTeam[i].transform.position - transform.position;
+                            if (closest1 == 0 || closest1 > distanceVector.magnitude)
+                            {
+                                closest1 = distanceVector.magnitude;
+                                closestIndex1 = i;
+                            }
                         }
-                    }
                 }
                 aggroTarget = teamManager.yourTeam[closestIndex1];
                 // Debug.Log(name + " has decided to target " + aggroTarget.name);
@@ -136,7 +142,14 @@ public class Character : MonoBehaviour
         {
             if (aggroTarget.Damage(attackDamage - aggroTarget.defense))
             {
-                // upgrade would go here
+                // upgrade would go here, the following is placeholder
+                if (!isUpgraded)
+                {
+                    isUpgraded = true;
+                    transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
+                    attackDamage = attackDamage * 1.2f;
+                    attackCooldown = attackCooldown * .8f;
+                }
             }
         }
     }
@@ -151,8 +164,10 @@ public class Character : MonoBehaviour
 
     public bool Damage(float amount)
     {
+        if (amount < 0)
+            amount = 0;
         health -= amount;
-        if (health >= 0)
+        if (health > 0)
         {
             healthBar.value = health;
             return false;
@@ -175,42 +190,64 @@ public class Character : MonoBehaviour
         switch (isOnYourTeam)
         {
             case true:
-                foreach (var enemy in teamManager.enemyTeam)
+                foreach (var enemy in teamManager.yourTeam)
                 {
-                    if (enemy.isDead != true)
-                        deathCheck = false;
+                    if(enemy != null)
+                        if (enemy.isDead != true)
+                            deathCheck = false;
                 }
 
                 if (deathCheck)
                 {
-                    // game over
+                    // game over, loss
+                    gameManager.FightOver(false);
+                    foreach (var enemy in teamManager.enemyTeam)
+                    {
+                        if(enemy != null)
+                            if (enemy.isDead == false)
+                            {
+                                enemy.StartCelebration();
+                            }
+                    }
                 }
                 else
                 {
                     foreach (var enemy in teamManager.enemyTeam)
                     {
-                        if (enemy.aggroTarget == this && enemy.isDead == false)
-                            enemy.FindAggroTarget();
+                        if(enemy != null)
+                            if (enemy.aggroTarget == this && enemy.isDead == false)
+                                enemy.FindAggroTarget();
                     }
                 }
                 break;
             case false:
-                foreach (var enemy in teamManager.yourTeam)
+                foreach (var enemy in teamManager.enemyTeam)
                 {
-                    if (enemy.isDead != true)
-                        deathCheck = false;
+                    if(enemy != null)
+                        if (enemy.isDead != true)
+                            deathCheck = false;
                 }
 
                 if (deathCheck)
                 {
-                    // game over
+                    // game over, win
+                    gameManager.FightOver(true);
+                    foreach (var enemy in teamManager.yourTeam)
+                    {
+                        if(enemy != null)
+                            if (enemy.isDead == false)
+                            {
+                                enemy.StartCelebration();
+                            }
+                    }
                 }
                 else
                 {
                     foreach (var enemy in teamManager.yourTeam)
                     {
-                        if (enemy.aggroTarget == this && enemy.isDead == false)
-                            enemy.FindAggroTarget();
+                        if(enemy != null)
+                            if (enemy.aggroTarget == this && enemy.isDead == false)
+                                enemy.FindAggroTarget();
                     }
                 }
                 break;
@@ -234,5 +271,21 @@ public class Character : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * 5.0f);
         }
+    }
+
+    IEnumerator Celebrate()
+    {
+        yield return new WaitForSeconds(Random.Range(0,.4f));
+        transform.LeanMove(transform.position + new Vector3(0, 2, 0), 0.2f);
+        yield return new WaitForSeconds(.3f);
+        transform.LeanMove(transform.position + new Vector3(0, -2, 0), 0.4f);
+        yield return new WaitForSeconds(.7f);
+        if(gameManager.endScreen)
+            StartCoroutine(Celebrate());
+    }
+
+    public void StartCelebration()
+    {
+        StartCoroutine(Celebrate());
     }
 }

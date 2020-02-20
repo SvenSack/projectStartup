@@ -12,6 +12,8 @@ TagManager:
   - Floor
   - InventoryManager
   - ShowInFight
+  - ShowOnVictory
+  - ShowOnDefeat
   layers:
   - Default
   - TransparentFX

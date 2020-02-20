@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3445457992339427944
+--- !u!1001 &586149146600676026
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2211843184690601065, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.81
+      value: 1.97
       objectReference: {fileID: 0}
     - target: {fileID: 2211843184690601065, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 2211843184690601065, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.88
+      value: 10.29
       objectReference: {fileID: 0}
     - target: {fileID: 2211843184690601065, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -67,16 +67,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bernd Variant
       objectReference: {fileID: 0}
-    - target: {fileID: 2211843184892790596, guid: 4cf03638832e8fa4f9140621fb57dd82,
+    - target: {fileID: 2211843185171909659, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 630817311994b634a9b2c21dfe0eb864, type: 2}
-    - target: {fileID: 2211843185045945304, guid: 4cf03638832e8fa4f9140621fb57dd82,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 630817311994b634a9b2c21dfe0eb864, type: 2}
+      objectReference: {fileID: 2100000, guid: 754a625aed7a8a24b9acb7a301b21cc6, type: 2}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: isOnYourTeam
@@ -94,23 +89,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
-      propertyPath: range
+      propertyPath: defense
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
-      propertyPath: attackDamage
-      value: 4.5
+      propertyPath: attackCooldown
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
-      propertyPath: attackCooldown
-      value: 0.25
+      propertyPath: attackDamage
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: health
-      value: 70
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -121,12 +116,17 @@ PrefabInstance:
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: instanceNumber
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: range
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: movementSpeed
-      value: 5
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
