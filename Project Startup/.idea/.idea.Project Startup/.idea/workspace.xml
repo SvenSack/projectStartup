@@ -4,6 +4,8 @@
     <list default="true" id="e8b40931-8d98-4109-9be8-5040f3a290e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project Startup/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project Startup/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SettingsAudio.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SettingsAudio.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +23,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/TeamManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/Tile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/Audio/MusicManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -45,6 +48,7 @@
   <component name="ProjectId" id="1XzkDW4uqiqJzaApOP3Tp5Zbh1B" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
@@ -106,6 +110,7 @@
       <workItem from="1581937640257" duration="2879000" />
       <workItem from="1582022691697" duration="6958000" />
       <workItem from="1582056192596" duration="5243000" />
+      <workItem from="1582231282807" duration="6024000" />
     </task>
     <servers />
   </component>
@@ -119,7 +124,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
