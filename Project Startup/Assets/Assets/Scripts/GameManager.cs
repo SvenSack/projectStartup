@@ -236,8 +236,9 @@ public class GameManager : MonoBehaviour
                         {
                             // swap unit with held unit
                             inventoryManager.AddInventoryCard(targetTile.heldUnit.instanceNumber);
-                            Destroy(targetTile.heldUnit.gameObject);
+                            inventoryManager.inventory.Add(inventoryManager.possibleCharacters[targetTile.heldUnit.instanceNumber]);
                             teamManager.Remove(targetTile.heldUnit.gameObject);
+                            Destroy(targetTile.heldUnit.gameObject);
                             teamManager.Add(heldUnit);
                             targetTile.heldUnit = heldUnit;
                             targetTile.CenterUnit();
