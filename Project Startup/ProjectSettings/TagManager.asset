@@ -11,6 +11,7 @@ TagManager:
   - InventoryBoard
   - Floor
   - InventoryManager
+  - ShowInFight
   layers:
   - Default
   - TransparentFX

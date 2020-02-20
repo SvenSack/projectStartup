@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 2211843184690601067, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_Name
-      value: Derf
+      value: Derf Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2211843184892790596, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -95,22 +95,22 @@ PrefabInstance:
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: range
-      value: 6.2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: attackDamage
-      value: 3
+      value: 9.6
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: attackCooldown
-      value: 0.47
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: health
-      value: 15
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}

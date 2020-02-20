@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Slider = UnityEngine.UI.Slider;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     private bool holdingUnit;
     private Character heldUnit;
     private GameObject hideInFight;
+    private GameObject showInFight;
     public GraphicRaycaster gRayCaster;
     public EventSystem eventSystem;
 
@@ -35,6 +37,8 @@ public class GameManager : MonoBehaviour
         castMask = LayerMask.GetMask("Tiles");
         floorMask = LayerMask.GetMask("Floor");
         hideInFight = GameObject.FindGameObjectWithTag("HideInFight");
+        showInFight = GameObject.FindGameObjectWithTag("ShowInFight");
+        showInFight.SetActive(false);
     }
 
     // Update is called once per frame
@@ -81,13 +85,35 @@ public class GameManager : MonoBehaviour
     {
         fightRunning = true;
         hideInFight.SetActive(false);
+        showInFight.SetActive(true);
+        Slider[] healthbars = showInFight.transform.GetChild(0).gameObject.GetComponentsInChildren<Slider>();
+        for (int i = 0; i < healthbars.Length; i++)
+        {
+            Debug.Log(healthbars[i].name);
+            if (i < healthbars.Length/2)
+            {
+                teamManager.yourTeam[i].healthBar = healthbars[i];
+            }
+            else
+            {
+                teamManager.enemyTeam[i - healthbars.Length / 2].healthBar = healthbars[i];
+            }
+        }
         foreach (var character in teamManager.enemyTeam)
         {
             character.FindAggroTarget();
+            character.healthBar.maxValue = character.health;
+            character.healthBar.value = character.health;
+            character.healthBar.transform.parent.position = Camera.main.WorldToScreenPoint(character.transform.position
+                                                                                           + new Vector3(0, 1.5f, 0));
         }
         foreach (var character in teamManager.yourTeam)
         {
             character.FindAggroTarget();
+            character.healthBar.maxValue = character.health;
+            character.healthBar.value = character.health;
+            character.healthBar.transform.parent.position = Camera.main.WorldToScreenPoint(character.transform.position
+                                                                                           + new Vector3(0, 1.5f, 0));
         }
     }
 

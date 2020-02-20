@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 2211843184690601067, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_Name
-      value: Jeremy
+      value: Jeremy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2211843185171909659, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -90,22 +90,22 @@ PrefabInstance:
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: defense
-      value: 1.98
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: attackCooldown
-      value: 0.12
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: attackDamage
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: health
-      value: 20
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -117,6 +117,16 @@ PrefabInstance:
         type: 3}
       propertyPath: instanceNumber
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Character : MonoBehaviour
     public bool isDead;
     public Character aggroTarget;
 
+    public Slider healthBar;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +39,6 @@ public class Character : MonoBehaviour
     {
         if (!isDead && gameManager.fightRunning)
         {
-            if (health <= 0)
-            {
-                Die();
-            }
-            
             Rotate();
         
             if (!fighting)
@@ -132,11 +130,37 @@ public class Character : MonoBehaviour
 
     private void Attack()
     {
+        StartCoroutine(FakeAttackAnimation(.2f));
         // deal damage to the target mitigated by defense
         if (attackDamage > aggroTarget.defense)
         {
-            aggroTarget.health -= attackDamage - aggroTarget.defense;
-            // Debug.Log(name + " has attacked " + aggroTarget.name + " for " + (attackDamage - aggroTarget.defense));
+            if (aggroTarget.Damage(attackDamage - aggroTarget.defense))
+            {
+                // upgrade would go here
+            }
+        }
+    }
+
+    IEnumerator FakeAttackAnimation(float animationLength)
+    {
+        Vector3 direction = transform.forward * .3f;
+        transform.LeanMove(transform.position - direction, animationLength/2);
+        yield return new WaitForSeconds(animationLength/2);
+        transform.LeanMove(transform.position + direction, animationLength/2);
+    }
+
+    public bool Damage(float amount)
+    {
+        health -= amount;
+        if (health >= 0)
+        {
+            healthBar.value = health;
+            return false;
+        }
+        else
+        {
+            Die();
+            return true;
         }
     }
 
@@ -146,6 +170,7 @@ public class Character : MonoBehaviour
         // run through all living characters, check if they have me as their AggroTarget, if yes, make them FindAggroTarget
         isDead = true;
         transform.LeanScale(new Vector3(0,0,0), 1.5f);
+        healthBar.transform.parent.gameObject.SetActive(false);
         bool deathCheck = true;
         switch (isOnYourTeam)
         {
@@ -195,6 +220,7 @@ public class Character : MonoBehaviour
     private void Move()
     {
         transform.Translate(Vector3.forward*(Time.deltaTime*movementSpeed));
+        healthBar.transform.parent.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1.5f, 0));
     }
 
     private void Rotate()
