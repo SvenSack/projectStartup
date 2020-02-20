@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
     public int instanceNumber;
     private bool fighting;
     private float attackCooldownValue;
+    private bool isUpgraded;
 
     private TeamManager teamManager;
     private GameManager gameManager;
@@ -138,7 +139,14 @@ public class Character : MonoBehaviour
         {
             if (aggroTarget.Damage(attackDamage - aggroTarget.defense))
             {
-                // upgrade would go here
+                // upgrade would go here, the following is placeholder
+                if (!isUpgraded)
+                {
+                    isUpgraded = true;
+                    transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
+                    attackDamage = attackDamage * 1.2f;
+                    attackCooldown = attackCooldown * .8f;
+                }
             }
         }
     }
@@ -153,6 +161,8 @@ public class Character : MonoBehaviour
 
     public bool Damage(float amount)
     {
+        if (amount < 0)
+            amount = 0;
         health -= amount;
         if (health >= 0)
         {
