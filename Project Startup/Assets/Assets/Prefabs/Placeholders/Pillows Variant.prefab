@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 2211843184690601067, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_Name
-      value: Pillows
+      value: Pillows Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2211843185045945304, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -85,17 +85,17 @@ PrefabInstance:
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: attackDamage
-      value: 1.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: attackCooldown
-      value: 1.75
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: health
-      value: 25
+      value: 67
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -107,6 +107,16 @@ PrefabInstance:
         type: 3}
       propertyPath: instanceNumber
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: defense
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: range
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}

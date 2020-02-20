@@ -29,7 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.672, z: 0.5}
   m_LocalScale: {x: 0.13060305, y: 0.15403664, z: 0.30235}
   m_Children: []
-  m_Father: {fileID: 2211843184690601065}
+  m_Father: {fileID: 9194532870398391414}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2211843184658631230
@@ -87,7 +87,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2211843184690601065}
+  - component: {fileID: 9194532870398391414}
   - component: {fileID: 2211843184690601066}
   - component: {fileID: 8447763477635213986}
   m_Layer: 0
@@ -97,7 +97,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2211843184690601065
+--- !u!4 &9194532870398391414
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,8 +145,14 @@ MonoBehaviour:
   movementSpeed: 1
   health: 1
   attackDamage: 1
-  attackSpeed: 1
+  attackCooldown: 1
   defense: 1
+  name: Sven, greatest of all Programmers
+  profilePic: {fileID: 0}
+  instanceNumber: 0
+  isOnYourTeam: 0
+  isDead: 0
+  aggroTarget: {fileID: 0}
 --- !u!1 &2211843184892790598
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +182,7 @@ Transform:
   m_LocalPosition: {x: 0.239, y: 0.874, z: 0.271}
   m_LocalScale: {x: 0.2583, y: 0.2583, z: 0.2583}
   m_Children: []
-  m_Father: {fileID: 2211843184690601065}
+  m_Father: {fileID: 9194532870398391414}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2211843184892790595
@@ -255,7 +261,7 @@ Transform:
   m_LocalPosition: {x: -0.231, y: 0.874, z: 0.271}
   m_LocalScale: {x: 0.2583, y: 0.2583, z: 0.2583}
   m_Children: []
-  m_Father: {fileID: 2211843184690601065}
+  m_Father: {fileID: 9194532870398391414}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2211843185045945303
@@ -334,7 +340,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.62, z: 0}
   m_LocalScale: {x: 1, y: 0.36531, z: 1}
   m_Children: []
-  m_Father: {fileID: 2211843184690601065}
+  m_Father: {fileID: 9194532870398391414}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2211843185171909658
