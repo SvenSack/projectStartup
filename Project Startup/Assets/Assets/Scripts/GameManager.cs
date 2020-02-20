@@ -100,11 +100,15 @@ public class GameManager : MonoBehaviour
             {
                 if(teamManager.yourTeam[i] != null)
                     teamManager.yourTeam[i].healthBar = healthbars[i];
+                else
+                    healthbars[i].transform.parent.position = new Vector3(Screen.width *2, 0,0);
             }
             else
             {
                 if(teamManager.enemyTeam[i - healthbars.Length / 2] != null)
                     teamManager.enemyTeam[i - healthbars.Length / 2].healthBar = healthbars[i];
+                else
+                    healthbars[i].transform.parent.position = new Vector3(Screen.width *2, 0,0);
             }
         }
         foreach (var character in teamManager.enemyTeam)
@@ -378,6 +382,7 @@ public class GameManager : MonoBehaviour
         {
             if (tile.heldUnit != null)
             {
+                tile.heldUnit.healthBar.transform.parent.gameObject.SetActive(true);
                 Character newChar = inventoryManager.NewCharacter(tile.heldUnit.instanceNumber);
                 bool oldAlignment = tile.heldUnit.isOnYourTeam;
                 newChar.isOnYourTeam = oldAlignment;
