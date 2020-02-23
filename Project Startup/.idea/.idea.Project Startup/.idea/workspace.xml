@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e8b40931-8d98-4109-9be8-5040f3a290e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project Startup/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project Startup/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/AudioSFX/MusicMixer.mixer" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/AudioSFX/MusicMixer.mixer" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/MusicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/MusicManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SettingsAudio.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SettingsAudio.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
@@ -27,6 +27,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Settings/SampleSceneProfile.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/Audio/MusicManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -41,8 +42,8 @@
         <option value="$PROJECT_DIR$/Assets/Assets/Scripts/InventoryManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Assets/Scripts/InventCharButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/MusicManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" />
       </list>
     </option>
   </component>
@@ -112,7 +113,8 @@
       <workItem from="1582022691697" duration="6958000" />
       <workItem from="1582056192596" duration="5243000" />
       <workItem from="1582231282807" duration="6024000" />
-      <workItem from="1582444568936" duration="2501000" />
+      <workItem from="1582444568936" duration="2580000" />
+      <workItem from="1582448681561" duration="1957000" />
     </task>
     <servers />
   </component>

@@ -10,48 +10,42 @@ public class AudioSettings : MonoBehaviour
     public AudioMixer musicMixer;
     public GameObject settingsMenu;
     public Slider volumeSlider;
+    public Slider sfxVolumeSlider;
     public Toggle muteToggle;
     
     public bool muted;
-    public float currentVolume = 0.0f;
+    public float musicVolume = 0.0f;
+    public float currentSfxVolume = 0.0f;
     
     private void Start()
     {
-        // Debug.Log("Current Muted bool value: " + muted);
-        // Debug.Log(PlayerPrefs.GetInt("MutedBool") + " loaded MutedBool");
-        
-        // Load the previous audio level, and set the saved level on in the music mixer
-        currentVolume = PlayerPrefs.GetFloat("MusicVol");
-        musicMixer.SetFloat("MusicVolume", currentVolume);
-        volumeSlider.value = PlayerPrefs.GetFloat("SliderPos");
-        
-        // Load whether it was muted bool
-        if (PlayerPrefs.GetInt("MutedBool") == 0)
+        LoadSettings();
+        if (settingsMenu.activeInHierarchy == true)
         {
-            muted = false;
-            muteToggle.isOn = false;
-            //musicMixer.SetFloat("MusicVolume", currentVolume);
-        } else if (PlayerPrefs.GetInt("MutedBool") == 1) 
-        {
-            muted = true;
-            muteToggle.isOn = true;
-            musicMixer.SetFloat("MusicVolume", -80.0f);
+            settingsMenu.SetActive(false);
         }
     }
 
+    // Change the Music volume
     public void SetVolume(float volume)
     {
-        if (!muted)
-        {
-            musicMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
-            currentVolume = Mathf.Log10(volume) * 20;
+        musicMixer.SetFloat("MusicVolume", Mathf.Log10(volume) * 20);
+        musicVolume = Mathf.Log10(volume) * 20;
             
-            // Saving the values
-            PlayerPrefs.SetFloat("SliderPos", volumeSlider.value);
-            PlayerPrefs.SetFloat("MusicVol", currentVolume);
+        // Saving the values
+        PlayerPrefs.SetFloat("SliderPos", volumeSlider.value);
+        PlayerPrefs.SetFloat("MusicVol", musicVolume);
+    }
+    
+    // Change the sound effect volume
+    public void SetSfxVolume(float volume)
+    { 
+        musicMixer.SetFloat("SFXVolume", Mathf.Log10(volume) * 20); 
+        currentSfxVolume = Mathf.Log10(volume) * 20;
             
-            // Debug.Log("Saved Music, Slider.pos");
-        }
+        // Saving the values
+        PlayerPrefs.SetFloat("SFXSliderPos", sfxVolumeSlider.value);
+        PlayerPrefs.SetFloat("SFXVol", currentSfxVolume);
     }
 
     public void SetMute()
@@ -60,18 +54,14 @@ public class AudioSettings : MonoBehaviour
         {
             // Enable the music
             muted = false;
-            musicMixer.SetFloat("MusicVolume", currentVolume);
+            musicMixer.SetFloat("GameVolume", 0);
             PlayerPrefs.SetInt("MutedBool", 0);
-            
-            // Debug.Log("Saved bool false");
         } else if (!muted)
         {
             // Disable the music
             muted = true;
-            musicMixer.SetFloat("MusicVolume", -80.0f);
+            musicMixer.SetFloat("GameVolume", -80.0f);
             PlayerPrefs.SetInt("MutedBool", 1);
-            
-            // Debug.Log("Saved bool true");
         }
     }
 
@@ -83,6 +73,31 @@ public class AudioSettings : MonoBehaviour
         } else if (settingsMenu.activeInHierarchy)
         {
             settingsMenu.SetActive(false);
+        }
+    }
+
+    private void LoadSettings()
+    {
+        // Load the previous audio level, and set the saved level on in the music mixer
+        musicVolume = PlayerPrefs.GetFloat("MusicVol");
+        musicMixer.SetFloat("MusicVolume", musicVolume);
+        volumeSlider.value = PlayerPrefs.GetFloat("SliderPos");
+        
+        currentSfxVolume = PlayerPrefs.GetFloat("SFXVol");
+        musicMixer.SetFloat("SFXVolume", currentSfxVolume);
+        sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXSliderPos");
+        
+        
+        // Load whether it was muted bool
+        if (PlayerPrefs.GetInt("MutedBool") == 0)
+        {
+            muted = false;
+            muteToggle.isOn = false;
+        } else if (PlayerPrefs.GetInt("MutedBool") == 1) 
+        {
+            muted = true;
+            muteToggle.isOn = true;
+            musicMixer.SetFloat("GameVolume", -80.0f);
         }
     }
 }
