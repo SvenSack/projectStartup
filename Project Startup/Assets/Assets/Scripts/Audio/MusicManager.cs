@@ -7,7 +7,7 @@ public class MusicManager : MonoBehaviour
 { 
     public AudioSource introMusic; 
     public AudioSource loopMusic; 
-    private bool startedLoop;
+    [HideInInspector] public bool startedLoop;
 
     private void Awake()
     {

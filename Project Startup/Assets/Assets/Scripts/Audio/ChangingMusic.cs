@@ -79,6 +79,12 @@ public class ChangingMusic : MonoBehaviour
             // newAudioSource.introMusic.Play();
             // newAudioSource.enabled = true;
             newAudio.SetActive(true);
+            if (newAudioSource.introMusic.isPlaying == false &&
+                newAudioSource.loopMusic.isPlaying == false)
+            {
+                newAudioSource.startedLoop = false;
+                newAudioSource.introMusic.Play();
+            }
  
             while ((oldAudioSource.loopMusic.volume > 0.0f && newAudioSource.introMusic.volume < newAudioSourceVolumeTarget) && loopCount <= maxLoopCount) //  && loopCount <= maxLoopCount
             {
