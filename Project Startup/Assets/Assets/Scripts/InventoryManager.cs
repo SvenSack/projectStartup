@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class InventoryManager : MonoBehaviour
     public int debugInventorySize = 1; // the size of the testing inventory
     public bool debugPopulate; // bool checking if you are currently using the testing inventory
     
-    private List<GameObject> inventoryCards = new List<GameObject>(); // the list of current inventorycards
+    public List<GameObject> inventoryCards = new List<GameObject>(); // the list of current inventorycards
 
     private Transform inventoryBoard;
     private Transform inventoryCardPlacer;
@@ -26,6 +28,8 @@ public class InventoryManager : MonoBehaviour
             DebugPopulate(debugInventorySize);
         
         CreateInventoryCards();
+        
+        SortInventory();
     }
 
     // Update is called once per frame
@@ -62,7 +66,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public GameObject AddInventoryCard(int index)
+    private GameObject AddInventoryCard(int index)
     {
         GameObject card = Instantiate(inventoryCard);
         float xValue = 75.0f * inventoryCards.Count - 225.0f * Mathf.Floor((float) inventoryCards.Count / 3);
@@ -70,12 +74,44 @@ public class InventoryManager : MonoBehaviour
         Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
         inventoryCards.Add(card);
         Character character = possibleCharacters[index].GetComponent<Character>();
-        card.GetComponent<InventCharButton>().Set(character.name, index , character.profilePic);
+        card.GetComponent<InventCharButton>().Set(character.name, index , character.profilePic, character.type);
         card.transform.position = cardPosition;
         card.transform.SetParent(inventoryBoard, true);
         return card;
     }
 
+    private int SortUnitByCharacterArchetype(GameObject c1, GameObject c2)
+    {
+        int val = c1.GetComponent<Character>().type.CompareTo(c2.GetComponent<Character>().type);
+        if(val == 0)
+            val = c1.GetComponent<Character>().name.CompareTo(c2.GetComponent<Character>().name);
+        return val;
+    }
+    
+    private int SortCardByCharacterArchetype(GameObject c1, GameObject c2)
+    {
+        int val = possibleCharacters[c1.GetComponent<InventCharButton>().charIndex].GetComponent<Character>().type.
+            CompareTo(possibleCharacters[c2.GetComponent<InventCharButton>().charIndex].GetComponent<Character>().type);
+        if(val == 0)
+            val = possibleCharacters[c1.GetComponent<InventCharButton>().charIndex].GetComponent<Character>().name.
+                CompareTo(possibleCharacters[c2.GetComponent<InventCharButton>().charIndex].GetComponent<Character>().name);
+        return val;
+    }
+
+    private void SortInventory()
+    {
+        inventory.Sort(SortUnitByCharacterArchetype);
+        inventoryCards.Sort(SortCardByCharacterArchetype);
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
+            float yValue = -60.0f * Mathf.Floor((float) i / 3);
+            Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
+            inventoryCards[i].LeanMove(cardPosition, 0.2f);
+        }
+    }
+
+    
     #endregion
 
     #region Inventory Manipulation
@@ -106,6 +142,13 @@ public class InventoryManager : MonoBehaviour
             inventoryCards[i].LeanMove(cardPosition, 0.2f);
         }
         Destroy(target);
+    }
+
+    public void AddCard(int index)
+    {
+        inventory.Add(possibleCharacters[index]);
+        AddInventoryCard(index);
+        SortInventory();
     }
 
     #endregion

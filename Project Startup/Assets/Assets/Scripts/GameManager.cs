@@ -182,8 +182,7 @@ public class GameManager : MonoBehaviour
             TakeUnitFromInventory(inventoryHover.heldObject.GetComponent<InventCharButton>());
             inventoryHover.DropIt();
         }
-        inventoryManager.AddInventoryCard(heldUnit.instanceNumber);
-        inventoryManager.inventory.Add(inventoryManager.possibleCharacters[heldUnit.instanceNumber]);
+        inventoryManager.AddCard(heldUnit.instanceNumber);
         Destroy(heldUnit.gameObject);
         holdingUnit = false;
         heldUnit = null;
@@ -264,8 +263,7 @@ public class GameManager : MonoBehaviour
                 if (targetTile.heldUnit != null && targetTile.isYours)
                 {
                     // swap unit with held unit
-                    inventoryManager.AddInventoryCard(targetTile.heldUnit.instanceNumber);
-                    inventoryManager.inventory.Add(inventoryManager.possibleCharacters[targetTile.heldUnit.instanceNumber]);
+                    inventoryManager.AddCard(targetTile.heldUnit.instanceNumber);
                     teamManager.Remove(targetTile.heldUnit.gameObject);
                     Destroy(targetTile.heldUnit.gameObject);
                     teamManager.Add(heldUnit);
@@ -309,9 +307,8 @@ public class GameManager : MonoBehaviour
                     // place into inventory, remove from board list
                     if (originTile != null)
                     {
-                        inventoryManager.AddInventoryCard(originTile.heldUnit.instanceNumber);
+                        inventoryManager.AddCard(originTile.heldUnit.instanceNumber);
                         teamManager.Remove(originTile.heldUnit.gameObject);
-                        inventoryManager.inventory.Add(inventoryManager.possibleCharacters[originTile.heldUnit.instanceNumber]);
                         Destroy(originTile.heldUnit.gameObject);
                         originTile.heldUnit = null;
                         originTile = null;

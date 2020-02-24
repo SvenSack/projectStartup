@@ -19,6 +19,10 @@ public class Character : MonoBehaviour
     private float attackCooldownValue; // value tracking the time since last attack
     private bool isUpgraded; // bool checking if the unit is upgraded
 
+    public enum archetype {Attacker, Tank, Assassin, Support};
+    public archetype type;
+    
+
     private TeamManager teamManager;
     private GameManager gameManager;
     private InventoryManager inventoryManager;
