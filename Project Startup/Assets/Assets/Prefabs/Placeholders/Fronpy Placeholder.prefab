@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3607681622529247948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558602790957092355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 924853db1d31e5c4492dade391acaf95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 2
+  movementSpeed: 5
+  health: 70
+  attackDamage: 4.5
+  attackCooldown: 0.25
+  defense: 1
+  name: Jeremy
+  profilePic: {fileID: 21300000, guid: 43ad49a66f345144db6f42caadbb89a8, type: 3}
+  instanceNumber: 1
+  fighting: 0
+  attackCooldownValue: 0
+  isUpgraded: 0
+  type: 2
+  teamManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
+  isOnYourTeam: 1
+  isDead: 0
+  aggroTarget: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!1001 &3445457992339427944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,7 +97,7 @@ PrefabInstance:
     - target: {fileID: 2211843184690601067, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_Name
-      value: Jeremy Variant
+      value: Fronpy Placeholder
       objectReference: {fileID: 0}
     - target: {fileID: 2211843184892790596, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -133,5 +165,12 @@ PrefabInstance:
       propertyPath: type
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
+--- !u!1 &3558602790957092355 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2211843184690601067, guid: 4cf03638832e8fa4f9140621fb57dd82,
+    type: 3}
+  m_PrefabInstance: {fileID: 3445457992339427944}
+  m_PrefabAsset: {fileID: 0}

@@ -15,17 +15,17 @@ public class Character : MonoBehaviour
     public string name = "Sven, greatest of all Programmers"; // the characters name
     public Sprite profilePic; // the characters inventory picture
     public int instanceNumber; // the characters possible unit index
-    private bool fighting; // bool checking if the unit is fighting at the moment
-    private float attackCooldownValue; // value tracking the time since last attack
-    private bool isUpgraded; // bool checking if the unit is upgraded
+    [HideInInspector] public bool fighting; // bool checking if the unit is fighting at the moment
+    [HideInInspector] public float attackCooldownValue; // value tracking the time since last attack
+    [HideInInspector] public bool isUpgraded; // bool checking if the unit is upgraded
 
     public enum archetype {Attacker, Tank, Assassin, Support};
     public archetype type;
     
 
-    private TeamManager teamManager;
-    private GameManager gameManager;
-    private InventoryManager inventoryManager;
+    [HideInInspector] public TeamManager teamManager;
+    [HideInInspector] public GameManager gameManager;
+    [HideInInspector] public InventoryManager inventoryManager;
     
     public bool isOnYourTeam; // bool tracking if unit is on your team
     public bool isDead; // bool tracking if the unit is dead
@@ -35,7 +35,7 @@ public class Character : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         teamManager = GameObject.FindGameObjectWithTag("TeamManager").GetComponent<TeamManager>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -43,7 +43,7 @@ public class Character : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (!isDead && gameManager.fightRunning)
         {
@@ -82,7 +82,7 @@ public class Character : MonoBehaviour
     }
 
     #region target selection
-    public void FindAggroTarget()
+    public virtual void FindAggroTarget()
     {
         // run through all enemies that are !isDead, assign the closest one to aggroTarget
         switch (isOnYourTeam)
@@ -132,7 +132,7 @@ public class Character : MonoBehaviour
     #endregion
     
     #region attack behaviour
-    public bool TargetInRange(Character target)
+    public virtual bool TargetInRange(Character target)
     {
         // check if target is in range, return accordingly
         Vector3 targetVector = target.transform.position - transform.position;
@@ -142,27 +142,21 @@ public class Character : MonoBehaviour
         return false;
     }
 
-    private void Attack()
+    public virtual void Attack()
     {
         StartCoroutine(FakeAttackAnimation(.2f));
         // deal damage to the target mitigated by defense
-        if (attackDamage > aggroTarget.defense)
+        if (aggroTarget.Damage(attackDamage - aggroTarget.defense))
         {
-            if (aggroTarget.Damage(attackDamage - aggroTarget.defense))
+            // upgrade would go here, the following is placeholder
+            if (!isUpgraded)
             {
-                // upgrade would go here, the following is placeholder
-                if (!isUpgraded)
-                {
-                    isUpgraded = true;
-                    transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
-                    attackDamage = attackDamage * 1.2f;
-                    attackCooldown = attackCooldown * .8f;
-                }
+                Upgrade();
             }
         }
     }
 
-    IEnumerator FakeAttackAnimation(float animationLength)
+    public virtual IEnumerator FakeAttackAnimation(float animationLength)
     {
         Vector3 direction = transform.forward * .3f;
         transform.LeanMove(transform.position - direction, animationLength/2);
@@ -170,7 +164,15 @@ public class Character : MonoBehaviour
         transform.LeanMove(transform.position + direction, animationLength/2);
     }
 
-    public bool Damage(float amount)
+    public virtual void Upgrade()
+    {
+        isUpgraded = true;
+        transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
+        attackDamage = attackDamage * 1.2f;
+        attackCooldown = attackCooldown * .8f;
+    }
+
+    public virtual bool Damage(float amount)
     {
         if (amount < 0)
             amount = 0;
@@ -266,13 +268,14 @@ public class Character : MonoBehaviour
     #endregion
 
     #region movement
-    private void Move()
+
+    protected void Move()
     {
         transform.Translate(Vector3.forward*(Time.deltaTime*movementSpeed));
         healthBar.transform.parent.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1.5f, 0));
     }
 
-    private void Rotate()
+    protected void Rotate()
     {
         // check current rotation against the rotation of the target vector, correct as needed
         Vector3 targetVector = (aggroTarget.transform.position - transform.position).normalized;
@@ -287,7 +290,7 @@ public class Character : MonoBehaviour
     #endregion
 
     #region post-game
-    IEnumerator Celebrate()
+    public virtual IEnumerator Celebrate()
     {
         yield return new WaitForSeconds(Random.Range(0,.4f));
         transform.LeanMove(transform.position + new Vector3(0, 2, 0), 0.2f);
