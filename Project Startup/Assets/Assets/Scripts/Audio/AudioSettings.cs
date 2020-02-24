@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AudioSettings : MonoBehaviour
@@ -13,10 +14,10 @@ public class AudioSettings : MonoBehaviour
     public Slider sfxVolumeSlider;
     public Toggle muteToggle;
     
-    public bool muted;
-    public float musicVolume = 0.0f;
-    public float currentSfxVolume = 0.0f;
-    
+    [HideInInspector] public bool muted;
+    [HideInInspector] public float musicVolume = 0.0f;
+    [HideInInspector] public float currentSfxVolume = 0.0f;
+
     private void Start()
     {
         LoadSettings();
@@ -79,21 +80,21 @@ public class AudioSettings : MonoBehaviour
     private void LoadSettings()
     {
         // Load the previous audio level, and set the saved level on in the music mixer
-        musicVolume = PlayerPrefs.GetFloat("MusicVol");
+        musicVolume = PlayerPrefs.GetFloat("MusicVol", 0.0f);
         musicMixer.SetFloat("MusicVolume", musicVolume);
-        volumeSlider.value = PlayerPrefs.GetFloat("SliderPos");
+        volumeSlider.value = PlayerPrefs.GetFloat("SliderPos", 1.0f);
         
-        currentSfxVolume = PlayerPrefs.GetFloat("SFXVol");
+        currentSfxVolume = PlayerPrefs.GetFloat("SFXVol", 0.0f);
         musicMixer.SetFloat("SFXVolume", currentSfxVolume);
-        sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXSliderPos");
+        sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXSliderPos", 1.0f);
         
         
         // Load whether it was muted bool
-        if (PlayerPrefs.GetInt("MutedBool") == 0)
+        if (PlayerPrefs.GetInt("MutedBool", 0) == 0)
         {
             muted = false;
             muteToggle.isOn = false;
-        } else if (PlayerPrefs.GetInt("MutedBool") == 1) 
+        } else if (PlayerPrefs.GetInt("MutedBool", 0) == 1) 
         {
             muted = true;
             muteToggle.isOn = true;
