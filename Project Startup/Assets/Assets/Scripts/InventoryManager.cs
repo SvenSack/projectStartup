@@ -79,7 +79,6 @@ public class InventoryManager : MonoBehaviour
         card.transform.SetParent(inventoryBoard, true);
         return card;
     }
-
     private int SortUnitByCharacterArchetype(GameObject c1, GameObject c2)
     {
         int val = c1.GetComponent<Character>().type.CompareTo(c2.GetComponent<Character>().type);
