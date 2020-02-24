@@ -44,6 +44,8 @@ public class InventoryManager : MonoBehaviour
         return character;
     }
 
+    #region Setup
+
     private void DebugPopulate(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -74,6 +76,10 @@ public class InventoryManager : MonoBehaviour
         return card;
     }
 
+    #endregion
+
+    #region Inventory Manipulation
+
     public GameObject TakeFromInventory(GameObject target)
     {
         int index = target.GetComponent<InventCharButton>().charIndex;
@@ -102,6 +108,8 @@ public class InventoryManager : MonoBehaviour
         Destroy(target);
     }
 
+    #endregion
+
     private int FetchCardIndex(GameObject cardObject)
     {
         for (int i = 0; i < inventoryCards.Count; i++)
@@ -114,6 +122,8 @@ public class InventoryManager : MonoBehaviour
 
         return inventoryCards.Count + 1;
     }
+
+    #region Toggle Inventory Details
 
     public void ToggleInventoryDetails(GameObject target)
     {
@@ -174,5 +184,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }
 

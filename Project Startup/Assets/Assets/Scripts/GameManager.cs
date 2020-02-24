@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour
         
     }
 
+    #region Start Fight
+
     public void StartFight()
     {
         fightRunning = true;
@@ -139,6 +141,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
+    #region Unit placement and Inventory
 
     public void ToggleInventory()
     {
@@ -235,97 +241,97 @@ public class GameManager : MonoBehaviour
     private void UnitRelease(Vector3 target)
     {
         RaycastHit hit; 
-                Ray ray = Camera.main.ScreenPointToRay(target);
-                if (Physics.Raycast(ray, out hit, 100.0f, castMask))
+        Ray ray = Camera.main.ScreenPointToRay(target);
+        if (Physics.Raycast(ray, out hit, 100.0f, castMask))
+        {
+            if (fromTile)
+            {
+                Tile targetTile = hit.transform.gameObject.GetComponent<Tile>();
+                if (targetTile.UnitPlace(originTile.heldUnit, originTile) != true)
                 {
-                    if (fromTile)
-                    {
-                        Tile targetTile = hit.transform.gameObject.GetComponent<Tile>();
-                        if (targetTile.UnitPlace(originTile.heldUnit, originTile) != true)
-                        {
-                            // snap unit back
-                            DropUnit();
-                        }
-                        else
-                        {
-                            holdingUnit = false;
-                            fromTile = false;
-                        }
-                    }
-                    else if (!fromTile && holdingUnit)
-                    {
-                        Tile targetTile = hit.transform.gameObject.GetComponent<Tile>();
-                        if (targetTile.heldUnit != null && targetTile.isYours)
-                        {
-                            // swap unit with held unit
-                            inventoryManager.AddInventoryCard(targetTile.heldUnit.instanceNumber);
-                            inventoryManager.inventory.Add(inventoryManager.possibleCharacters[targetTile.heldUnit.instanceNumber]);
-                            teamManager.Remove(targetTile.heldUnit.gameObject);
-                            Destroy(targetTile.heldUnit.gameObject);
-                            teamManager.Add(heldUnit);
-                            targetTile.heldUnit = heldUnit;
-                            targetTile.CenterUnit();
-                            holdingUnit = false;
-                            heldUnit = null;
-                        }
-                        else if (teamManager.CheckSpot())
-                        {
-                            // place unit
-                            if (targetTile.UnitPlace(heldUnit) != true)
-                            {
-                                // snap unit back into inventory
-                                DropInventoryUnit();
-                            }
-                            else
-                            {
-                                teamManager.Add(heldUnit);
-                                holdingUnit = false;
-                                heldUnit = null;
-                            }
-                        }
-                        else
-                        {
-                            // snap unit back into inventory and give feedback that team is full
-                            DropInventoryUnit();
-                        }
-                    }
+                    // snap unit back
+                    DropUnit();
                 }
-                List<RaycastResult> castHits = new List<RaycastResult>();
-                PointerEventData eventPoint = new PointerEventData(eventSystem);
-                eventPoint.position = target;
-                gRayCaster.Raycast(eventPoint, castHits);
-                if (castHits.Count > 0)
+                else
                 {
-                    for (int i = 0; i < castHits.Count; i++)
+                    holdingUnit = false;
+                    fromTile = false;
+                }
+            }
+            else if (!fromTile && holdingUnit)
+            {
+                Tile targetTile = hit.transform.gameObject.GetComponent<Tile>();
+                if (targetTile.heldUnit != null && targetTile.isYours)
+                {
+                    // swap unit with held unit
+                    inventoryManager.AddInventoryCard(targetTile.heldUnit.instanceNumber);
+                    inventoryManager.inventory.Add(inventoryManager.possibleCharacters[targetTile.heldUnit.instanceNumber]);
+                    teamManager.Remove(targetTile.heldUnit.gameObject);
+                    Destroy(targetTile.heldUnit.gameObject);
+                    teamManager.Add(heldUnit);
+                    targetTile.heldUnit = heldUnit;
+                    targetTile.CenterUnit();
+                    holdingUnit = false;
+                    heldUnit = null;
+                }
+                else if (teamManager.CheckSpot())
+                {
+                    // place unit
+                    if (targetTile.UnitPlace(heldUnit) != true)
                     {
-                        if (castHits[i].gameObject.CompareTag("InventoryBoard"))
-                        {
-                            // place into inventory, remove from board list
-                            if (originTile != null)
-                            {
-                                inventoryManager.AddInventoryCard(originTile.heldUnit.instanceNumber);
-                                teamManager.Remove(originTile.heldUnit.gameObject);
-                                inventoryManager.inventory.Add(inventoryManager.possibleCharacters[originTile.heldUnit.instanceNumber]);
-                                Destroy(originTile.heldUnit.gameObject);
-                                originTile.heldUnit = null;
-                                originTile = null;
-                                fromTile = false;
-                                holdingUnit = false;
-                            }
-                            else
-                            {
-                                DropInventoryUnit();
-                            }
-                        }
+                        // snap unit back into inventory
+                        DropInventoryUnit();
+                    }
+                    else
+                    {
+                        teamManager.Add(heldUnit);
+                        holdingUnit = false;
+                        heldUnit = null;
                     }
                 }
                 else
                 {
-                    if(fromTile)
-                        DropUnit();
-                    else if(heldUnit != null)
-                        DropInventoryUnit();
+                    // snap unit back into inventory and give feedback that team is full
+                    DropInventoryUnit();
                 }
+            }
+        }
+        List<RaycastResult> castHits = new List<RaycastResult>();
+        PointerEventData eventPoint = new PointerEventData(eventSystem);
+        eventPoint.position = target;
+        gRayCaster.Raycast(eventPoint, castHits);
+        if (castHits.Count > 0)
+        {
+            for (int i = 0; i < castHits.Count; i++)
+            {
+                if (castHits[i].gameObject.CompareTag("InventoryBoard"))
+                {
+                    // place into inventory, remove from board list
+                    if (originTile != null)
+                    {
+                        inventoryManager.AddInventoryCard(originTile.heldUnit.instanceNumber);
+                        teamManager.Remove(originTile.heldUnit.gameObject);
+                        inventoryManager.inventory.Add(inventoryManager.possibleCharacters[originTile.heldUnit.instanceNumber]);
+                        Destroy(originTile.heldUnit.gameObject);
+                        originTile.heldUnit = null;
+                        originTile = null;
+                        fromTile = false;
+                        holdingUnit = false;
+                    }
+                    else
+                    {
+                        DropInventoryUnit();
+                    }
+                }
+            }
+        }
+        else
+        {
+            if(fromTile)
+                DropUnit();
+            else if(heldUnit != null)
+                DropInventoryUnit();
+        }
     }
 
     IEnumerator waitToConfirmDrag(float waitTime, Vector3 pointerPosition)
@@ -357,6 +363,10 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
+    #region Post Combat
 
     public void FightOver(bool youWon)
     {
@@ -398,4 +408,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }

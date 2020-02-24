@@ -3448,32 +3448,32 @@ PrefabInstance:
         type: 3}
       propertyPath: yourTeam.Array.data[0]
       value: 
-      objectReference: {fileID: 299279975}
+      objectReference: {fileID: 0}
     - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
         type: 3}
       propertyPath: yourTeam.Array.data[1]
       value: 
-      objectReference: {fileID: 1263382122}
+      objectReference: {fileID: 0}
     - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
         type: 3}
       propertyPath: yourTeam.Array.data[2]
       value: 
-      objectReference: {fileID: 211721665}
+      objectReference: {fileID: 0}
     - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
         type: 3}
       propertyPath: enemyTeam.Array.data[0]
       value: 
-      objectReference: {fileID: 1981114948}
+      objectReference: {fileID: 0}
     - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
         type: 3}
       propertyPath: enemyTeam.Array.data[1]
       value: 
-      objectReference: {fileID: 159452761}
+      objectReference: {fileID: 0}
     - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
         type: 3}
       propertyPath: enemyTeam.Array.data[2]
       value: 
-      objectReference: {fileID: 1181814281}
+      objectReference: {fileID: 0}
     - target: {fileID: 6013725484361028145, guid: a584777da2801e44f91f2bee98b03ba4,
         type: 3}
       propertyPath: m_Name
