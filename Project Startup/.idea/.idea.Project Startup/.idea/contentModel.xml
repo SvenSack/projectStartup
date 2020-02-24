@@ -10,6 +10,14 @@
         <e p="Assets" t="Include">
           <e p="Scripts" t="Include">
             <e p="Character.cs" t="Include" />
+            <e p="Characters" t="Include">
+              <e p="Friend.cs" t="Include" />
+              <e p="Fronpy.cs" t="Include" />
+              <e p="Larry.cs" t="Include" />
+              <e p="Mighteus.cs" t="Include" />
+              <e p="Sacerdote.cs" t="Include" />
+              <e p="Swiper.cs" t="Include" />
+            </e>
             <e p="Editor" t="Include">
               <e p="GameManagerEditor.cs" t="Include" />
             </e>
