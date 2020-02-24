@@ -4,7 +4,14 @@
     <list default="true" id="e8b40931-8d98-4109-9be8-5040f3a290e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project Startup/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project Startup/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Project Startup/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Project Startup/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/AudioSFX/Main_Track-intro-punchywarmth.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/AudioSFX/Main_Track-intro-punchywarmth.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/AudioSFX/Main_Track-loop-punchywarmth.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/AudioSFX/Main_Track-loop-punchywarmth.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/AudioSFX/MusicManager.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/AudioSFX/MusicManager.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Prefabs/InventoryElement.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Prefabs/InventoryElement.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/MusicManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/MusicManager.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +31,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/Character.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/Audio/ChangingMusic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Assets/Prefabs/InventoryElement.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/InventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -40,8 +49,9 @@
         <option value="$PROJECT_DIR$/Assets/Assets/Scripts/InventoryManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Assets/Scripts/InventCharButton.cs" />
-        <option value="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/MusicManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/AudioSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/MusicManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Assets/Scripts/Audio/ChangingMusic.cs" />
       </list>
     </option>
   </component>
@@ -62,6 +72,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -114,6 +125,7 @@
       <workItem from="1582444568936" duration="2580000" />
       <workItem from="1582448681561" duration="1957000" />
       <workItem from="1582543348760" duration="794000" />
+      <workItem from="1582548397466" duration="6988000" />
     </task>
     <servers />
   </component>

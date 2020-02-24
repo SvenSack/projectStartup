@@ -7,7 +7,7 @@ public class MusicManager : MonoBehaviour
 { 
     public AudioSource introMusic; 
     public AudioSource loopMusic; 
-    private bool _startedLoop;
+    private bool startedLoop;
 
     private void Awake()
     {
@@ -18,11 +18,11 @@ public class MusicManager : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (!introMusic.isPlaying && !_startedLoop)
+        if (!introMusic.isPlaying && !startedLoop)
         {
             loopMusic.Play();
             Debug.Log("Done playing");
-            _startedLoop = true;
+            startedLoop = true;
         }
     }
 }
