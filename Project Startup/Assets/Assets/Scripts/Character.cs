@@ -27,7 +27,7 @@ public class Character : MonoBehaviour
     public bool isDead; // bool tracking if the unit is dead
     public Character aggroTarget; // the unit that the character is currently aggroing on
 
-    public Slider healthBar;
+    [HideInInspector] public Slider healthBar;
 
 
     // Start is called before the first frame update

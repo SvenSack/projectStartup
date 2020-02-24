@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class TeamManager : MonoBehaviour
 {
-    public Character[] yourTeam = new Character[3]; // your currently placed units
-    public Character[] enemyTeam = new Character[3]; // the units on the enemy team
+    [HideInInspector] public Character[] yourTeam = new Character[3]; // your currently placed units
+    [HideInInspector] public Character[] enemyTeam = new Character[3]; // the units on the enemy team
     // Start is called before the first frame update
     void Start()
     {
         // get all characters, sort them into the teams according to their isOnYourTeam
+        Character[] characters = gameObject.GetComponents<Character>();
+        foreach (var character in characters)
+        {
+            if(character.isOnYourTeam)
+                Add(character, false);
+            else
+                Add(character, true);
+        }
     }
 
     // Update is called once per frame

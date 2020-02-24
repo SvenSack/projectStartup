@@ -8,10 +8,12 @@ using Slider = UnityEngine.UI.Slider;
 
 public class GameManager : MonoBehaviour
 {
-    public bool fightRunning; // bool tracking if the fight is currently running
-    public bool endScreen; // bool tracking if you are currently on the end screen
+    [HideInInspector] public bool fightRunning; // bool tracking if the fight is currently running
+    [HideInInspector] public bool endScreen; // bool tracking if you are currently on the end screen
     public TeamManager teamManager;
     public InventoryManager inventoryManager;
+
+    public bool notSetup = true; // bool checking if the element has been setup properly
 
     private int castMask; // the mask for the tile raycast
     private int floorMask; // the mask for the floor raycast (for the mouse follow)
@@ -27,9 +29,11 @@ public class GameManager : MonoBehaviour
     public GraphicRaycaster gRayCaster;
     public EventSystem eventSystem;
 
-    public bool inventoryOpen; // bool tracking if the inventory is open
+    [HideInInspector] public bool inventoryOpen; // bool tracking if the inventory is open
     public Transform inventoryButton; // the inventory open/close button
     public InventoryHover inventoryHover;
+
+    public Transform tileBoard; // the tileboard (the group with all the tiles)
 
     private bool checkingDrag; // bool tracking if you are currently waiting for a drag check
     private Coroutine dragCheck;
@@ -93,6 +97,7 @@ public class GameManager : MonoBehaviour
         fightRunning = true;
         hideInFight.SetActive(false);
         showInFight.SetActive(true);
+        tileBoard.LeanMove(transform.position - new Vector3(0, .2f, 0), 1f);
         Slider[] healthbars = showInFight.transform.GetChild(0).gameObject.GetComponentsInChildren<Slider>();
         for (int i = 0; i < healthbars.Length; i++)
         {
@@ -375,6 +380,7 @@ public class GameManager : MonoBehaviour
         endScreen = false;
         showOnDefeat.SetActive(false);
         hideInFight.SetActive(true);
+        tileBoard.position -= new Vector3(0,.2f,0);
         Tile[] tiles = GameObject.FindGameObjectWithTag("TileBoard").GetComponentsInChildren<Tile>();
         teamManager.yourTeam = new Character[3];
         teamManager.enemyTeam = new Character[3];

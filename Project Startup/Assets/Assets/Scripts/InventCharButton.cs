@@ -9,7 +9,7 @@ public class InventCharButton : MonoBehaviour
     private string name = "Please Senpai, I want a name UwU"; // the name on the card
     public int charIndex; // the characters possible unit index
     private Sprite image; // the picture on the card
-    public bool showDetails; // bool tracking if the card is in extended detail mode
+    [HideInInspector] public bool showDetails; // bool tracking if the card is in extended detail mode
 
     private RectTransform backDrop;
     private GameObject stats;
