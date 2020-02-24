@@ -355,6 +355,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 6294812898519355494}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &267973606 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 803880387790480432, guid: 08409026d8cad134abbe755947f0ea73,
+    type: 3}
+  m_PrefabInstance: {fileID: 803880389074841254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &299279975 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8662117935870431209, guid: 4e883a4b31c7d3147b16df765772f114,
@@ -3300,6 +3306,11 @@ PrefabInstance:
       propertyPath: inventoryHover
       value: 
       objectReference: {fileID: 118904265}
+    - target: {fileID: 3605191596434338038, guid: d5613eff577def74a953d61e27829040,
+        type: 3}
+      propertyPath: tileBoard
+      value: 
+      objectReference: {fileID: 267973606}
     - target: {fileID: 3605191596434338039, guid: d5613eff577def74a953d61e27829040,
         type: 3}
       propertyPath: m_LocalPosition.x

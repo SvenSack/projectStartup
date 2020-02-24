@@ -6,28 +6,28 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
-    [Range(1.0f, 10.0f)] public float range = 1.0f;
-    [Range(1.0f, 10.0f)] public float movementSpeed = 1.0f;
-    [Range(1.0f, 100.0f)] public float health = 1.0f;
-    [Range(1.0f, 10.0f)] public float attackDamage = 1.0f;
-    [Range(0.1f, 4.0f)] public float attackCooldown = 1.0f;
-    [Range(1.0f, 10.0f)] public float defense = 1.0f;
-    public string name = "Sven, greatest of all Programmers";
-    public Sprite profilePic;
-    public int instanceNumber;
-    private bool fighting;
-    private float attackCooldownValue;
-    private bool isUpgraded;
+    [Range(1.0f, 10.0f)] public float range = 1.0f; // the characters range
+    [Range(1.0f, 10.0f)] public float movementSpeed = 1.0f; // the characters move speed
+    [Range(1.0f, 100.0f)] public float health = 1.0f; // the characters health
+    [Range(1.0f, 10.0f)] public float attackDamage = 1.0f; // the characters damage
+    [Range(0.1f, 4.0f)] public float attackCooldown = 1.0f; // the characters attack cd (basically attackspeed reversed)
+    [Range(1.0f, 10.0f)] public float defense = 1.0f; // the characters defense
+    public string name = "Sven, greatest of all Programmers"; // the characters name
+    public Sprite profilePic; // the characters inventory picture
+    public int instanceNumber; // the characters possible unit index
+    private bool fighting; // bool checking if the unit is fighting at the moment
+    private float attackCooldownValue; // value tracking the time since last attack
+    private bool isUpgraded; // bool checking if the unit is upgraded
 
     private TeamManager teamManager;
     private GameManager gameManager;
     private InventoryManager inventoryManager;
     
-    public bool isOnYourTeam;
-    public bool isDead;
-    public Character aggroTarget;
+    public bool isOnYourTeam; // bool tracking if unit is on your team
+    public bool isDead; // bool tracking if the unit is dead
+    public Character aggroTarget; // the unit that the character is currently aggroing on
 
-    public Slider healthBar;
+    [HideInInspector] public Slider healthBar;
 
 
     // Start is called before the first frame update

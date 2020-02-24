@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class InventoryHover : MonoBehaviour, IPointerExitHandler
 {
-    public bool isHolding;
-    public GameObject heldObject;
+    [HideInInspector] public bool isHolding; // bool tracking if the player is currently dragging a unit-card
+    [HideInInspector] public GameObject heldObject; // the unit card being held
     private GameManager gameManager;
     
     // Start is called before the first frame update

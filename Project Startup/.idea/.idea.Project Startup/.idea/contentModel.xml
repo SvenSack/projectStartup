@@ -14,6 +14,9 @@
               <e p="MusicManager.cs" t="Include" />
             </e>
             <e p="Character.cs" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="GameManagerEditor.cs" t="Include" />
+            </e>
             <e p="GameManager.cs" t="Include" />
             <e p="InventCharButton.cs" t="Include" />
             <e p="InventoryHover.cs" t="Include" />
