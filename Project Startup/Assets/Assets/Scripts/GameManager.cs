@@ -8,30 +8,30 @@ using Slider = UnityEngine.UI.Slider;
 
 public class GameManager : MonoBehaviour
 {
-    public bool fightRunning;
-    public bool endScreen;
+    public bool fightRunning; // bool tracking if the fight is currently running
+    public bool endScreen; // bool tracking if you are currently on the end screen
     public TeamManager teamManager;
     public InventoryManager inventoryManager;
 
-    private int castMask;
-    private int floorMask;
+    private int castMask; // the mask for the tile raycast
+    private int floorMask; // the mask for the floor raycast (for the mouse follow)
 
-    private Tile originTile;
-    private bool fromTile;
-    private bool holdingUnit;
-    private Character heldUnit;
-    private GameObject hideInFight;
-    private GameObject showInFight;
-    private GameObject showOnVictory;
-    private GameObject showOnDefeat;
+    private Tile originTile; // the tile the unit you are holding came from
+    private bool fromTile; // bool tracking if the unit is from a tile
+    private bool holdingUnit; // bool tracking if you are currently holding a unit
+    private Character heldUnit; // the unit you are currently holding (only from inventory)
+    private GameObject hideInFight; // the UI for the pre-fight setup
+    private GameObject showInFight; // the UI for the combat
+    private GameObject showOnVictory; // the UI for the victory screen
+    private GameObject showOnDefeat; // the UI for the defeat screen
     public GraphicRaycaster gRayCaster;
     public EventSystem eventSystem;
 
-    public bool inventoryOpen;
-    public Transform inventoryButton;
+    public bool inventoryOpen; // bool tracking if the inventory is open
+    public Transform inventoryButton; // the inventory open/close button
     public InventoryHover inventoryHover;
 
-    private bool checkingDrag;
+    private bool checkingDrag; // bool tracking if you are currently waiting for a drag check
     private Coroutine dragCheck;
     
     // Start is called before the first frame update

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<GameObject> inventory = new List<GameObject>();
-    public GameObject[] possibleCharacters = new GameObject[6];
-    public GameObject inventoryCard;
+    public List<GameObject> inventory = new List<GameObject>(); // the inventory of units
+    public GameObject[] possibleCharacters = new GameObject[6]; // the list of possible units
+    public GameObject inventoryCard; // the blueprint for each inventorycard
 
-    public int debugInventorySize = 1;
-    public bool debugPopulate;
+    public int debugInventorySize = 1; // the size of the testing inventory
+    public bool debugPopulate; // bool checking if you are currently using the testing inventory
     
-    private List<GameObject> inventoryCards = new List<GameObject>();
+    private List<GameObject> inventoryCards = new List<GameObject>(); // the list of current inventorycards
 
     private Transform inventoryBoard;
     private Transform inventoryCardPlacer;

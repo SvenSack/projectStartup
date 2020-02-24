@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TeamManager : MonoBehaviour
 {
-    public Character[] yourTeam = new Character[3];
-    public Character[] enemyTeam = new Character[3];
+    public Character[] yourTeam = new Character[3]; // your currently placed units
+    public Character[] enemyTeam = new Character[3]; // the units on the enemy team
     // Start is called before the first frame update
     void Start()
     {

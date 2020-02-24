@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public bool isYours;
-    public Character heldUnit;
+    public bool isYours; // bool tracking if the tile is yours
+    public Character heldUnit; // the character on the tile, null if empty
 
-    private GameManager gameManager;
-    private TeamManager teamManager;
-    private Transform placementSpot;
+    private Transform placementSpot; // the location where placed units go
     
     // Start is called before the first frame update
     void Start()
     {
-        teamManager = GameObject.FindGameObjectWithTag("TeamManager").GetComponent<TeamManager>();
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         placementSpot = transform.GetChild(0).GetChild(0);
         CenterUnit();
     }
