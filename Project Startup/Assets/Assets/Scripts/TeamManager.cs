@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TeamManager : MonoBehaviour
 {
-    [HideInInspector] public Character[] yourTeam = new Character[3]; // your currently placed units
+    /*[HideInInspector]*/ public Character[] yourTeam = new Character[3]; // your currently placed units
     [HideInInspector] public Character[] enemyTeam = new Character[3]; // the units on the enemy team
     // Start is called before the first frame update
     void Start()
     {
         // get all characters, sort them into the teams according to their isOnYourTeam
-        Character[] characters = gameObject.GetComponents<Character>();
+        Character[] characters = FindObjectsOfType<Character>();
         foreach (var character in characters)
         {
             if(character.isOnYourTeam)

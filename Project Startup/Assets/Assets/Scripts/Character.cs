@@ -19,6 +19,10 @@ public class Character : MonoBehaviour
     private float attackCooldownValue; // value tracking the time since last attack
     private bool isUpgraded; // bool checking if the unit is upgraded
 
+    public enum archetype {Attacker, Tank, Assassin, Support};
+    public archetype type;
+    
+
     private TeamManager teamManager;
     private GameManager gameManager;
     private InventoryManager inventoryManager;
@@ -77,6 +81,7 @@ public class Character : MonoBehaviour
         }
     }
 
+    #region target selection
     public void FindAggroTarget()
     {
         // run through all enemies that are !isDead, assign the closest one to aggroTarget
@@ -123,7 +128,10 @@ public class Character : MonoBehaviour
                 break;
         }
     }
-
+    
+    #endregion
+    
+    #region attack behaviour
     public bool TargetInRange(Character target)
     {
         // check if target is in range, return accordingly
@@ -178,7 +186,9 @@ public class Character : MonoBehaviour
             return true;
         }
     }
+    #endregion
 
+    #region death
     private void Die()
     {
         // check if all on my team are dead, if yes, finish game
@@ -253,7 +263,9 @@ public class Character : MonoBehaviour
                 break;
         }
     }
+    #endregion
 
+    #region movement
     private void Move()
     {
         transform.Translate(Vector3.forward*(Time.deltaTime*movementSpeed));
@@ -272,7 +284,9 @@ public class Character : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(targetVector), Time.deltaTime * 5.0f);
         }
     }
+    #endregion
 
+    #region post-game
     IEnumerator Celebrate()
     {
         yield return new WaitForSeconds(Random.Range(0,.4f));
@@ -288,4 +302,6 @@ public class Character : MonoBehaviour
     {
         StartCoroutine(Celebrate());
     }
+    
+    #endregion
 }

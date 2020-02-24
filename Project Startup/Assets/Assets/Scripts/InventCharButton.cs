@@ -37,12 +37,12 @@ public class InventCharButton : MonoBehaviour
         
     }
 
-    public void Set(string nam, int index, Sprite img)
+    public void Set(string nam, int index, Sprite img, Character.archetype archetype)
     {
         name = nam;
         charIndex = index;
         image = img;
-        ApplyData();
+        ApplyData(archetype);
     }
 
     public bool ToggleDetails()
@@ -64,7 +64,7 @@ public class InventCharButton : MonoBehaviour
         }
     }
 
-    private void ApplyData()
+    private void ApplyData(Character.archetype archetype)
     {
         TextMeshProUGUI tmp = transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
         tmp.text = name;
@@ -72,6 +72,23 @@ public class InventCharButton : MonoBehaviour
         {
             tmp.fontSize -= 2;
         }
-        transform.GetChild(0).GetChild(1).gameObject.GetComponent<Image>().sprite = image;
+        Image img = transform.GetChild(0).GetChild(1).gameObject.GetComponent<Image>();
+        img.sprite = image;
+        Image imgb = img.transform.parent.GetComponent<Image>();
+        switch (archetype)
+        {
+            case Character.archetype.Attacker:
+                imgb.color = new Color(0.7924528f, 0.1831613f, 0.2159052f);
+                break;
+            case Character.archetype.Tank:
+                imgb.color = new Color(0.4298683f, 0.6714197f, 0.7924528f);
+                break;
+            case Character.archetype.Assassin:
+                imgb.color = new Color(0.5283019f, 0.2815949f, 0.4347313f);
+                break;
+            case Character.archetype.Support:
+                imgb.color = new Color(0.3177287f, 0.7924528f, 0.4481168f);
+                break;
+        }
     }
 }
