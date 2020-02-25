@@ -15,8 +15,8 @@ MonoBehaviour:
   range: 2
   movementSpeed: 5
   health: 70
-  attackDamage: 4.5
-  attackCooldown: 0.25
+  attackDamage: 5
+  attackCooldown: 0.45
   defense: 1
   name: Jeremy
   profilePic: {fileID: 21300000, guid: 43ad49a66f345144db6f42caadbb89a8, type: 3}
