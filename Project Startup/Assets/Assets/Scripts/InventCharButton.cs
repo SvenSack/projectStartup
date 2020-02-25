@@ -37,12 +37,22 @@ public class InventCharButton : MonoBehaviour
         
     }
 
-    public void Set(string nam, int index, Sprite img, Character.archetype archetype)
+    public void Set(string nam, int index, Sprite img, Character.archetype archetype, string ability)
     {
         name = nam;
         charIndex = index;
         image = img;
         ApplyData(archetype);
+        TextMeshProUGUI[] possible = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
+        foreach (var element in possible)
+        {
+            if (element.gameObject.CompareTag("AbilityExplanation"))
+            {
+                element.text = "<b>Ability:</b> " + ability;
+                break;
+            }
+        }
+        
     }
 
     public bool ToggleDetails()
@@ -51,7 +61,7 @@ public class InventCharButton : MonoBehaviour
         if (showDetails)
         {
             // show the additional stats
-            backDrop.LeanSize(new Vector2(200, 50), .2f);
+            backDrop.LeanSize(new Vector2(200, 75), .2f);
             stats.SetActive(true);
             return true;
         }

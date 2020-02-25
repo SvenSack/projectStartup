@@ -19,6 +19,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public bool fighting; // bool checking if the unit is fighting at the moment
     [HideInInspector] public float attackCooldownValue; // value tracking the time since last attack
     [HideInInspector] public bool isUpgraded; // bool checking if the unit is upgraded
+    public string ability = "Oh no, something went horribly wrong !";
 
     public enum archetype {Attacker, Tank, Assassin, Support};
     public archetype type;
