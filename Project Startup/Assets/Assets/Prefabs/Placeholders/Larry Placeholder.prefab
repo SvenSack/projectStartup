@@ -25,6 +25,8 @@ MonoBehaviour:
   attackCooldownValue: 0
   isUpgraded: 0
   type: 1
+  damageText: {fileID: 5998345046266473910, guid: 3fd5ba8274d7ab8439ec4d548329c2fb,
+    type: 3}
   teamManager: {fileID: 0}
   gameManager: {fileID: 0}
   inventoryManager: {fileID: 0}
@@ -32,6 +34,7 @@ MonoBehaviour:
   isDead: 0
   aggroTarget: {fileID: 0}
   healthBar: {fileID: 0}
+  protectioncheckCD: 0.1
 --- !u!1001 &939697894081946955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -97,7 +100,7 @@ PrefabInstance:
     - target: {fileID: 2211843184690601067, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_Name
-      value: Fluffles Variant
+      value: Larry Placeholder
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}

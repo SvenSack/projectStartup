@@ -25,6 +25,8 @@ MonoBehaviour:
   attackCooldownValue: 0
   isUpgraded: 0
   type: 1
+  damageText: {fileID: 5998345046266473910, guid: 3fd5ba8274d7ab8439ec4d548329c2fb,
+    type: 3}
   teamManager: {fileID: 0}
   gameManager: {fileID: 0}
   inventoryManager: {fileID: 0}

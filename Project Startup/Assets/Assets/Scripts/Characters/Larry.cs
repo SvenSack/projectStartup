@@ -7,7 +7,7 @@ public class Larry : Character
 {
 
     public float protectioncheckCD = 0.1f;
-    private float protCheckCurrent = 0;
+    private float protCheckCurrent = -2;
     private float oldSpeed;
     private int saves = 0;
     
@@ -100,12 +100,12 @@ public class Larry : Character
         oldSpeed = movementSpeed;
         movementSpeed = 0;
         aggroTarget = data[1];
-        transform.LeanMoveX(data[0].transform.position.x, .2f);
-        transform.LeanMoveZ(data[0].transform.position.z, .2f);
-        transform.LeanMoveY(transform.position.y + 2, .1f);
-        yield return new WaitForSeconds(.1f);
-        transform.LeanMoveY(transform.position.y - 2, .1f);
-        yield return new WaitForSeconds(.1f);
+        transform.LeanMoveX(data[0].transform.position.x, .4f);
+        transform.LeanMoveZ(data[0].transform.position.z, .4f);
+        transform.LeanMoveY(transform.position.y + 2, .2f);
+        yield return new WaitForSeconds(.2f);
+        transform.LeanMoveY(transform.position.y - 2, .2f);
+        yield return new WaitForSeconds(.2f);
         data[1].aggroTarget = this;
         movementSpeed = oldSpeed;
         transform.Translate(transform.forward*.3f);

@@ -9,6 +9,7 @@
       <e p="Assets" t="Include">
         <e p="Assets" t="Include">
           <e p="Scripts" t="Include">
+            <e p="AttackText.cs" t="Include" />
             <e p="Character.cs" t="Include" />
             <e p="Characters" t="Include">
               <e p="Friend.cs" t="Include" />
