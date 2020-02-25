@@ -1,5 +1,41 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5949848939145416135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625905170243258065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4a00f34bae84474894e48095fa843b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 1.4
+  movementSpeed: 1
+  health: 75
+  attackDamage: 6.4
+  attackCooldown: 1
+  defense: 4
+  name: Bernd
+  profilePic: {fileID: 21300000, guid: 43ad49a66f345144db6f42caadbb89a8, type: 3}
+  instanceNumber: 2
+  fighting: 0
+  attackCooldownValue: 0
+  isUpgraded: 0
+  ability: This unit heals allies for a portion of the damage it deals
+  type: 3
+  damageText: {fileID: 5998345046266473910, guid: 3fd5ba8274d7ab8439ec4d548329c2fb,
+    type: 3}
+  teamManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
+  isOnYourTeam: 0
+  isDead: 0
+  aggroTarget: {fileID: 0}
+  healthBar: {fileID: 0}
+  healRadius: 0
 --- !u!1001 &586149146600676026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,7 +101,7 @@ PrefabInstance:
     - target: {fileID: 2211843184690601067, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_Name
-      value: Bernd Variant
+      value: Sacerdote Placeholder
       objectReference: {fileID: 0}
     - target: {fileID: 2211843185171909659, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -128,5 +164,12 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 1.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}
+--- !u!1 &1625905170243258065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2211843184690601067, guid: 4cf03638832e8fa4f9140621fb57dd82,
+    type: 3}
+  m_PrefabInstance: {fileID: 586149146600676026}
+  m_PrefabAsset: {fileID: 0}

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,9 +19,11 @@ public class Character : MonoBehaviour
     [HideInInspector] public bool fighting; // bool checking if the unit is fighting at the moment
     [HideInInspector] public float attackCooldownValue; // value tracking the time since last attack
     [HideInInspector] public bool isUpgraded; // bool checking if the unit is upgraded
+    public string ability = "Oh no, something went horribly wrong !";
 
     public enum archetype {Attacker, Tank, Assassin, Support};
     public archetype type;
+    public GameObject damageText;
     
 
     [HideInInspector] public TeamManager teamManager;
@@ -179,6 +182,20 @@ public class Character : MonoBehaviour
         health -= amount;
         if (health > 0)
         {
+            GameObject newDamage = Instantiate(damageText,  Camera.main.WorldToScreenPoint(transform.position + new Vector3(Random.Range(-.5f,.5f),
+                                                                                               1, 0)), Quaternion.identity, FindObjectOfType<Canvas>().transform);
+            TextMeshProUGUI textMesh = newDamage.GetComponent<TextMeshProUGUI>();
+            AttackText newText = newDamage.GetComponent<AttackText>();
+            if (amount > 0)
+            {
+                textMesh.text = Mathf.RoundToInt(amount*10) + " !";
+                textMesh.color = new Color(0.7924528f, 0.1831613f, 0.2159052f);
+                newText.baseColor = new Color(0.7924528f, 0.1831613f, 0.2159052f);
+            }
+            else
+            {
+                textMesh.text = "Blocked !";
+            }
             healthBar.value = health;
             return false;
         }
@@ -307,4 +324,17 @@ public class Character : MonoBehaviour
     }
     
     #endregion
+
+    public void Heal(float amount)
+    {
+        GameObject newDamage = Instantiate(damageText,  Camera.main.WorldToScreenPoint(transform.position + new Vector3(Random.Range(-.5f,.5f),
+                                                                                           1, 0)), Quaternion.identity, FindObjectOfType<Canvas>().transform);
+        TextMeshProUGUI textMesh = newDamage.GetComponent<TextMeshProUGUI>();
+        AttackText newText = newDamage.GetComponent<AttackText>();
+        textMesh.text = Mathf.RoundToInt(amount*10) + " !";
+        textMesh.color = new Color(0.3177287f, 0.7924528f, 0.4481168f);
+        newText.baseColor = new Color(0.3177287f, 0.7924528f, 0.4481168f);
+        health += amount;
+        healthBar.value = health;
+    }
 }

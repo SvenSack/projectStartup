@@ -8,26 +8,6 @@ public class Friend : Character
     private int hugs = 0;
     private bool isHugging;
     private float oldSpeed;
-    private Coroutine hugRoutine;
-
-    public override bool TargetInRange(Character target)
-    {
-        // check if target is in range, return accordingly
-        Vector3 targetVector = target.transform.position - transform.position;
-        // Debug.Log(name + "says his target is " + targetVector.magnitude + " away");
-        if (targetVector.magnitude <= range)
-        {
-            if (isHugging)
-            {
-                isHugging = false;
-                movementSpeed = oldSpeed;
-                StopCoroutine(hugRoutine);
-                aggroTarget.healthBar.transform.parent.position = Camera.main.WorldToScreenPoint(aggroTarget.transform.position + new Vector3(0, 1.5f, 0));
-            }
-            return true;
-        }
-        return false;
-    }
 
     public override void FindAggroTarget()
     {
@@ -81,7 +61,7 @@ public class Friend : Character
             isHugging = true;
             oldSpeed = movementSpeed;
             movementSpeed = 0;
-            hugRoutine = StartCoroutine(Hug());
+            StartCoroutine(Hug());
         }
     }
 
@@ -93,7 +73,11 @@ public class Friend : Character
 
     private IEnumerator Hug()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         aggroTarget.transform.LeanMove(transform.position + transform.forward * range, 0.3f);
+        yield return new WaitForSeconds(0.3f);
+        isHugging = false;
+        movementSpeed = oldSpeed;
+        aggroTarget.healthBar.transform.parent.position = Camera.main.WorldToScreenPoint(aggroTarget.transform.position + new Vector3(0, 1.5f, 0));
     }
 }

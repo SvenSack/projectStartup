@@ -99,7 +99,6 @@ public class GameManager : MonoBehaviour
         fightRunning = true;
         hideInFight.SetActive(false);
         showInFight.SetActive(true);
-        tileBoard.LeanMove(transform.position - new Vector3(0, .2f, 0), 1f);
         Slider[] healthbars = showInFight.transform.GetChild(0).gameObject.GetComponentsInChildren<Slider>();
         for (int i = 0; i < healthbars.Length; i++)
         {
@@ -387,7 +386,6 @@ public class GameManager : MonoBehaviour
         endScreen = false;
         showOnDefeat.SetActive(false);
         hideInFight.SetActive(true);
-        tileBoard.position -= new Vector3(0,.2f,0);
         Tile[] tiles = GameObject.FindGameObjectWithTag("TileBoard").GetComponentsInChildren<Tile>();
         teamManager.yourTeam = new Character[3];
         teamManager.enemyTeam = new Character[3];
