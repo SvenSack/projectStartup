@@ -307,4 +307,10 @@ public class Character : MonoBehaviour
     }
     
     #endregion
+
+    public void Heal(float amount)
+    {
+        health += amount;
+        healthBar.value = health;
+    }
 }

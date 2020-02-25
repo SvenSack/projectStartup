@@ -337,16 +337,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17396a39f808b8f46991d33446fa966d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &211721665 stripped
+--- !u!114 &249275176 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9015669432667549720, guid: 871a580c3b2afaa4483f12383f32e23b,
+  m_CorrespondingSourceObject: {fileID: 5949848939145416135, guid: 871a580c3b2afaa4483f12383f32e23b,
     type: 3}
   m_PrefabInstance: {fileID: 586149147025286473}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17396a39f808b8f46991d33446fa966d, type: 3}
+  m_Script: {fileID: 11500000, guid: e4a00f34bae84474894e48095fa843b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &257622062 stripped
@@ -2166,6 +2166,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5949848939145416135, guid: 871a580c3b2afaa4483f12383f32e23b,
+        type: 3}
+      propertyPath: isOnYourTeam
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949848939145416135, guid: 871a580c3b2afaa4483f12383f32e23b,
+        type: 3}
+      propertyPath: healRadius
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8627737336596639436, guid: 871a580c3b2afaa4483f12383f32e23b,
         type: 3}
       propertyPath: m_RootOrder
@@ -2329,7 +2339,7 @@ PrefabInstance:
         type: 3}
       propertyPath: heldUnit
       value: 
-      objectReference: {fileID: 211721665}
+      objectReference: {fileID: 249275176}
     - target: {fileID: 8911573435236580492, guid: 08409026d8cad134abbe755947f0ea73,
         type: 3}
       propertyPath: heldUnit
