@@ -109,6 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isYours: 0
   heldUnit: {fileID: 0}
+  off: {fileID: 2100000, guid: 4f9374515e1899944940eba1d92e5631, type: 2}
+  on: {fileID: 2100000, guid: 3a447e2816533134ca247f348d3910dc, type: 2}
 --- !u!1001 &7767023799287688108
 PrefabInstance:
   m_ObjectHideFlags: 0

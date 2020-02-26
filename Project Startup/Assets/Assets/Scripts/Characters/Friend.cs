@@ -59,6 +59,7 @@ public class Friend : Character
         if (hugs < 1 + Convert.ToInt32(isUpgraded))
         {
             isHugging = true;
+            hugs++;
             oldSpeed = movementSpeed;
             movementSpeed = 0;
             StartCoroutine(Hug());
@@ -69,6 +70,11 @@ public class Friend : Character
     {
         isUpgraded = true;
         transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
+        isHugging = true;
+        hugs++;
+        oldSpeed = movementSpeed;
+        movementSpeed = 0;
+        StartCoroutine(Hug());
     }
 
     private IEnumerator Hug()

@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FightScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
+  - enabled: 1
+    path: Assets/Scenes/SettingsAudio.unity
+    guid: e3677aee42dbefa4cb028a79fad6dbb8
   m_configObjects: {}

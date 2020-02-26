@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Project Startup/Assets/Assets/AudioSFX.meta
+guid: 502884f5cc122cc4aa0215f0771b6cf4
+=======
 guid: cac472a216b8ec94693e7536e6df8f8e
+>>>>>>> master:Project Startup/Assets/Assets/Prefabs/UI.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

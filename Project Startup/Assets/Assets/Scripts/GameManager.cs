@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     private bool checkingDrag; // bool tracking if you are currently waiting for a drag check
     private Coroutine dragCheck;
+
+    public GameObject music;
     
     // Start is called before the first frame update
     void Start()
@@ -144,6 +146,12 @@ public class GameManager : MonoBehaviour
                                                                                                + new Vector3(0, 1.5f, 0));
             }
         }
+
+        Tile[] checkGroup = FindObjectsOfType<Tile>();
+        foreach (var tile in checkGroup)
+        {
+            tile.GetComponent<MeshRenderer>().material = tile.myOff;
+        }
     }
 
     #endregion
@@ -212,32 +220,29 @@ public class GameManager : MonoBehaviour
                 holdingUnit = true;
             }
         }
-        else
+        List<RaycastResult> castHits = new List<RaycastResult>();
+        PointerEventData eventPoint = new PointerEventData(eventSystem);
+        eventPoint.position = target;
+        gRayCaster.Raycast(eventPoint, castHits);
+        if (castHits.Count > 0)
         {
-            List<RaycastResult> castHits = new List<RaycastResult>();
-            PointerEventData eventPoint = new PointerEventData(eventSystem);
-            eventPoint.position = target;
-            gRayCaster.Raycast(eventPoint, castHits);
-            if (castHits.Count > 0)
+            for (int i = 0; i < castHits.Count; i++)
             {
-                for (int i = 0; i < castHits.Count; i++)
+                InventCharButton element = castHits[i].gameObject.GetComponentInParent<InventCharButton>();
+                if (element != null)
                 {
-                    InventCharButton element = castHits[i].gameObject.GetComponentInParent<InventCharButton>();
-                    if (element != null)
+                    // take unit from inventory
+                    if (element.showDetails)
                     {
-                        // take unit from inventory
-                        if (element.showDetails)
-                        {
-                            inventoryManager.ToggleInventoryDetails(element.gameObject);
-                        }
-                        if (Input.mousePosition.x < Screen.width-250)
-                        {
-                            TakeUnitFromInventory(element);
-                        }
-                        else
-                            inventoryHover.HoldThis(element.gameObject);
-                        break;
+                        inventoryManager.ToggleInventoryDetails(element.gameObject);
                     }
+                    if (Input.mousePosition.x < Screen.width-250)
+                    {
+                        TakeUnitFromInventory(element);
+                    }
+                    else
+                        inventoryHover.HoldThis(element.gameObject);
+                    break;
                 }
             }
         }
@@ -245,6 +250,35 @@ public class GameManager : MonoBehaviour
 
     private void UnitRelease(Vector3 target)
     {
+        List<RaycastResult> castHits = new List<RaycastResult>();
+        PointerEventData eventPoint = new PointerEventData(eventSystem);
+        eventPoint.position = target;
+        gRayCaster.Raycast(eventPoint, castHits);
+        if (castHits.Count > 0)
+        {
+            for (int i = 0; i < castHits.Count; i++)
+            {
+                if (castHits[i].gameObject.CompareTag("InventoryBoard"))
+                {
+                    // place into inventory, remove from board list
+                    if (originTile != null)
+                    {
+                        inventoryManager.AddCard(originTile.heldUnit.instanceNumber);
+                        teamManager.Remove(originTile.heldUnit.gameObject);
+                        Destroy(originTile.heldUnit.gameObject);
+                        originTile.heldUnit = null;
+                        originTile.CenterUnit();
+                        originTile = null;
+                        fromTile = false;
+                        holdingUnit = false;
+                    }
+                    else
+                    {
+                        DropInventoryUnit();
+                    }
+                }
+            }
+        }
         RaycastHit hit; 
         Ray ray = Camera.main.ScreenPointToRay(target);
         if (Physics.Raycast(ray, out hit, 100.0f, castMask))
@@ -297,34 +331,6 @@ public class GameManager : MonoBehaviour
                 {
                     // snap unit back into inventory and give feedback that team is full
                     DropInventoryUnit();
-                }
-            }
-        }
-        List<RaycastResult> castHits = new List<RaycastResult>();
-        PointerEventData eventPoint = new PointerEventData(eventSystem);
-        eventPoint.position = target;
-        gRayCaster.Raycast(eventPoint, castHits);
-        if (castHits.Count > 0)
-        {
-            for (int i = 0; i < castHits.Count; i++)
-            {
-                if (castHits[i].gameObject.CompareTag("InventoryBoard"))
-                {
-                    // place into inventory, remove from board list
-                    if (originTile != null)
-                    {
-                        inventoryManager.AddCard(originTile.heldUnit.instanceNumber);
-                        teamManager.Remove(originTile.heldUnit.gameObject);
-                        Destroy(originTile.heldUnit.gameObject);
-                        originTile.heldUnit = null;
-                        originTile = null;
-                        fromTile = false;
-                        holdingUnit = false;
-                    }
-                    else
-                    {
-                        DropInventoryUnit();
-                    }
                 }
             }
         }
@@ -386,7 +392,7 @@ public class GameManager : MonoBehaviour
     {
         showingDetails = true;
         detailShower.SetActive(true);
-        detailShower.GetComponent<InventCharButton>().Set(character.name, character.instanceNumber,character.profilePic,character.type,character.ability);
+        detailShower.GetComponent<InventCharButton>().Set(character.name, character.instanceNumber,character.profilePic,character.type,character.ability,true);
     }
     #endregion
 
@@ -397,6 +403,8 @@ public class GameManager : MonoBehaviour
         fightRunning = false;
         endScreen = true;
         showInFight.SetActive(false);
+        
+        music.GetComponent<ChangingMusic>().StartWinMusic();
         if (youWon)
         {
             // display victory screen

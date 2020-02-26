@@ -74,7 +74,7 @@ public class InventoryManager : MonoBehaviour
         Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
         inventoryCards.Add(card);
         Character character = possibleCharacters[index].GetComponent<Character>();
-        card.GetComponent<InventCharButton>().Set(character.name, index , character.profilePic, character.type, character.ability);
+        card.GetComponent<InventCharButton>().Set(character.name, index , character.profilePic, character.type, character.ability, false);
         card.transform.position = cardPosition;
         card.transform.SetParent(inventoryBoard, true);
         return card;

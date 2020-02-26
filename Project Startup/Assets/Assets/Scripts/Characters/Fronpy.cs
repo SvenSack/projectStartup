@@ -77,6 +77,7 @@ public class Fronpy : Character
         if (jumps < 1 + Convert.ToInt32(isUpgraded))
         {
             isJumping = true;
+            jumps++;
             movementSpeed = movementSpeed * 3;
             zeroHeight = transform.position.y;
             transform.LeanMoveY(transform.position.y + 3, 0.2f);
@@ -87,5 +88,10 @@ public class Fronpy : Character
     {
         isUpgraded = true;
         transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
+        isJumping = true;
+        jumps++;
+        movementSpeed = movementSpeed * 3;
+        zeroHeight = transform.position.y;
+        transform.LeanMoveY(transform.position.y + 3, 0.2f);
     }
 }
