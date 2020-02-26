@@ -21,8 +21,8 @@ public class InventCharButton : MonoBehaviour
         inventoryManager = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>();
         backDrop = transform.GetChild(0).GetComponent<RectTransform>();
         stats = transform.GetChild(1).gameObject;
-        Slider[] sliders = stats.GetComponentsInChildren<Slider>();
         Character myCharacter = inventoryManager.possibleCharacters[charIndex].GetComponent<Character>();
+        Slider[] sliders = stats.GetComponentsInChildren<Slider>();
         sliders[0].value = myCharacter.health;
         sliders[1].value = myCharacter.defense;
         sliders[2].value = myCharacter.attackDamage;
@@ -37,7 +37,7 @@ public class InventCharButton : MonoBehaviour
         
     }
 
-    public void Set(string nam, int index, Sprite img, Character.archetype archetype, string ability)
+    public void Set(string nam, int index, Sprite img, Character.archetype archetype, string ability, bool change)
     {
         name = nam;
         charIndex = index;
@@ -52,7 +52,17 @@ public class InventCharButton : MonoBehaviour
                 break;
             }
         }
-        
+
+        if (change)
+        {
+            Character myCharacter = inventoryManager.possibleCharacters[charIndex].GetComponent<Character>();
+            Slider[] sliders = stats.GetComponentsInChildren<Slider>();
+            sliders[0].value = myCharacter.health;
+            sliders[1].value = myCharacter.defense;
+            sliders[2].value = myCharacter.attackDamage;
+            sliders[3].value = 4.1f - myCharacter.attackCooldown;
+            sliders[4].value = myCharacter.range;
+        }
     }
 
     public bool ToggleDetails()
