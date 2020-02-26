@@ -73,16 +73,11 @@ public class Mighteus : Character
             // upgrade would go here, the following is placeholder
             if (!isUpgraded)
             {
+                StartCoroutine(ClaimDeath());
                 Upgrade();
             }
         }
 
         smiteValue = 0;
-    }
-
-    public override void Upgrade()
-    {
-        isUpgraded = true;
-        transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
     }
 }

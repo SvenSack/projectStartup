@@ -70,8 +70,7 @@ public class Friend : Character
 
     public override void Upgrade()
     {
-        isUpgraded = true;
-        transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
+        base.Upgrade();
         isHugging = true;
         hugs++;
         oldSpeed = movementSpeed;
