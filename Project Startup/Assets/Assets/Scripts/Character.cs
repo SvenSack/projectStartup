@@ -22,6 +22,7 @@ public class Character : MonoBehaviour
     public string ability = "Oh no, something went horribly wrong !";
     public GameObject projectile;
     public GameObject deathParticle;
+    public GameObject upgradeParticle;
 
     public enum archetype {Attacker, Tank, Assassin, Support};
     public archetype type;
@@ -184,7 +185,31 @@ public class Character : MonoBehaviour
 
     private IEnumerator UpgradeClaim()
     {
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.6f);
+        GameObject uP = Instantiate(upgradeParticle, transform.position, new Quaternion());
+        uP.transform.SetParent(transform,true);
+        ParticleSystem pS = uP.GetComponent<ParticleSystem>();
+        Material mat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+        mat.EnableKeyword("_EMISSION");
+        Color myColor = Color.magenta;
+        switch (type)
+        {
+            case archetype.Attacker:
+                myColor = new Color(0.7924528f, 0.1831613f, 0.2159052f);
+                break;
+            case archetype.Tank:
+                myColor = new Color(0.4298683f, 0.6714197f, 0.7924528f);
+                break;
+            case archetype.Assassin:
+                myColor = new Color(0.5283019f, 0.2815949f, 0.4347313f);
+                break;
+            case archetype.Support:
+                myColor = new Color(0.3177287f, 0.7924528f, 0.4481168f);
+                break;
+        }
+        mat.color = myColor;
+        mat.SetColor("_EmissionColor", myColor*2);
+        pS.GetComponent<ParticleSystemRenderer>().trailMaterial = mat;
         transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.2f);
     }
 
