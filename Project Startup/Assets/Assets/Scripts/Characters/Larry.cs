@@ -96,6 +96,8 @@ public class Larry : Character
 
     private IEnumerator ProtectJump(Character[] data)
     {
+        if(isDead)
+            yield break;
         saves++;
         oldSpeed = movementSpeed;
         movementSpeed = 0;
@@ -104,8 +106,12 @@ public class Larry : Character
         transform.LeanMoveZ(data[0].transform.position.z, .4f);
         transform.LeanMoveY(transform.position.y + 2, .2f);
         yield return new WaitForSeconds(.2f);
+        if(isDead)
+            yield break;
         transform.LeanMoveY(transform.position.y - 2, .2f);
         yield return new WaitForSeconds(.2f);
+        if(isDead)
+            yield break;
         data[1].aggroTarget = this;
         movementSpeed = oldSpeed;
         transform.Translate(transform.forward*.3f);
