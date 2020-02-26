@@ -49,7 +49,7 @@ MonoBehaviour:
   mainMusic: {fileID: 7333926858323201166}
   fightMusic: {fileID: 1997898091023956470}
   winMusic: {fileID: 2877405943810959056}
-  crossFade: 1
+  crossFade: 0.5
   debugScene: 0
 --- !u!1001 &4424600223579242928
 PrefabInstance:
