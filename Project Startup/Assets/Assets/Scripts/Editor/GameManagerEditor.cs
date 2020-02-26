@@ -12,7 +12,7 @@ public class GameManagerEditor : Editor
         var myScript = target as GameManager;
         bool notEmpty = myScript.inventoryManager != null && myScript.teamManager != null && myScript.gRayCaster != null &&
                         myScript.eventSystem != null && myScript.inventoryButton != null && myScript.inventoryHover != null &&
-                        myScript.tileBoard != null;
+                        myScript.tileBoard != null && myScript.detailShower != null;
 
         if(myScript.notSetup && notEmpty)
             myScript.notSetup = EditorGUILayout.Toggle("Things not set up", myScript.notSetup);
@@ -37,6 +37,8 @@ public class GameManagerEditor : Editor
                     EditorGUILayout.ObjectField("Inventory Hover", myScript.inventoryHover, typeof(InventoryHover), true) as InventoryHover;
                 myScript.tileBoard =
                     EditorGUILayout.ObjectField("Tile Board", myScript.tileBoard, typeof(Transform), true) as Transform;
+                myScript.detailShower =
+                    EditorGUILayout.ObjectField("Detail Shower", myScript.detailShower, typeof(GameObject), true) as GameObject;
                 EditorGUI.indentLevel--;
             }
         }

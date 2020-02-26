@@ -101,6 +101,12 @@ public class InventoryManager : MonoBehaviour
     {
         inventory.Sort(SortUnitByCharacterArchetype);
         inventoryCards.Sort(SortCardByCharacterArchetype);
+        foreach (var card in inventoryCards)
+        {
+            InventCharButton element = card.GetComponent<InventCharButton>();
+            if (element.showDetails)
+                element.ToggleDetails();
+        }
         for (int i = 0; i < inventory.Count; i++)
         {
             float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
@@ -128,19 +134,8 @@ public class InventoryManager : MonoBehaviour
         
         inventory.Remove(inventory[index]);
         inventoryCards.Remove(target);
-        for (int i = index; i < inventoryCards.Count; i++)
-        {
-            if (inventoryCards[i].GetComponent<InventCharButton>().showDetails)
-            {
-                ToggleInventoryDetails(inventoryCards[i]);
-                break;
-            }
-            float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
-            float yValue = -60.0f * Mathf.Floor((float) i / 3);
-            Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
-            inventoryCards[i].LeanMove(cardPosition, 0.2f);
-        }
         Destroy(target);
+        SortInventory();
     }
 
     public void AddCard(int index)
