@@ -44,6 +44,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fightRunning: 0
+  endScreen: 0
   teamManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
+  notSetup: 1
+  gRayCaster: {fileID: 0}
+  eventSystem: {fileID: 0}
+  detailShower: {fileID: 0}
   inventoryOpen: 0
   inventoryButton: {fileID: 0}
+  inventoryHover: {fileID: 0}
+  tileBoard: {fileID: 0}

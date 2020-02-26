@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     private GameObject showOnDefeat; // the UI for the defeat screen
     public GraphicRaycaster gRayCaster;
     public EventSystem eventSystem;
+    private bool showingDetails;
+    private Character detailShown;
+    public GameObject detailShower;
 
     [HideInInspector] public bool inventoryOpen; // bool tracking if the inventory is open
     public Transform inventoryButton; // the inventory open/close button
@@ -50,6 +53,8 @@ public class GameManager : MonoBehaviour
         showInFight.SetActive(false);
         showOnVictory.SetActive(false);
         showOnDefeat.SetActive(false);
+        detailShower.GetComponent<InventCharButton>().ToggleDetails();
+        detailShower.SetActive(false);
     }
 
     // Update is called once per frame
@@ -334,6 +339,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator waitToConfirmDrag(float waitTime, Vector3 pointerPosition)
     {
+        showingDetails = false;
+        detailShower.SetActive(false);
         yield return new WaitForSeconds(waitTime);
         if (Input.GetMouseButton(0))
         {
@@ -359,9 +366,28 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
+            else
+            {
+                RaycastHit hit; 
+                Ray ray = Camera.main.ScreenPointToRay(pointerPosition);
+                if (Physics.Raycast(ray, out hit, 100.0f, castMask))
+                {
+                    Tile target = hit.transform.GetComponent<Tile>();
+                    if (target.heldUnit != null)
+                    {
+                        ShowDetails(target.heldUnit);
+                    }
+                }
+            }
         }
     }
 
+    private void ShowDetails(Character character)
+    {
+        showingDetails = true;
+        detailShower.SetActive(true);
+        detailShower.GetComponent<InventCharButton>().Set(character.name, character.instanceNumber,character.profilePic,character.type,character.ability);
+    }
     #endregion
 
     #region Post Combat

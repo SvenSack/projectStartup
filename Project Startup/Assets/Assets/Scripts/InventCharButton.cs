@@ -9,7 +9,7 @@ public class InventCharButton : MonoBehaviour
     private string name = "Please Senpai, I want a name UwU"; // the name on the card
     public int charIndex; // the characters possible unit index
     private Sprite image; // the picture on the card
-    [HideInInspector] public bool showDetails; // bool tracking if the card is in extended detail mode
+    public bool showDetails; // bool tracking if the card is in extended detail mode
 
     private RectTransform backDrop;
     private GameObject stats;
@@ -77,6 +77,7 @@ public class InventCharButton : MonoBehaviour
     private void ApplyData(Character.archetype archetype)
     {
         TextMeshProUGUI tmp = transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        tmp.fontSize = 12;
         tmp.text = name;
         if (name.Length > 6)
         {
