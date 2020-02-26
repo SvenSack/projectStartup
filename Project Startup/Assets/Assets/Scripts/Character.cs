@@ -20,6 +20,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public float attackCooldownValue; // value tracking the time since last attack
     [HideInInspector] public bool isUpgraded; // bool checking if the unit is upgraded
     public string ability = "Oh no, something went horribly wrong !";
+    public GameObject projectile;
 
     public enum archetype {Attacker, Tank, Assassin, Support};
     public archetype type;
@@ -165,6 +166,12 @@ public class Character : MonoBehaviour
         transform.LeanMove(transform.position - direction, animationLength/2);
         yield return new WaitForSeconds(animationLength/2);
         transform.LeanMove(transform.position + direction, animationLength/2);
+        yield return new WaitForSeconds(animationLength/2);
+        if (projectile != null)
+        {
+            GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
+            proj.GetComponent<Projectile>().target = aggroTarget.transform;
+        }
     }
 
     public virtual void Upgrade()

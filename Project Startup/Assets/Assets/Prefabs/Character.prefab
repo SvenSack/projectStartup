@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2211843184658631201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.672, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.104, z: 0.5}
   m_LocalScale: {x: 0.13060305, y: 0.15403664, z: 0.30235}
   m_Children: []
   m_Father: {fileID: 9194532870398391414}
@@ -150,9 +150,21 @@ MonoBehaviour:
   name: Sven, greatest of all Programmers
   profilePic: {fileID: 0}
   instanceNumber: 0
+  fighting: 0
+  attackCooldownValue: 0
+  isUpgraded: 0
+  ability: Oh no, something went horribly wrong !
+  projectile: {fileID: 455785718995107384, guid: 039e75697a8bd234f84b221525ac0012,
+    type: 3}
+  type: 0
+  damageText: {fileID: 0}
+  teamManager: {fileID: 0}
+  gameManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
   isOnYourTeam: 0
   isDead: 0
   aggroTarget: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!1 &2211843184892790598
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2211843184892790598}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.239, y: 0.874, z: 0.271}
+  m_LocalPosition: {x: 0.239, y: 0.30600008, z: 0.271}
   m_LocalScale: {x: 0.2583, y: 0.2583, z: 0.2583}
   m_Children: []
   m_Father: {fileID: 9194532870398391414}
@@ -258,7 +270,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2211843185045945306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.231, y: 0.874, z: 0.271}
+  m_LocalPosition: {x: -0.231, y: 0.30600008, z: 0.271}
   m_LocalScale: {x: 0.2583, y: 0.2583, z: 0.2583}
   m_Children: []
   m_Father: {fileID: 9194532870398391414}
@@ -337,7 +349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2211843185171909661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.62, z: 0}
+  m_LocalPosition: {x: 0, y: 0.052000016, z: 0}
   m_LocalScale: {x: 1, y: 0.36531, z: 1}
   m_Children: []
   m_Father: {fileID: 9194532870398391414}

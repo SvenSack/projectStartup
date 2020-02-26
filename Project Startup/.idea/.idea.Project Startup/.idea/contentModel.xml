@@ -31,6 +31,7 @@
             <e p="InventCharButton.cs" t="Include" />
             <e p="InventoryHover.cs" t="Include" />
             <e p="InventoryManager.cs" t="Include" />
+            <e p="Projectile.cs" t="Include" />
             <e p="TeamManager.cs" t="Include" />
             <e p="Tile.cs" t="Include" />
           </e>

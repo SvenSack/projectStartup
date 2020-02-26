@@ -8,6 +8,8 @@ public class Friend : Character
     private int hugs = 0;
     private bool isHugging;
     private float oldSpeed;
+    public GameObject embraceCannon;
+    private GameObject embraceCannonInst;
 
     public override void FindAggroTarget()
     {
@@ -79,9 +81,13 @@ public class Friend : Character
 
     private IEnumerator Hug()
     {
+        embraceCannonInst = Instantiate(embraceCannon, transform.position, transform.rotation);
+        embraceCannonInst.GetComponent<Projectile>().target = aggroTarget.transform;
         yield return new WaitForSeconds(0.3f);
-        aggroTarget.transform.LeanMove(transform.position + transform.forward * range, 0.3f);
+        aggroTarget.transform.LeanMove(transform.position + transform.forward * range/2, 0.3f);
+        embraceCannonInst.transform.LeanMove(transform.position + transform.forward * range/2, 0.3f);
         yield return new WaitForSeconds(0.3f);
+        Destroy(embraceCannonInst);
         isHugging = false;
         movementSpeed = oldSpeed;
         aggroTarget.healthBar.transform.parent.position = Camera.main.WorldToScreenPoint(aggroTarget.transform.position + new Vector3(0, 1.5f, 0));

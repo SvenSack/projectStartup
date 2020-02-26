@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 1.5
-  movementSpeed: 1.5
+  movementSpeed: 3
   health: 60
   attackDamage: 9.6
   attackCooldown: 1
@@ -25,6 +25,7 @@ MonoBehaviour:
   attackCooldownValue: 0
   isUpgraded: 0
   ability: This unit regularly attacks all enemies in a cone
+  projectile: {fileID: 0}
   type: 0
   damageText: {fileID: 5998345046266473910, guid: 3fd5ba8274d7ab8439ec4d548329c2fb,
     type: 3}
@@ -220,7 +221,7 @@ PrefabInstance:
     - target: {fileID: 2152256279544962060, guid: 5e31e3cf47e03294391b12f51e12af01,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.286
+      value: 0.701
       objectReference: {fileID: 0}
     - target: {fileID: 2152256279544962060, guid: 5e31e3cf47e03294391b12f51e12af01,
         type: 3}

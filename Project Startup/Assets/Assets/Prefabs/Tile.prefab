@@ -111,6 +111,8 @@ MonoBehaviour:
   heldUnit: {fileID: 0}
   off: {fileID: 2100000, guid: 4f9374515e1899944940eba1d92e5631, type: 2}
   on: {fileID: 2100000, guid: 3a447e2816533134ca247f348d3910dc, type: 2}
+  myOff: {fileID: 0}
+  myOn: {fileID: 0}
 --- !u!1001 &7767023799287688108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126,7 +128,7 @@ PrefabInstance:
     - target: {fileID: 3603356071142465981, guid: f6d4f7969e6de7c46bbf738f12b1eb1b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 3603356071142465981, guid: f6d4f7969e6de7c46bbf738f12b1eb1b,
         type: 3}
@@ -201,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 3603356071598617032, guid: f6d4f7969e6de7c46bbf738f12b1eb1b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.333
+      value: 0.246
       objectReference: {fileID: 0}
     - target: {fileID: 3603356071598617033, guid: f6d4f7969e6de7c46bbf738f12b1eb1b,
         type: 3}
