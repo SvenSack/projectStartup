@@ -25,6 +25,9 @@ MonoBehaviour:
   attackCooldownValue: 0
   isUpgraded: 0
   ability: This unit heals allies for a portion of the damage it deals
+  projectile: {fileID: 0}
+  deathParticle: {fileID: 8071866382329856030, guid: 05383d9ceb009cf4585b18b4fdc1f593,
+    type: 3}
   type: 3
   damageText: {fileID: 5998345046266473910, guid: 3fd5ba8274d7ab8439ec4d548329c2fb,
     type: 3}

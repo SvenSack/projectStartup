@@ -110,10 +110,4 @@ public class Larry : Character
         movementSpeed = oldSpeed;
         transform.Translate(transform.forward*.3f);
     }
-
-    public override void Upgrade()
-    {
-        isUpgraded = true;
-        transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
-    }
 }

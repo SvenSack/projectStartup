@@ -20,6 +20,7 @@ public class Swiper : Character
                     // upgrade would go here, the following is placeholder
                     if (!isUpgraded)
                     {
+                        StartCoroutine(ClaimDeath());
                         Upgrade();
                     }
                 }
@@ -65,12 +66,6 @@ public class Swiper : Character
                 }
             }
         }
-    }
-
-    public override void Upgrade()
-    {
-        isUpgraded = true;
-        transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
     }
     
     public virtual IEnumerator FakeAttackAnimation2(float animationLength)

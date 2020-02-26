@@ -156,6 +156,8 @@ MonoBehaviour:
   ability: Oh no, something went horribly wrong !
   projectile: {fileID: 455785718995107384, guid: 039e75697a8bd234f84b221525ac0012,
     type: 3}
+  deathParticle: {fileID: 8071866382329856030, guid: 05383d9ceb009cf4585b18b4fdc1f593,
+    type: 3}
   type: 0
   damageText: {fileID: 0}
   teamManager: {fileID: 0}

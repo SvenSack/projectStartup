@@ -21,6 +21,7 @@ public class Character : MonoBehaviour
     [HideInInspector] public bool isUpgraded; // bool checking if the unit is upgraded
     public string ability = "Oh no, something went horribly wrong !";
     public GameObject projectile;
+    public GameObject deathParticle;
 
     public enum archetype {Attacker, Tank, Assassin, Support};
     public archetype type;
@@ -155,6 +156,7 @@ public class Character : MonoBehaviour
             // upgrade would go here, the following is placeholder
             if (!isUpgraded)
             {
+                StartCoroutine(ClaimDeath());
                 Upgrade();
             }
         }
@@ -177,9 +179,13 @@ public class Character : MonoBehaviour
     public virtual void Upgrade()
     {
         isUpgraded = true;
-        transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.3f);
-        attackDamage = attackDamage * 1.2f;
-        attackCooldown = attackCooldown * .8f;
+        StartCoroutine(UpgradeClaim());
+    }
+
+    private IEnumerator UpgradeClaim()
+    {
+        yield return new WaitForSeconds(1.3f);
+        transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.2f);
     }
 
     public virtual bool Damage(float amount)
@@ -222,6 +228,26 @@ public class Character : MonoBehaviour
         isDead = true;
         transform.LeanScale(new Vector3(0,0,0), 1.5f);
         healthBar.transform.parent.gameObject.SetActive(false);
+        // play death explosion
+        GameObject dP = Instantiate(deathParticle, transform.position, new Quaternion());
+        Color passColor = Color.magenta;
+        switch (type)
+        {
+            case archetype.Attacker:
+                passColor = new Color(0.7924528f, 0.1831613f, 0.2159052f);
+                break;
+            case archetype.Tank:
+                passColor = new Color(0.4298683f, 0.6714197f, 0.7924528f);
+                break;
+            case archetype.Assassin:
+                passColor = new Color(0.5283019f, 0.2815949f, 0.4347313f);
+                break;
+            case archetype.Support:
+                passColor = new Color(0.3177287f, 0.7924528f, 0.4481168f);
+                break;
+        }
+        dP.GetComponent<DeathSplosion>().SetUp(passColor);
+        
         bool deathCheck = true;
         switch (isOnYourTeam)
         {
@@ -343,5 +369,18 @@ public class Character : MonoBehaviour
         newText.baseColor = new Color(0.3177287f, 0.7924528f, 0.4481168f);
         health += amount;
         healthBar.value = health;
+    }
+
+    public IEnumerator ClaimDeath()
+    {
+        yield return new WaitForSeconds(.5f);
+        DeathSplosion[] dS = FindObjectsOfType<DeathSplosion>();
+        foreach (var target in dS)
+        {
+            if (target.unclaimed)
+            {
+                target.Claim(transform);
+            }
+        }
     }
 }
