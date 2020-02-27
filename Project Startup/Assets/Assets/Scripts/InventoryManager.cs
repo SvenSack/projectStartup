@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class InventoryManager : MonoBehaviour
@@ -18,9 +20,18 @@ public class InventoryManager : MonoBehaviour
     private Transform inventoryBoard;
     private Transform inventoryCardPlacer;
     
+    private bool inventoryOpen = true;
+    public bool inventoryScreen;
+    private EventSystem eventSystem;
+    private GraphicRaycaster gRayCaster;
+    private bool showingDetails;
+    private Character shownUnit;
+    
     // Start is called before the first frame update
     void Start()
     {
+        eventSystem = FindObjectOfType<EventSystem>();
+        gRayCaster = FindObjectOfType<GraphicRaycaster>();
         inventoryBoard = GameObject.FindGameObjectWithTag("InventoryBoard").transform;
         inventoryCardPlacer = inventoryBoard.GetChild(1);
         
@@ -35,7 +46,27 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(0) && inventoryScreen)
+        {
+            List<RaycastResult> castHits = new List<RaycastResult>();
+            PointerEventData eventPoint = new PointerEventData(eventSystem);
+            eventPoint.position = Input.mousePosition;
+            gRayCaster.Raycast(eventPoint, castHits);
+            if (castHits.Count > 0)
+            {
+                for (int i = 0; i < castHits.Count; i++)
+                {
+                    // Debug.Log("I hit " + castHits[i].gameObject.name);
+                    InventCharButton element = castHits[i].gameObject.GetComponentInParent<InventCharButton>();
+                    if (element != null)
+                    {
+                        // show details
+                        showingDetails = true;
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     public Character NewCharacter(int index)
@@ -107,6 +138,7 @@ public class InventoryManager : MonoBehaviour
             if (element.showDetails)
                 element.ToggleDetails();
         }
+        if(!inventoryScreen)
         for (int i = 0; i < inventory.Count; i++)
         {
             float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
@@ -114,6 +146,17 @@ public class InventoryManager : MonoBehaviour
             Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
             inventoryCards[i].LeanMove(cardPosition, 0.2f);
         }
+        else // THIS IS WHERE WE CHANGE THE PLACEMENT ROWS FOR INVENTORY SCREEN
+        // #######################################################################
+        // #######################################################################
+        // #######################################################################
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
+                float yValue = -60.0f * Mathf.Floor((float) i / 3);
+                Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
+                inventoryCards[i].LeanMove(cardPosition, 0.2f);
+            }
     }
 
     
@@ -220,6 +263,26 @@ public class InventoryManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ToggleButton()
+    {
+        if (inventoryOpen)
+        {
+            inventoryBoard.LeanMoveX(Screen.width,.5f);
+        }
+        else
+        {
+            inventoryBoard.LeanMoveX(Screen.width - inventoryBoard.GetComponent<RectTransform>().rect.width/1.85f,.5f);
+        }
+        inventoryOpen = !inventoryOpen;
+        StartCoroutine(RotateButton());
+    }
+    
+    private IEnumerator RotateButton()
+    {
+        yield return new WaitForSeconds(.4f);
+        inventoryBoard.GetChild(0).Rotate(new Vector3(0,0,180));
     }
 
     #endregion

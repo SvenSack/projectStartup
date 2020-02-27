@@ -13,6 +13,7 @@
       <Path>Library/PackageCache/com.unity.test-framework@1.1.9</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@2.0.1</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.2.9</Path>
+      <Path>Library/PackageCache/com.unity.vectorgraphics@2.0.0-preview.12</Path>
       <Path>Packages</Path>
       <Path>ProjectSettings</Path>
     </explicitIncludes>
