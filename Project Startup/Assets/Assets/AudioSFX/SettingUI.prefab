@@ -667,7 +667,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.35000288
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1419,7 +1419,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.1488235
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2062,6 +2062,16 @@ PrefabInstance:
       propertyPath: muteToggle
       value: 
       objectReference: {fileID: 2022452367798860556}
+    - target: {fileID: 8166937098806210649, guid: ce8b844fb28682b429261b432bc5b35f,
+        type: 3}
+      propertyPath: musicVolume
+      value: -9.118567
+      objectReference: {fileID: 0}
+    - target: {fileID: 8166937098806210649, guid: ce8b844fb28682b429261b432bc5b35f,
+        type: 3}
+      propertyPath: currentSfxVolume
+      value: -16.54657
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce8b844fb28682b429261b432bc5b35f, type: 3}
 --- !u!4 &4314124731235658892 stripped

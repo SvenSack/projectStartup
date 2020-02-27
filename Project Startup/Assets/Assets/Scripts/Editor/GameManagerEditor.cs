@@ -39,8 +39,10 @@ public class GameManagerEditor : Editor
                     EditorGUILayout.ObjectField("Tile Board", myScript.tileBoard, typeof(Transform), true) as Transform;
                 myScript.detailShower =
                     EditorGUILayout.ObjectField("Detail Shower", myScript.detailShower, typeof(GameObject), true) as GameObject;
-                myScript.music =
-                    EditorGUILayout.ObjectField("Music Changer", myScript.music, typeof(GameObject), true) as GameObject;
+                myScript.startFightMusicBtn =
+                    EditorGUILayout.ObjectField("Start Fight Btn", myScript.startFightMusicBtn, typeof(GameObject), true) as GameObject;
+                myScript.stopFightMusicBtn =
+                    EditorGUILayout.ObjectField("Retry Btn", myScript.stopFightMusicBtn, typeof(GameObject), true) as GameObject;
                 EditorGUI.indentLevel--;
             }
         }

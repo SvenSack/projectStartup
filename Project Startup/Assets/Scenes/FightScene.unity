@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28502697, g: 0.37139347, b: 0.49601266, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502655, g: 0.37139302, b: 0.49600938, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -904,6 +904,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b86ee060c2eb94c97b58c2f6c8ae48, type: 3}
+--- !u!1 &577184713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4483838820816463955, guid: dab995652518eb2419903899db4b4c08,
+    type: 3}
+  m_PrefabInstance: {fileID: 2423867719827153907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,12 +1241,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &909136021 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 203379689538190127, guid: c0a62986bd02dcc4386a41c1b6436410,
-    type: 3}
-  m_PrefabInstance: {fileID: 302057867}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &909136022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 203379689538190125, guid: c0a62986bd02dcc4386a41c1b6436410,
@@ -1253,7 +1253,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 302057867}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909136021}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c45322658cccfe4bbc4285d0a0d84a5, type: 3}
@@ -1364,6 +1364,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178ec20bb69bc5049b5c68b6230f769a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1029603776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2317219780875273890, guid: dab995652518eb2419903899db4b4c08,
+    type: 3}
+  m_PrefabInstance: {fileID: 2423867719827153907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1215792709 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
@@ -3014,6 +3020,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1137964031913597944, guid: dab995652518eb2419903899db4b4c08,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137964031913597944, guid: dab995652518eb2419903899db4b4c08,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1729957746}
@@ -3022,6 +3033,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 909136023}
+    - target: {fileID: 2317219780875273890, guid: dab995652518eb2419903899db4b4c08,
+        type: 3}
+      propertyPath: m_TagString
+      value: winMusicBtn
+      objectReference: {fileID: 0}
     - target: {fileID: 2614620570467392552, guid: dab995652518eb2419903899db4b4c08,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3051,6 +3067,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483838820816463955, guid: dab995652518eb2419903899db4b4c08,
+        type: 3}
+      propertyPath: m_TagString
+      value: fightMusicBtn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483838820816463957, guid: dab995652518eb2419903899db4b4c08,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4483838820816463957, guid: dab995652518eb2419903899db4b4c08,
         type: 3}
@@ -3274,9 +3300,14 @@ PrefabInstance:
       objectReference: {fileID: 267973606}
     - target: {fileID: 3605191596434338038, guid: d5613eff577def74a953d61e27829040,
         type: 3}
-      propertyPath: music
+      propertyPath: startFightMusicBtn
       value: 
-      objectReference: {fileID: 909136021}
+      objectReference: {fileID: 577184713}
+    - target: {fileID: 3605191596434338038, guid: d5613eff577def74a953d61e27829040,
+        type: 3}
+      propertyPath: stopFightMusicBtn
+      value: 
+      objectReference: {fileID: 1029603776}
     - target: {fileID: 3605191596434338039, guid: d5613eff577def74a953d61e27829040,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -16,6 +16,8 @@ public class ChangingMusic : MonoBehaviour
 
     public void StartFightMusic()
     {
+        winMusic.GetComponent<MusicManager>().loopMusic.Stop();
+        winMusic.GetComponent<MusicManager>().introMusic.Stop();
         StartCoroutine(CrossFadeAudio(
             mainMusic.GetComponent<MusicManager>(), 
             fightMusic.GetComponent<MusicManager>(),
@@ -27,6 +29,8 @@ public class ChangingMusic : MonoBehaviour
 
     public void StartWinMusic()
     {
+        mainMusic.GetComponent<MusicManager>().loopMusic.Stop();
+        mainMusic.GetComponent<MusicManager>().introMusic.Stop();
         StartCoroutine(CrossFadeAudio(
             fightMusic.GetComponent<MusicManager>(), 
             winMusic.GetComponent<MusicManager>(), 
@@ -38,6 +42,8 @@ public class ChangingMusic : MonoBehaviour
 
     public void StartMainMusicAgain()
     {
+        fightMusic.GetComponent<MusicManager>().loopMusic.Stop();
+        fightMusic.GetComponent<MusicManager>().introMusic.Stop();
         StartCoroutine(CrossFadeAudio(
             winMusic.GetComponent<MusicManager>(), 
             mainMusic.GetComponent<MusicManager>(), 
@@ -117,13 +123,5 @@ public class ChangingMusic : MonoBehaviour
                  gameObject);
             }
         }
-    }
-    
-    
-    
-    [SerializeField] private int debugScene;
-    public void ChangeScenes()
-    {
-        SceneManager.LoadScene(debugScene);
     }
 }
