@@ -13,6 +13,8 @@
             <e p="Audio" t="Include">
               <e p="AudioSettings.cs" t="Include" />
               <e p="ChangingMusic.cs" t="Include" />
+              <e p="DestroyDontDestroy.cs" t="Include" />
+              <e p="DontDestroyOnLoad.cs" t="Include" />
               <e p="MusicManager.cs" t="Include" />
             </e>
             <e p="Character.cs" t="Include" />

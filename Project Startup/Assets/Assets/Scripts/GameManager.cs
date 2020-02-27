@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UI.Button;
 using Slider = UnityEngine.UI.Slider;
 
 public class GameManager : MonoBehaviour
@@ -41,7 +42,9 @@ public class GameManager : MonoBehaviour
     private bool checkingDrag; // bool tracking if you are currently waiting for a drag check
     private Coroutine dragCheck;
 
-    public GameObject music;
+    private GameObject music;
+    public GameObject startFightMusicBtn;
+    public GameObject stopFightMusicBtn;
     
     // Start is called before the first frame update
     void Start()
@@ -57,6 +60,25 @@ public class GameManager : MonoBehaviour
         showOnDefeat.SetActive(false);
         detailShower.GetComponent<InventCharButton>().ToggleDetails();
         detailShower.SetActive(false);
+        
+        music = GameObject.FindGameObjectWithTag("music");
+        
+        // Adding listeners to buttons
+        startFightMusicBtn.GetComponent<Button>().onClick.AddListener(StartFMusic);
+
+        stopFightMusicBtn.GetComponent<Button>().onClick.AddListener(StartMMusic);
+    }
+
+    private void StartFMusic()
+    {
+        Debug.Log("I added a listener");
+        music.GetComponent<ChangingMusic>().StartFightMusic();
+    }
+
+    private void StartMMusic()
+    {
+        Debug.Log("I added a listener");
+        music.GetComponent<ChangingMusic>().StartMainMusicAgain();
     }
 
     // Update is called once per frame
@@ -92,7 +114,6 @@ public class GameManager : MonoBehaviour
                 {
                     heldUnit.transform.position = hit.point + new Vector3(0, 0.5f, 0);
                 }
-                 
             }
                 
         }
@@ -425,6 +446,7 @@ public class GameManager : MonoBehaviour
         Tile[] tiles = GameObject.FindGameObjectWithTag("TileBoard").GetComponentsInChildren<Tile>();
         teamManager.yourTeam = new Character[3];
         teamManager.enemyTeam = new Character[3];
+
         foreach (var tile in tiles)
         {
             if (tile.heldUnit != null)

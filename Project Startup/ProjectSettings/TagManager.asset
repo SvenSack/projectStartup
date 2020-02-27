@@ -15,6 +15,9 @@ TagManager:
   - ShowOnVictory
   - ShowOnDefeat
   - AbilityExplanation
+  - music
+  - winMusicBtn
+  - fightMusicBtn
   layers:
   - Default
   - TransparentFX

@@ -18,12 +18,16 @@ public class AudioSettings : MonoBehaviour
     [HideInInspector] public float musicVolume = 0.0f;
     [HideInInspector] public float currentSfxVolume = 0.0f;
 
+    private bool settingsOn = false;
+    
     private void Start()
     {
         LoadSettings();
-        if (settingsMenu.activeInHierarchy == true)
+        settingsOn = false;
+        if (settingsMenu.activeInHierarchy)
         {
             settingsMenu.SetActive(false);
+            settingsOn = false;
         }
     }
 
@@ -68,12 +72,14 @@ public class AudioSettings : MonoBehaviour
 
     public void EnableSettingsMenu()
     {
-        if (!settingsMenu.activeInHierarchy)
+        if (!settingsMenu.activeInHierarchy && !settingsOn)
         {
             settingsMenu.SetActive(true);
-        } else if (settingsMenu.activeInHierarchy)
+            settingsOn = true;
+        } else if (settingsMenu.activeInHierarchy && settingsOn)
         {
             settingsMenu.SetActive(false);
+            settingsOn = false;
         }
     }
 
