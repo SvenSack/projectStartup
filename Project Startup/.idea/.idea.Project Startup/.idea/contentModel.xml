@@ -17,6 +17,7 @@
               <e p="DontDestroyOnLoad.cs" t="Include" />
               <e p="MusicManager.cs" t="Include" />
             </e>
+            <e p="AveryHatesThis.cs" t="Include" />
             <e p="Character.cs" t="Include" />
             <e p="Characters" t="Include">
               <e p="Friend.cs" t="Include" />

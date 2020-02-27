@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -26,10 +27,14 @@ public class InventoryManager : MonoBehaviour
     private GraphicRaycaster gRayCaster;
     private bool showingDetails;
     private Character shownUnit;
+    private Transform unitSpotlight;
+    private Transform statShower;
     
     // Start is called before the first frame update
     void Start()
     {
+        unitSpotlight = GameObject.FindGameObjectWithTag("UnitSpotlight").transform;
+        statShower = GameObject.FindGameObjectWithTag("UnitStats").transform;
         eventSystem = FindObjectOfType<EventSystem>();
         gRayCaster = FindObjectOfType<GraphicRaycaster>();
         inventoryBoard = GameObject.FindGameObjectWithTag("InventoryBoard").transform;
@@ -41,6 +46,8 @@ public class InventoryManager : MonoBehaviour
         CreateInventoryCards();
         
         SortInventory();
+        if (inventoryScreen)
+            ShowUnit(inventory[0].GetComponent<Character>().instanceNumber, true);
     }
 
     // Update is called once per frame
@@ -61,7 +68,7 @@ public class InventoryManager : MonoBehaviour
                     if (element != null)
                     {
                         // show details
-                        showingDetails = true;
+                        ShowUnit(element.charIndex, false);
                         break;
                     }
                 }
@@ -69,6 +76,33 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    private void ShowUnit(int charIndex, bool firstRun)
+    {
+        if (shownUnit != null)
+        {
+            Button[] stars1 = statShower.GetChild(1).GetComponentsInChildren<Button>();
+            for (int j = 0; j < shownUnit.rarity; j++)
+            {
+                stars1[j].interactable = true;
+            }
+                            
+            Destroy(shownUnit.gameObject);
+        }
+        GameObject newGO = Instantiate(possibleCharacters[charIndex], unitSpotlight.position, Quaternion.Euler(0,150,0));
+        newGO.transform.SetParent(unitSpotlight, true);
+        shownUnit = newGO.GetComponent<Character>();
+        showingDetails = true;
+        if(!firstRun)
+            ToggleButton();
+        TextMeshProUGUI name = statShower.GetChild(0).GetComponent<TextMeshProUGUI>();
+        Button[] stars = statShower.GetChild(1).GetComponentsInChildren<Button>();
+        name.text = shownUnit.name;
+        for (int j = 0; j < shownUnit.rarity; j++)
+        {
+            stars[j].interactable = true;
+        }
+    }
+    
     public Character NewCharacter(int index)
     {
         Quaternion rot = new Quaternion(0,0,0,0);

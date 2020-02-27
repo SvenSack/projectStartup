@@ -16,8 +16,8 @@ TagManager:
   - ShowOnDefeat
   - AbilityExplanation
   - music
-  - winMusicBtn
-  - fightMusicBtn
+  - UnitSpotlight
+  - UnitStats
   layers:
   - Default
   - TransparentFX
