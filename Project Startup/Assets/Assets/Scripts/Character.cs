@@ -23,6 +23,7 @@ public class Character : MonoBehaviour
     public GameObject projectile;
     public GameObject deathParticle;
     public GameObject upgradeParticle;
+    public int rarity = 1;
 
     public enum archetype {Attacker, Tank, Assassin, Support};
     public archetype type;

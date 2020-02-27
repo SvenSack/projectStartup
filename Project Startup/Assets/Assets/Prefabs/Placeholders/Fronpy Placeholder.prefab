@@ -30,6 +30,7 @@ MonoBehaviour:
     type: 3}
   upgradeParticle: {fileID: 7281632597060137030, guid: 21377534d58705e4782596342b84ea84,
     type: 3}
+  rarity: 2
   type: 2
   damageText: {fileID: 5998345046266473910, guid: 3fd5ba8274d7ab8439ec4d548329c2fb,
     type: 3}
