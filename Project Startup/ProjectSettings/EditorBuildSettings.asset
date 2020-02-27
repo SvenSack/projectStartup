@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/_!MainMenu.unity
+    guid: 303b4fc0d5f4cb14ab9947ba1545859c
+  - enabled: 1
+    path: Assets/Scenes/_Inventory.unity
+    guid: 176e39d79371ebe44af008e383604bf1
+  - enabled: 1
     path: Assets/Scenes/FightScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
   - enabled: 1
-    path: Assets/Scenes/SettingsAudio.unity
-    guid: e3677aee42dbefa4cb028a79fad6dbb8
+    path: Assets/Scenes/_Gacha_Draw.unity
+    guid: 46c9e98b199a915449630576207ba0d2
   m_configObjects: {}
