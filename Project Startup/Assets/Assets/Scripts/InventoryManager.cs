@@ -101,6 +101,8 @@ public class InventoryManager : MonoBehaviour
         {
             stars[j].interactable = true;
         }
+
+        shownUnit.enabled = false;
     }
     
     public Character NewCharacter(int index)

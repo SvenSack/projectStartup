@@ -40,6 +40,8 @@
             <e p="Tile.cs" t="Include" />
             <e p="UI" t="Include">
               <e p="MenuButtons.cs" t="Include" />
+              <e p="SpiderChart.cs" t="Include" />
+              <e p="TriangleRevertex.cs" t="Include" />
             </e>
           </e>
           <e p="Shader" t="Include">
