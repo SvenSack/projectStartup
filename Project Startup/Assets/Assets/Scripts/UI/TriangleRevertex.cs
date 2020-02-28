@@ -25,10 +25,8 @@ public class TriangleRevertex : Image
             UIVertex vert = UIVertex.simpleVert;
             vh.PopulateUIVertex(ref vert, i);
             Vector3 position = vert.position;
- 
+            
             position = verts[i];
-            Debug.Log(gameObject.name + " " +  i + "  " + position);
-            Debug.DrawRay(transform.position+position, transform.forward*1000, new Color(0.1f*i,0.1f*i,0.1f*i));
 
             vert.position = position;
             vh.SetUIVertex(vert, i);
@@ -38,9 +36,9 @@ public class TriangleRevertex : Image
     public void SetNewVerts(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4)
     {
         Vector3 tramp = transform.position;
-        verts[0] = v1-tramp;
-        verts[1] = v2-tramp;
-        verts[2] = v3-tramp;
-        verts[3] = v4-tramp;
+        verts[0] = v1;
+        verts[1] = (v2-tramp).normalized*60;
+        verts[2] = v3;
+        verts[3] = v4;
     }
 }
