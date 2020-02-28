@@ -155,7 +155,7 @@ public class InventoryManager : MonoBehaviour
 
     private GameObject AddInventoryCard(int index)
     {
-        GameObject card = Instantiate(inventoryCard);
+        GameObject card = Instantiate(inventoryCard, inventoryBoard);
         float xValue = 75.0f * inventoryCards.Count - 225.0f * Mathf.Floor((float) inventoryCards.Count / 3);
         float yValue = -60.0f * Mathf.Floor((float) inventoryCards.Count / 3);
         Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);

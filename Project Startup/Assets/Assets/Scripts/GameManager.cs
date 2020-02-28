@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
         showInFight.SetActive(false);
         showOnVictory.SetActive(false);
         showOnDefeat.SetActive(false);
-        detailShower.GetComponent<InventCharButton>().ToggleDetails();
+        detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
+        detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
         detailShower.SetActive(false);
         
         music = GameObject.FindGameObjectWithTag("music");
@@ -71,13 +72,13 @@ public class GameManager : MonoBehaviour
 
     private void StartFMusic()
     {
-        Debug.Log("I added a listener");
+        //Debug.Log("I added a listener");
         music.GetComponent<ChangingMusic>().StartFightMusic();
     }
 
     private void StartMMusic()
     {
-        Debug.Log("I added a listener");
+        //Debug.Log("I added a listener");
         music.GetComponent<ChangingMusic>().StartMainMusicAgain();
     }
 

@@ -12,7 +12,7 @@ public class InventCharButton : MonoBehaviour
     public bool showDetails; // bool tracking if the card is in extended detail mode
 
     private RectTransform backDrop;
-    private GameObject stats;
+    public GameObject stats;
     private InventoryManager inventoryManager;
 
     // Start is called before the first frame update
@@ -67,6 +67,7 @@ public class InventCharButton : MonoBehaviour
 
     public bool ToggleDetails()
     {
+        Debug.Log("I am toggling " + gameObject.name);
         showDetails = !showDetails;
         if (showDetails)
         {
