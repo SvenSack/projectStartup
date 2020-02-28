@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
+using Random = UnityEngine.Random;
 
 public class Friend : Character
 {
@@ -90,5 +92,37 @@ public class Friend : Character
         isHugging = false;
         movementSpeed = oldSpeed;
         aggroTarget.healthBar.transform.parent.position = Camera.main.WorldToScreenPoint(aggroTarget.transform.position + new Vector3(0, 1.5f, 0));
+    }
+    
+    public override bool Damage(float amount)
+    {
+        if (amount < 0)
+            amount = 0;
+        health -= amount;
+        if (health > 0)
+        {
+            GameObject newDamage = Instantiate(damageText,  Camera.main.WorldToScreenPoint(transform.position + new Vector3(Random.Range(-.5f,.5f),
+                                                                                               1, 0)), Quaternion.identity, FindObjectOfType<Canvas>().transform);
+            TextMeshProUGUI textMesh = newDamage.GetComponent<TextMeshProUGUI>();
+            AttackText newText = newDamage.GetComponent<AttackText>();
+            if (amount > 0)
+            {
+                // FindAggroTarget();
+                textMesh.text = Mathf.RoundToInt(amount*10) + " !";
+                textMesh.color = new Color(0.7924528f, 0.1831613f, 0.2159052f);
+                newText.baseColor = new Color(0.7924528f, 0.1831613f, 0.2159052f);
+            }
+            else
+            {
+                textMesh.text = "Blocked !";
+            }
+            healthBar.value = health;
+            return false;
+        }
+        else
+        {
+            Die();
+            return true;
+        }
     }
 }

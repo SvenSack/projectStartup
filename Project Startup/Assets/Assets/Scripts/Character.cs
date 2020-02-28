@@ -131,7 +131,7 @@ public class Character : MonoBehaviour
                         }
                 }
                 aggroTarget = teamManager.yourTeam[closestIndex1];
-                // Debug.Log(name + " has decided to target " + aggroTarget.name);
+                Debug.Log(name + " has decided to target " + aggroTarget.name);
                 break;
         }
     }
@@ -227,6 +227,7 @@ public class Character : MonoBehaviour
             AttackText newText = newDamage.GetComponent<AttackText>();
             if (amount > 0)
             {
+                FindAggroTarget();
                 textMesh.text = Mathf.RoundToInt(amount*10) + " !";
                 textMesh.color = new Color(0.7924528f, 0.1831613f, 0.2159052f);
                 newText.baseColor = new Color(0.7924528f, 0.1831613f, 0.2159052f);
@@ -247,7 +248,7 @@ public class Character : MonoBehaviour
     #endregion
 
     #region death
-    private void Die()
+    public void Die()
     {
         // check if all on my team are dead, if yes, finish game
         // run through all living characters, check if they have me as their AggroTarget, if yes, make them FindAggroTarget
