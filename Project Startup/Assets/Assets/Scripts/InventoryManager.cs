@@ -31,6 +31,7 @@ public class InventoryManager : MonoBehaviour
     private Transform statShower;
     private SpiderChart spiderMate;
     private TextMeshProUGUI[] statsBreakdown;
+    public Transform uiScroll;
     
     // Start is called before the first frame update
     void Start()
@@ -202,14 +203,11 @@ public class InventoryManager : MonoBehaviour
             Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
             inventoryCards[i].LeanMove(cardPosition, 0.2f);
         }
-        else // THIS IS WHERE WE CHANGE THE PLACEMENT ROWS FOR INVENTORY SCREEN
-        // #######################################################################
-        // #######################################################################
-        // #######################################################################
+        else
             for (int i = 0; i < inventory.Count; i++)
             {
-                float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
-                float yValue = -60.0f * Mathf.Floor((float) i / 3);
+                float xValue = 75.0f * i - (75f*8) * Mathf.Floor((float) i / 8);
+                float yValue = -60.0f * Mathf.Floor((float) i / 8);
                 Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
                 inventoryCards[i].LeanMove(cardPosition, 0.2f);
             }
@@ -325,20 +323,15 @@ public class InventoryManager : MonoBehaviour
     {
         if (inventoryOpen)
         {
-            inventoryBoard.LeanMoveX(Screen.width,.5f);
+            inventoryBoard.LeanMoveX(Screen.width,1f);
+            uiScroll.LeanRotate(new Vector3(0, 120, 0), 1f);
         }
         else
         {
-            inventoryBoard.LeanMoveX(Screen.width - inventoryBoard.GetComponent<RectTransform>().rect.width/1.85f,.5f);
+            inventoryBoard.LeanMoveX(Screen.width - 670,1f);
+            uiScroll.LeanRotate(new Vector3(0, -120, 0), 1f);
         }
         inventoryOpen = !inventoryOpen;
-        StartCoroutine(RotateButton());
-    }
-    
-    private IEnumerator RotateButton()
-    {
-        yield return new WaitForSeconds(.4f);
-        inventoryBoard.GetChild(0).Rotate(new Vector3(0,0,180));
     }
 
     #endregion

@@ -43,6 +43,8 @@ public class GameManagerEditor : Editor
                     EditorGUILayout.ObjectField("Start Fight Btn", myScript.startFightMusicBtn, typeof(GameObject), true) as GameObject;
                 myScript.stopFightMusicBtn =
                     EditorGUILayout.ObjectField("Retry Btn", myScript.stopFightMusicBtn, typeof(GameObject), true) as GameObject;
+                myScript.uiScroll =
+                    EditorGUILayout.ObjectField("UI Scroll", myScript.uiScroll, typeof(Transform), true) as Transform;
                 EditorGUI.indentLevel--;
             }
         }

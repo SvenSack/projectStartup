@@ -18,6 +18,8 @@ TagManager:
   - music
   - UnitSpotlight
   - UnitStats
+  - fightMusicBtn
+  - winMusicBtn
   layers:
   - Default
   - TransparentFX
@@ -29,7 +31,7 @@ TagManager:
   - 
   - Tiles
   - Floor
-  - 
+  - Scroll
   - 
   - 
   - 

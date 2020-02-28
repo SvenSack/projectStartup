@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     private bool showingDetails;
     private Character detailShown;
     public GameObject detailShower;
+    public Transform uiScroll;
 
     [HideInInspector] public bool inventoryOpen; // bool tracking if the inventory is open
     public Transform inventoryButton; // the inventory open/close button
@@ -185,20 +186,15 @@ public class GameManager : MonoBehaviour
         if (inventoryOpen)
         {
             inventoryButton.parent.LeanMoveX(Screen.width,.5f);
+            uiScroll.LeanRotate(new Vector3(0, 120, 0), .5f);
         }
         else
         {
             inventoryButton.parent.LeanMoveX(Screen.width - 240,.5f);
+            uiScroll.LeanRotate(new Vector3(0, -120, 0), .5f);
         }
         StopCoroutine(dragCheck);
         inventoryOpen = !inventoryOpen;
-        StartCoroutine(RotateButton());
-    }
-    
-    private IEnumerator RotateButton()
-    {
-        yield return new WaitForSeconds(.4f);
-        inventoryButton.Rotate(new Vector3(0,0,180));
     }
 
     private void DropUnit()

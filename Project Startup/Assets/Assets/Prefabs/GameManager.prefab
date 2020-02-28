@@ -51,6 +51,7 @@ MonoBehaviour:
   gRayCaster: {fileID: 0}
   eventSystem: {fileID: 0}
   detailShower: {fileID: 0}
+  uiScroll: {fileID: 0}
   inventoryOpen: 0
   inventoryButton: {fileID: 0}
   inventoryHover: {fileID: 0}

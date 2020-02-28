@@ -14,6 +14,7 @@ public class InventCharButton : MonoBehaviour
     private RectTransform backDrop;
     public GameObject stats;
     private InventoryManager inventoryManager;
+    private float defaultFontsize = 22;
 
     // Start is called before the first frame update
     void Start()
@@ -67,19 +68,19 @@ public class InventCharButton : MonoBehaviour
 
     public bool ToggleDetails()
     {
-        Debug.Log("I am toggling " + gameObject.name);
+        // Debug.Log("I am toggling " + gameObject.name);
         showDetails = !showDetails;
         if (showDetails)
         {
             // show the additional stats
-            backDrop.LeanSize(new Vector2(200, 75), .2f);
+            backDrop.LeanSize(new Vector2(375, 135), .2f);
             stats.SetActive(true);
             return true;
         }
         else
         {
             // hide the stats
-            backDrop.LeanSize(new Vector2(50, 50), .2f);
+            backDrop.LeanSize(new Vector2(96, 96), .2f);
             stats.SetActive(false);
             return false;
         }
@@ -88,11 +89,11 @@ public class InventCharButton : MonoBehaviour
     private void ApplyData(Character.archetype archetype)
     {
         TextMeshProUGUI tmp = transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        tmp.fontSize = 12;
+        tmp.fontSize = defaultFontsize;
         tmp.text = name;
         if (name.Length > 6)
         {
-            tmp.fontSize -= 2;
+            tmp.fontSize -= 4;
         }
         Image img = transform.GetChild(0).GetChild(1).gameObject.GetComponent<Image>();
         img.sprite = image;
