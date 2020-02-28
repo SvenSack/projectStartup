@@ -71,7 +71,7 @@ public class InventCharButton : MonoBehaviour
         if (showDetails)
         {
             // show the additional stats
-            backDrop.LeanSize(new Vector2(720, 272), .2f);
+            backDrop.LeanSize(new Vector2(200, 75), .2f);
             stats.SetActive(true);
             return true;
         }
@@ -87,7 +87,7 @@ public class InventCharButton : MonoBehaviour
     private void ApplyData(Character.archetype archetype)
     {
         TextMeshProUGUI tmp = transform.GetChild(0).GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        tmp.fontSize = 28;
+        tmp.fontSize = 12;
         tmp.text = name;
         if (name.Length > 6)
         {
