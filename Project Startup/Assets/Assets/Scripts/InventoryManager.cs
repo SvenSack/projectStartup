@@ -33,10 +33,14 @@ public class InventoryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*unitSpotlight = GameObject.FindGameObjectWithTag("UnitSpotlight").transform;
-        statShower = GameObject.FindGameObjectWithTag("UnitStats").transform;
-        eventSystem = FindObjectOfType<EventSystem>();
-        gRayCaster = FindObjectOfType<GraphicRaycaster>();*/
+        if (inventoryScreen)
+        {
+            unitSpotlight = GameObject.FindGameObjectWithTag("UnitSpotlight").transform;
+            statShower = GameObject.FindGameObjectWithTag("UnitStats").transform;
+            eventSystem = FindObjectOfType<EventSystem>();
+            gRayCaster = FindObjectOfType<GraphicRaycaster>();
+        }
+
         inventoryBoard = GameObject.FindGameObjectWithTag("InventoryBoard").transform;
         inventoryCardPlacer = inventoryBoard.GetChild(1);
         
