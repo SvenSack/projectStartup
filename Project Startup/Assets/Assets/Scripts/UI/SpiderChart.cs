@@ -23,7 +23,6 @@ public class SpiderChart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Spiderize(5f/10f,67f/100f,8f/10f,3f/5f,7f/10f);
     }
 
 

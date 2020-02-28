@@ -29,6 +29,7 @@ public class InventoryManager : MonoBehaviour
     private Character shownUnit;
     private Transform unitSpotlight;
     private Transform statShower;
+    private SpiderChart spiderMate;
     
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class InventoryManager : MonoBehaviour
             statShower = GameObject.FindGameObjectWithTag("UnitStats").transform;
             eventSystem = FindObjectOfType<EventSystem>();
             gRayCaster = FindObjectOfType<GraphicRaycaster>();
+            spiderMate = FindObjectOfType<SpiderChart>();
         }
 
         inventoryBoard = GameObject.FindGameObjectWithTag("InventoryBoard").transform;
@@ -105,6 +107,7 @@ public class InventoryManager : MonoBehaviour
         {
             stars[j].interactable = true;
         }
+        spiderMate.Spiderize(shownUnit.defense/10f,shownUnit.health/100f, shownUnit.range/10f, (10-shownUnit.attackCooldown*5)/10f, shownUnit.attackDamage/10f);
 
         shownUnit.enabled = false;
     }
