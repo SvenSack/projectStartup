@@ -30,6 +30,7 @@ public class InventoryManager : MonoBehaviour
     private Transform unitSpotlight;
     private Transform statShower;
     private SpiderChart spiderMate;
+    private TextMeshProUGUI[] statsBreakdown;
     
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,8 @@ public class InventoryManager : MonoBehaviour
             eventSystem = FindObjectOfType<EventSystem>();
             gRayCaster = FindObjectOfType<GraphicRaycaster>();
             spiderMate = FindObjectOfType<SpiderChart>();
+            GameObject statBreakdown = statShower.GetChild(3).gameObject;
+            statsBreakdown = statBreakdown.GetComponentsInChildren<TextMeshProUGUI>();
         }
 
         inventoryBoard = GameObject.FindGameObjectWithTag("InventoryBoard").transform;
@@ -108,7 +111,17 @@ public class InventoryManager : MonoBehaviour
             stars[j].interactable = true;
         }
         spiderMate.Spiderize(shownUnit.defense/10f,shownUnit.health/100f, shownUnit.range/10f, (10-shownUnit.attackCooldown*5)/10f, shownUnit.attackDamage/10f);
-
+        string[] tempText;
+        tempText = statsBreakdown[0].text.Split(' ');
+        statsBreakdown[0].text = tempText[0] + " " + (int)shownUnit.attackDamage * 10;
+        tempText = statsBreakdown[1].text.Split(' ');
+        statsBreakdown[1].text = tempText[0] + " " + (int)(1/shownUnit.attackCooldown) + " / second";
+        tempText = statsBreakdown[2].text.Split(' ');
+        statsBreakdown[2].text = tempText[0] + " " + (int)shownUnit.range * 10;
+        tempText = statsBreakdown[3].text.Split(' ');
+        statsBreakdown[3].text = tempText[0] + " " + (int)shownUnit.health * 10;
+        tempText = statsBreakdown[4].text.Split(' ');
+        statsBreakdown[4].text = tempText[0] + " " + (int)shownUnit.defense * 10;
         shownUnit.enabled = false;
     }
     
