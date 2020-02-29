@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.2850269, g: 0.3713935, b: 0.49601045, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502697, g: 0.37139347, b: 0.49601266, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4028,6 +4028,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5902213058602577742}
     m_Modifications:
+    - target: {fileID: 1011336675177592874, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1011336675177592874, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1011336675177592874, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1011336675177592874, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1011336675177592874, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1011336675177592874, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -163.99997
+      objectReference: {fileID: 0}
     - target: {fileID: 1217323791667488217, guid: e29dddb2bdf245a4fbf0480aed79d867,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -4047,6 +4077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978128859752290764, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: stats
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6716833319468765730, guid: e29dddb2bdf245a4fbf0480aed79d867,
         type: 3}
