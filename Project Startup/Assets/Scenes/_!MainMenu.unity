@@ -2703,7 +2703,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2890,7 +2890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2022452368367547195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3152,8 +3152,8 @@ RectTransform:
   m_Father: {fileID: 2022452368825091661}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3245,7 +3245,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3601,13 +3601,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2022452368965996096}
-    characterCount: 0
+    characterCount: 20
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -3794,13 +3794,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2022452369022662062}
-    characterCount: 0
+    characterCount: 12
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -3950,13 +3950,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2022452369093478762}
-    characterCount: 0
+    characterCount: 1
     spriteCount: 0
     spaceCount: 0
-    wordCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -4216,8 +4216,8 @@ RectTransform:
   m_Father: {fileID: 2022452368152510212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4569,13 +4569,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2022452369501955452}
-    characterCount: 0
+    characterCount: 9
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -4646,12 +4646,12 @@ PrefabInstance:
     - target: {fileID: 8166937098806210646, guid: ce8b844fb28682b429261b432bc5b35f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 482
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8166937098806210646, guid: ce8b844fb28682b429261b432bc5b35f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 288.99997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8166937098806210646, guid: ce8b844fb28682b429261b432bc5b35f,
         type: 3}
@@ -4712,19 +4712,16 @@ PrefabInstance:
         type: 3}
       propertyPath: volumeSlider
       value: 
-      objectReference: {fileID: 2022452368155207150, guid: 20b4f104919e1fb4c82b0e805092e57f,
-        type: 3}
+      objectReference: {fileID: 2022452368753633188}
     - target: {fileID: 8166937098806210649, guid: ce8b844fb28682b429261b432bc5b35f,
         type: 3}
       propertyPath: sfxVolumeSlider
       value: 
-      objectReference: {fileID: 2022452368688438509, guid: 20b4f104919e1fb4c82b0e805092e57f,
-        type: 3}
+      objectReference: {fileID: 2022452368228916903}
     - target: {fileID: 8166937098806210649, guid: ce8b844fb28682b429261b432bc5b35f,
         type: 3}
       propertyPath: muteToggle
       value: 
-      objectReference: {fileID: 2022452367798860556, guid: 20b4f104919e1fb4c82b0e805092e57f,
-        type: 3}
+      objectReference: {fileID: 2022452369319573830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce8b844fb28682b429261b432bc5b35f, type: 3}

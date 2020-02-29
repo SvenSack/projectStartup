@@ -23,7 +23,6 @@ public class AudioSettings : MonoBehaviour
     private void Start()
     {
         LoadSettings();
-        settingsOn = false;
         if (settingsMenu.activeInHierarchy)
         {
             settingsMenu.SetActive(false);
@@ -93,7 +92,6 @@ public class AudioSettings : MonoBehaviour
         currentSfxVolume = PlayerPrefs.GetFloat("SFXVol", 0.0f);
         musicMixer.SetFloat("SFXVolume", currentSfxVolume);
         sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXSliderPos", 1.0f);
-        
         
         // Load whether it was muted bool
         if (PlayerPrefs.GetInt("MutedBool", 0) == 0)
