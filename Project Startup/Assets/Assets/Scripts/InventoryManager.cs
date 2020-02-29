@@ -157,8 +157,8 @@ public class InventoryManager : MonoBehaviour
     private GameObject AddInventoryCard(int index)
     {
         GameObject card = Instantiate(inventoryCard, inventoryBoard);
-        float xValue = 75.0f * inventoryCards.Count - 225.0f * Mathf.Floor((float) inventoryCards.Count / 3);
-        float yValue = -60.0f * Mathf.Floor((float) inventoryCards.Count / 3);
+        float xValue = 120.0f * inventoryCards.Count - (120f*3) * Mathf.Floor((float) inventoryCards.Count / 3);
+        float yValue = -90.0f * Mathf.Floor((float) inventoryCards.Count / 3);
         Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
         inventoryCards.Add(card);
         Character character = possibleCharacters[index].GetComponent<Character>();
@@ -198,16 +198,16 @@ public class InventoryManager : MonoBehaviour
         if(!inventoryScreen)
         for (int i = 0; i < inventory.Count; i++)
         {
-            float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
-            float yValue = -60.0f * Mathf.Floor((float) i / 3);
+            float xValue = 120.0f * i - (120f*3) * Mathf.Floor((float) i / 3);
+            float yValue = -90.0f * Mathf.Floor((float) i / 3);
             Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
             inventoryCards[i].LeanMove(cardPosition, 0.2f);
         }
         else
             for (int i = 0; i < inventory.Count; i++)
             {
-                float xValue = 75.0f * i - (75f*8) * Mathf.Floor((float) i / 8);
-                float yValue = -60.0f * Mathf.Floor((float) i / 8);
+                float xValue = 120.0f * i - (120f*7) * Mathf.Floor((float) i / 7);
+                float yValue = -90.0f * Mathf.Floor((float) i / 7);
                 Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
                 inventoryCards[i].LeanMove(cardPosition, 0.2f);
             }
@@ -281,22 +281,22 @@ public class InventoryManager : MonoBehaviour
                 {
                     if ((int)Mathf.Floor((float) i / 3) == row && (float) i / 3 < (float) index / 3)
                     {
-                        float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
-                        float yValue = -60.0f * (Mathf.Floor((float) i / 3)+1) -25;
+                        float xValue = 120.0f * i - (120f*3) * Mathf.Floor((float) i / 3);
+                        float yValue = -90.0f * (Mathf.Floor((float) i / 3)+1) -25;
                         Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
                         inventoryCards[i].LeanMove(cardPosition, 0.2f);
                     }
                     else if (Mathf.Floor((float) i / 3) >= row)
                     {
-                        float xValue = 75.0f * (i-1) - 225.0f * Mathf.Floor((float) (i-1) / 3);
-                        float yValue = -60.0f * (Mathf.Floor((float) (i-1) / 3)+1) -25;
+                        float xValue = 120.0f * (i-1) - (120f*3) * Mathf.Floor((float) (i-1) / 3);
+                        float yValue = -90.0f * (Mathf.Floor((float) (i-1) / 3)+1) -25;
                         Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
                         inventoryCards[i].LeanMove(cardPosition, 0.2f);
                     }
                 }
                 else
                 {
-                    float yValue = -60.0f * Mathf.Floor((float) i / 3);
+                    float yValue = -90.0f * Mathf.Floor((float) i / 3);
                     Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(0, yValue, 0);
                     inventoryCards[i].LeanMove(cardPosition, 0.2f);
                 }
@@ -310,8 +310,8 @@ public class InventoryManager : MonoBehaviour
             {
                 if (Mathf.Floor((float) i / 3) >= row)
                 {
-                    float xValue = 75.0f * i - 225.0f * Mathf.Floor((float) i / 3);
-                    float yValue = -60.0f * Mathf.Floor((float) i / 3);
+                    float xValue = 120.0f * i - (120f*3) * Mathf.Floor((float) i / 3);
+                    float yValue = -90.0f * Mathf.Floor((float) i / 3);
                     Vector3 cardPosition = inventoryCardPlacer.position + new Vector3(xValue, yValue, 0);
                     inventoryCards[i].LeanMove(cardPosition, 0.2f);
                 }
@@ -328,7 +328,7 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            inventoryBoard.LeanMoveX(Screen.width - 670,1f);
+            inventoryBoard.LeanMoveX(Screen.width - 870,1f);
             uiScroll.LeanRotate(new Vector3(0, -120, 0), 1f);
         }
         inventoryOpen = !inventoryOpen;

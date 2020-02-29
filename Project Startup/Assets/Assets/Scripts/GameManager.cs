@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            inventoryButton.parent.LeanMoveX(Screen.width - 240,.5f);
+            inventoryButton.parent.LeanMoveX(Screen.width - 440,.5f);
             uiScroll.LeanRotate(new Vector3(0, -120, 0), .5f);
         }
         StopCoroutine(dragCheck);

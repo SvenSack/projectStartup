@@ -130,7 +130,7 @@ public class Character : MonoBehaviour
                         }
                 }
                 aggroTarget = teamManager.yourTeam[closestIndex1];
-                Debug.Log(name + " has decided to target " + aggroTarget.name);
+                // Debug.Log(name + " has decided to target " + aggroTarget.name);
                 break;
         }
     }
