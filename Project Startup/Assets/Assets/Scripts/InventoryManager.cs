@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Debug = System.Diagnostics.Debug;
 using Random = UnityEngine.Random;
 
 public class InventoryManager : MonoBehaviour
@@ -52,6 +55,22 @@ public class InventoryManager : MonoBehaviour
         
         if(debugPopulate)
             DebugPopulate(debugInventorySize);
+        else
+        {
+            /* InventoryData dat = new InventoryData();
+            string jsonData = JsonUtility.ToJson(dat);
+            File.WriteAllText(Application.dataPath + "/saveFile.json", jsonData);*/
+            string json = File.ReadAllText(Application.dataPath + "/saveFile.json");
+            int[] loadData = JsonUtility.FromJson<InventoryData>(json).data;
+            for (int i = 0; i < possibleCharacters.Length; i++)
+            {
+                if(loadData[i] > 0)
+                    for (int j = 0; j < loadData[i]; j++)
+                    {
+                        inventory.Add(possibleCharacters[i]);
+                    }
+            }
+        }
         
         CreateInventoryCards();
         
@@ -137,7 +156,12 @@ public class InventoryManager : MonoBehaviour
     }
 
     #region Setup
-
+    
+    private class InventoryData
+    {
+    
+        public int[] data = new int[] {2, 4, 2, 2, 5, 2, 1};
+    }
     private void DebugPopulate(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -336,4 +360,6 @@ public class InventoryManager : MonoBehaviour
 
     #endregion
 }
+
+
 

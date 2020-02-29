@@ -3219,6 +3219,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1625905170243258065, guid: 871a580c3b2afaa4483f12383f32e23b,
         type: 3}
+    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
+        type: 3}
+      propertyPath: debugPopulate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7268194609761929249, guid: 071343144b85fa54bbc94d15485e8e28,
         type: 3}
       propertyPath: m_Name

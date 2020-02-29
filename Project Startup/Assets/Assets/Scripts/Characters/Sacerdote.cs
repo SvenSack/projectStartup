@@ -30,28 +30,30 @@ public class Sacerdote : Character
             case true:
                 foreach (var unit in teamManager.yourTeam)
                 {
-                    if (unit != this && !unit.isDead)
-                    {
-                        if ((unit.transform.position - transform.position).magnitude < healRadius)
+                    if(unit != null)
+                        if (unit != this && !unit.isDead)
                         {
-                            unit.Heal(amount);
-                            break;
+                            if ((unit.transform.position - transform.position).magnitude < healRadius)
+                            {
+                                unit.Heal(amount);
+                                break;
+                            }
                         }
-                    }
                 }
 
                 break;
             case false:
                 foreach (var unit in teamManager.enemyTeam)
                 {
-                    if (unit != this && !unit.isDead)
-                    {
-                        if ((unit.transform.position - transform.position).magnitude < healRadius)
+                    if(unit != null)
+                        if (unit != this && !unit.isDead)
                         {
-                            unit.Heal(amount);
-                            break;
+                            if ((unit.transform.position - transform.position).magnitude < healRadius)
+                            {
+                                unit.Heal(amount);
+                                break;
+                            }
                         }
-                    }
                 }
 
                 break;

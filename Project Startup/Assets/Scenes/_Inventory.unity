@@ -745,6 +745,11 @@ PrefabInstance:
       propertyPath: uiScroll
       value: 
       objectReference: {fileID: 1107954245}
+    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
+        type: 3}
+      propertyPath: debugPopulate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7268194609761929249, guid: 071343144b85fa54bbc94d15485e8e28,
         type: 3}
       propertyPath: m_Name
