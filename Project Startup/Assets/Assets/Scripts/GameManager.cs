@@ -427,6 +427,7 @@ public class GameManager : MonoBehaviour
         {
             // display victory screen
             showOnVictory.SetActive(true);
+            teamManager.WriteTeamFile(true);
         }
         else
         {
