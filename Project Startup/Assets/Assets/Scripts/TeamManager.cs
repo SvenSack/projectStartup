@@ -204,7 +204,7 @@ public class TeamManager : MonoBehaviour
             }
         }
         string jsonData = JsonUtility.ToJson(dat);
-        print(jsonData);
+        // print(jsonData);
         File.WriteAllText(Application.dataPath + "/EnemyTeam.json", jsonData);
     }
     

@@ -41,11 +41,13 @@ public class Larry : Character
             case true:
                 float furthest = 0;
                 int furthestIndex = teamManager.yourTeam.Length+1;
+                bool wantToBreak = true;
                 for (int i = 0; i < teamManager.yourTeam.Length; i++)
                 {
                     if(teamManager.yourTeam[i] != null)
                         if (teamManager.yourTeam[i].isDead == false)
                         {
+                            wantToBreak = false;
                             // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
                             Vector3 distanceVector = teamManager.yourTeam[i].transform.position - transform.position;
                             if (furthest < distanceVector.magnitude)
@@ -55,6 +57,9 @@ public class Larry : Character
                             }
                         }
                 }
+
+                if (wantToBreak)
+                    return null;
 
                 foreach (var unit in teamManager.enemyTeam)
                 {
@@ -68,11 +73,13 @@ public class Larry : Character
             case false:
                 float furthest1 = 0;
                 int furthestIndex1 = teamManager.enemyTeam.Length+1;
+                bool wantToBreak1 = true;
                 for (int i = 0; i < teamManager.enemyTeam.Length; i++)
                 {
                     if(teamManager.enemyTeam[i] != null)
                         if (teamManager.enemyTeam[i].isDead == false)
                         {
+                            wantToBreak1 = false;
                             // Debug.Log(name + " considered targeting " + teamManager.enemyTeam[i].name);
                             Vector3 distanceVector = teamManager.enemyTeam[i].transform.position - transform.position;
                             if (furthest1 < distanceVector.magnitude)
@@ -82,6 +89,9 @@ public class Larry : Character
                             }
                         }
                 }
+
+                if (wantToBreak1)
+                    return null;
 
                 foreach (var unit in teamManager.yourTeam)
                 {
