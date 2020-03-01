@@ -470,7 +470,6 @@ public class GameManager : MonoBehaviour
         {
             if (tile.heldUnit != null)
             {
-                tile.heldUnit.healthBar.transform.parent.gameObject.SetActive(true);
                 Character newChar = inventoryManager.NewCharacter(tile.heldUnit.instanceNumber);
                 bool oldAlignment = tile.heldUnit.isOnYourTeam;
                 newChar.isOnYourTeam = oldAlignment;

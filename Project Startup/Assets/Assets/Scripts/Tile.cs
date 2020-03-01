@@ -28,7 +28,7 @@ public class Tile : MonoBehaviour
         Color col = on.color;
         col.a= 10f / 255f;
         myOn.color = col;
-        print(myOn.color);
+        // print(myOn.color);
         myOn.EnableKeyword("_EMISSION");
         myOn.SetColor("_EmissionColor", off.GetColor("_EmissionColor"));
         gameObject.GetComponent<MeshRenderer>().material = off;
