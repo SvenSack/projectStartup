@@ -12,6 +12,9 @@ public class Swiper : Character
     {
         if (hitCount < 3 - Convert.ToInt32(isUpgraded))
         {
+            // Play Hit SFX
+            hitSfx.Play();
+            
             hitCount++;
             StartCoroutine(FakeAttackAnimation(.2f));
             if (attackDamage > aggroTarget.defense)
@@ -28,6 +31,9 @@ public class Swiper : Character
         else // swipe
         {
             hitCount = 1;
+            
+            // TODO: Swipe SFX .Play();
+            
             StartCoroutine(FakeAttackAnimation2(.2f));
             if(isOnYourTeam)
                 foreach (var unit in teamManager.enemyTeam)

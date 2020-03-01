@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -205,6 +205,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1058451781}
         m_MethodName: LoadFightScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1058451781}
+        m_MethodName: ButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -334,6 +345,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1058451781}
         m_MethodName: LoadInventoryScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1058451781}
+        m_MethodName: ButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1098,6 +1120,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5370564069045968528}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &504666585 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2574389962333660547, guid: 28fda2b4c80dd1040af9a83a623c9517,
+    type: 3}
+  m_PrefabInstance: {fileID: 2574389962232183898}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &599400085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,6 +1421,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1058451781}
+        m_MethodName: ButtonAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &839500870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1513,6 +1552,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1058451781}
         m_MethodName: LoadFightScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1058451781}
+        m_MethodName: ButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1710,6 +1760,7 @@ MonoBehaviour:
   inventorySceneIndex: 1
   fightSceneIndex: 2
   gachaSceneIndex: 3
+  buttonSfx: {fileID: 504666585}
 --- !u!1 &1103123010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1842,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1103123013}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1058451781}
+        m_MethodName: ButtonAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1103123013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2069,6 +2131,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1058451781}
         m_MethodName: LoadFightScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1058451781}
+        m_MethodName: ButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2386,6 +2459,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2030375871}
         m_MethodName: EnableSettingsMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1058451781}
+        m_MethodName: ButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4242,6 +4326,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1058451781}
+        m_MethodName: ButtonAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2022452369240725604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4730,6 +4825,75 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &2574389962232183898
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 599.51154
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 75.15802
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 384.1554
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660546, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_Name
+      value: ButtonSFX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28fda2b4c80dd1040af9a83a623c9517, type: 3}
 --- !u!1001 &5370564069045968528
 PrefabInstance:
   m_ObjectHideFlags: 0

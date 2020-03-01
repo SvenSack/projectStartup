@@ -10,6 +10,8 @@ public class Larry : Character
     private float protCheckCurrent = -2;
     private float oldSpeed;
     private int saves = 0;
+
+    public AudioSource shieldingSfx;
     
     public override void Update()
     {
@@ -99,6 +101,10 @@ public class Larry : Character
         if(isDead)
             yield break;
         saves++;
+        
+        // Play Shielding SFX
+        shieldingSfx.Play();
+        
         oldSpeed = movementSpeed;
         movementSpeed = 0;
         aggroTarget = data[1];
