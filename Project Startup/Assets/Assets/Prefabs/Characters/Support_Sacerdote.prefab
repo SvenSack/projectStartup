@@ -134,7 +134,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cf31ae475e6bfe248a0f43badd377835, type: 2}
+  - {fileID: 2100000, guid: c4438142ba8898748bcc7b3f72da48d7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,12 +250,12 @@ PrefabInstance:
     - target: {fileID: 3299981188469447870, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4124109995995956478, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
@@ -328,15 +328,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 586149146600676026}
   m_PrefabAsset: {fileID: 0}
---- !u!82 &6319868401910169576 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6887909665206314322, guid: 4cf03638832e8fa4f9140621fb57dd82,
-    type: 3}
-  m_PrefabInstance: {fileID: 586149146600676026}
-  m_PrefabAsset: {fileID: 0}
 --- !u!82 &628841682088903412 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 42911355616254030, guid: 4cf03638832e8fa4f9140621fb57dd82,
+    type: 3}
+  m_PrefabInstance: {fileID: 586149146600676026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6319868401910169576 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6887909665206314322, guid: 4cf03638832e8fa4f9140621fb57dd82,
     type: 3}
   m_PrefabInstance: {fileID: 586149146600676026}
   m_PrefabAsset: {fileID: 0}
