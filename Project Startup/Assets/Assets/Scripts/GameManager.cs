@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -25,8 +26,8 @@ public class GameManager : MonoBehaviour
     private Character heldUnit; // the unit you are currently holding (only from inventory)
     private GameObject hideInFight; // the UI for the pre-fight setup
     private GameObject showInFight; // the UI for the combat
-    private GameObject showOnVictory; // the UI for the victory screen
-    private GameObject showOnDefeat; // the UI for the defeat screen
+    private GameObject showOnWin; // the UI for the victory screen
+    
     public GraphicRaycaster gRayCaster;
     public EventSystem eventSystem;
     private bool showingDetails;
@@ -54,11 +55,10 @@ public class GameManager : MonoBehaviour
         floorMask = LayerMask.GetMask("Floor");
         hideInFight = GameObject.FindGameObjectWithTag("HideInFight");
         showInFight = GameObject.FindGameObjectWithTag("ShowInFight");
-        showOnVictory = GameObject.FindGameObjectWithTag("ShowOnVictory");
-        showOnDefeat = GameObject.FindGameObjectWithTag("ShowOnDefeat");
+        showOnWin = GameObject.FindGameObjectWithTag("ShowOnVictory");
         showInFight.SetActive(false);
-        showOnVictory.SetActive(false);
-        showOnDefeat.SetActive(false);
+        showOnWin.SetActive(false);
+        
         detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
         detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
         detailShower.SetActive(false);
@@ -86,6 +86,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            Debug.Log("You have activated pot of greed!");
+            FightOver(true);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            Debug.Log("What does pot of greed do?!");
+            FightOver(false);
+        }
+        
         if (!fightRunning && !endScreen)
         {
             // get units from drag and place them on drop
@@ -426,20 +438,29 @@ public class GameManager : MonoBehaviour
         if (youWon)
         {
             // display victory screen
-            showOnVictory.SetActive(true);
+            showOnWin.SetActive(true);
+            showOnWin.GetComponent<Transform>().GetChild(0).GetComponent<TextMeshProUGUI>().text = "You have won!!";
             teamManager.WriteTeamFile(true);
+            
+            // Retry as a win
+            stopFightMusicBtn.GetComponent<Button>().onClick.RemoveListener(Retry);
+            stopFightMusicBtn.GetComponent<Button>().onClick.AddListener(RetryOnWin);
         }
         else
         {
-            // display loss screen
-            showOnDefeat.SetActive(true);
+            // display loss text
+            showOnWin.SetActive(true);
+            showOnWin.GetComponent<Transform>().GetChild(0).GetComponent<TextMeshProUGUI>().text = "You have lost...";
+            
+            // Retry as a loss
+            stopFightMusicBtn.GetComponent<Button>().onClick.AddListener(Retry);
         }
     }
 
     public void Retry()
     {
         endScreen = false;
-        showOnDefeat.SetActive(false);
+        showOnWin.SetActive(false);
         hideInFight.SetActive(true);
         Tile[] tiles = GameObject.FindGameObjectWithTag("TileBoard").GetComponentsInChildren<Tile>();
         teamManager.yourTeam = new Character[3];
@@ -460,5 +481,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void RetryOnWin()
+    {
+        Retry();
+        teamManager.ReadTeamFile();
+    }
     #endregion
 }
