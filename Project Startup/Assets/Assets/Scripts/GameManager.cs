@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
         Tile[] checkGroup = FindObjectsOfType<Tile>();
         foreach (var tile in checkGroup)
         {
-            tile.GetComponent<MeshRenderer>().material = tile.myOff;
+            tile.GetComponent<MeshRenderer>().material = tile.off;
         }
     }
 
