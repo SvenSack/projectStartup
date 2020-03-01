@@ -18,7 +18,7 @@ MonoBehaviour:
   attackDamage: 4
   attackCooldown: 1
   defense: 5.2
-  name: Fluffles
+  name: Larry
   profilePic: {fileID: 21300000, guid: 43ad49a66f345144db6f42caadbb89a8, type: 3}
   instanceNumber: 0
   fighting: 0

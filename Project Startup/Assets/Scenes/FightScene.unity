@@ -214,6 +214,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35845296}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &37887206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 803880387767840367, guid: 08409026d8cad134abbe755947f0ea73,
+    type: 3}
+  m_PrefabInstance: {fileID: 803880389074841254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &37902940 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7633782110379766391, guid: 480c363f577923e4d87c8119bbc65814,
@@ -916,6 +922,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b86ee060c2eb94c97b58c2f6c8ae48, type: 3}
+--- !u!1 &641848083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 803880388830029871, guid: 08409026d8cad134abbe755947f0ea73,
+    type: 3}
+  m_PrefabInstance: {fileID: 803880389074841254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1300,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c45322658cccfe4bbc4285d0a0d84a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &924141097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 803880387659210433, guid: 08409026d8cad134abbe755947f0ea73,
+    type: 3}
+  m_PrefabInstance: {fileID: 803880389074841254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &935646996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 803880388644290232, guid: 08409026d8cad134abbe755947f0ea73,
+    type: 3}
+  m_PrefabInstance: {fileID: 803880389074841254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &995389199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,6 +1823,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719303877}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1729847454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 803880389072252556, guid: 08409026d8cad134abbe755947f0ea73,
+    type: 3}
+  m_PrefabInstance: {fileID: 803880389074841254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1729957746 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3605191596434338038, guid: d5613eff577def74a953d61e27829040,
@@ -2232,6 +2262,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943946071}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2105297677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 803880388607603969, guid: 08409026d8cad134abbe755947f0ea73,
+    type: 3}
+  m_PrefabInstance: {fileID: 803880389074841254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2119972253
 GameObject:
   m_ObjectHideFlags: 0
@@ -3925,6 +3961,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
         type: 3}
+      propertyPath: enemyTileRows.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
+        type: 3}
+      propertyPath: yourTileRows.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
+        type: 3}
       propertyPath: yourTeam.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -3958,6 +4004,36 @@ PrefabInstance:
       propertyPath: unitCount
       value: 
       objectReference: {fileID: 2629920248252098817}
+    - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
+        type: 3}
+      propertyPath: enemyTileRows.Array.data[0]
+      value: 
+      objectReference: {fileID: 924141097}
+    - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
+        type: 3}
+      propertyPath: enemyTileRows.Array.data[1]
+      value: 
+      objectReference: {fileID: 37887206}
+    - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
+        type: 3}
+      propertyPath: enemyTileRows.Array.data[2]
+      value: 
+      objectReference: {fileID: 641848083}
+    - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
+        type: 3}
+      propertyPath: yourTileRows.Array.data[0]
+      value: 
+      objectReference: {fileID: 935646996}
+    - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
+        type: 3}
+      propertyPath: yourTileRows.Array.data[1]
+      value: 
+      objectReference: {fileID: 2105297677}
+    - target: {fileID: 6013725484361028144, guid: a584777da2801e44f91f2bee98b03ba4,
+        type: 3}
+      propertyPath: yourTileRows.Array.data[2]
+      value: 
+      objectReference: {fileID: 1729847454}
     - target: {fileID: 6013725484361028145, guid: a584777da2801e44f91f2bee98b03ba4,
         type: 3}
       propertyPath: m_Name
