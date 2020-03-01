@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -121,6 +121,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &274510229
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 599.51154
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 75.15802
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 384.1554
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660544, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2574389962333660546, guid: 28fda2b4c80dd1040af9a83a623c9517,
+        type: 3}
+      propertyPath: m_Name
+      value: ButtonSFX
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28fda2b4c80dd1040af9a83a623c9517, type: 3}
+--- !u!82 &274510230 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2574389962333660547, guid: 28fda2b4c80dd1040af9a83a623c9517,
+    type: 3}
+  m_PrefabInstance: {fileID: 274510229}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &539836903 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2610402377980646493, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
@@ -211,6 +286,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1370289953}
         m_MethodName: LoadMainScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1370289953}
+        m_MethodName: ButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -414,6 +500,7 @@ MonoBehaviour:
   inventorySceneIndex: 1
   fightSceneIndex: 2
   gachaSceneIndex: 3
+  buttonSfx: {fileID: 274510230}
 --- !u!1 &1438107810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1125,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1685876084}
         m_MethodName: ToggleButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1370289953}
+        m_MethodName: ButtonAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

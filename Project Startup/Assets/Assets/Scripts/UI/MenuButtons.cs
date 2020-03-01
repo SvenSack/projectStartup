@@ -9,7 +9,13 @@ public class MenuButtons : MonoBehaviour
     public int inventorySceneIndex = 1;
     public int fightSceneIndex = 2;
     public int gachaSceneIndex = 3;
+
+    public AudioSource buttonSfx;
     
+    public void ButtonAudio()
+    {
+        buttonSfx.Play();
+    }
     
     public void LoadMainScene()
     {

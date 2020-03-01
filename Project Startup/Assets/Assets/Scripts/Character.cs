@@ -39,6 +39,8 @@ public class Character : MonoBehaviour
 
     [HideInInspector] public Slider healthBar;
 
+    public AudioSource hitSfx;
+    public AudioSource deathSfx;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -151,6 +153,9 @@ public class Character : MonoBehaviour
     public virtual void Attack()
     {
         StartCoroutine(FakeAttackAnimation(.2f));
+        // Hit SFX
+        hitSfx.Play();
+        
         // deal damage to the target mitigated by defense
         if (aggroTarget.Damage(attackDamage - aggroTarget.defense))
         {
@@ -254,6 +259,10 @@ public class Character : MonoBehaviour
         isDead = true;
         transform.LeanScale(new Vector3(0,0,0), 1.5f);
         healthBar.transform.parent.gameObject.SetActive(false);
+        
+        // Death SFX
+        deathSfx.Play();
+        
         // play death explosion
         GameObject dP = Instantiate(deathParticle, transform.position, new Quaternion());
         Color passColor = Color.magenta;

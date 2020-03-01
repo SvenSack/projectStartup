@@ -41,6 +41,8 @@ MonoBehaviour:
   isDead: 0
   aggroTarget: {fileID: 0}
   healthBar: {fileID: 0}
+  hitSfx: {fileID: 1142822087344901102}
+  deathSfx: {fileID: 5823902382951872242}
 --- !u!1001 &1100124075650421664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48,6 +50,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42911355616254030, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 76b5a94898112af41bc0f8c53c1e9b74, type: 3}
     - target: {fileID: 2211843184690601065, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -170,6 +177,18 @@ PrefabInstance:
 --- !u!1 &1294334836057935819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2211843184690601067, guid: 4cf03638832e8fa4f9140621fb57dd82,
+    type: 3}
+  m_PrefabInstance: {fileID: 1100124075650421664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1142822087344901102 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 42911355616254030, guid: 4cf03638832e8fa4f9140621fb57dd82,
+    type: 3}
+  m_PrefabInstance: {fileID: 1100124075650421664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5823902382951872242 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6887909665206314322, guid: 4cf03638832e8fa4f9140621fb57dd82,
     type: 3}
   m_PrefabInstance: {fileID: 1100124075650421664}
   m_PrefabAsset: {fileID: 0}

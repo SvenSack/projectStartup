@@ -11,6 +11,8 @@ public class Fronpy : Character
     private bool isJumping;
     private float zeroHeight;
 
+    public AudioSource jumpSfx;
+    
     public override bool TargetInRange(Character target)
     {
         // check if target is in range, return accordingly
@@ -78,6 +80,9 @@ public class Fronpy : Character
 
         if (jumps < 1 + Convert.ToInt32(isUpgraded))
         {
+            // Play Jump SFX
+            jumpSfx.Play();
+            
             isJumping = true;
             jumps++;
             movementSpeed = movementSpeed * 3;

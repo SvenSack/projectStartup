@@ -13,6 +13,8 @@ public class Friend : Character
     public GameObject embraceCannon;
     private GameObject embraceCannonInst;
 
+    public AudioSource embraceSfx;
+
     public override void FindAggroTarget()
     {
         switch (isOnYourTeam)
@@ -62,6 +64,9 @@ public class Friend : Character
 
         if (hugs < 1 + Convert.ToInt32(isUpgraded))
         {
+            // Play Embrace cannon SFX
+            embraceSfx.Play();
+            
             isHugging = true;
             hugs++;
             oldSpeed = movementSpeed;

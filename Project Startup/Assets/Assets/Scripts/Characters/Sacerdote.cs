@@ -8,6 +8,8 @@ public class Sacerdote : Character
     private int hitCounter;
     public float healRadius = 2;
     
+    public AudioSource healSfx;
+    
     public override void Attack()
     {
         base.Attack();
@@ -35,6 +37,9 @@ public class Sacerdote : Character
                         {
                             if ((unit.transform.position - transform.position).magnitude < healRadius)
                             {
+                                // Play Heal SFX
+                                healSfx.Play();
+                                
                                 unit.Heal(amount);
                                 break;
                             }
@@ -50,6 +55,9 @@ public class Sacerdote : Character
                         {
                             if ((unit.transform.position - transform.position).magnitude < healRadius)
                             {
+                                // Play Heal SFX
+                                healSfx.Play();
+                                
                                 unit.Heal(amount);
                                 break;
                             }
