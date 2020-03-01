@@ -20,6 +20,8 @@ public class Tile : MonoBehaviour
         myOff = new Material(Shader.Find("Universal Render Pipeline/Lit"));
         myOn = new Material(Shader.Find("Universal Render Pipeline/Lit"));
         myOff.color = off.color;
+        myOff.EnableKeyword("_ALPHAPREMULTIPLY_ON");
+        myOn.EnableKeyword("_ALPHAPREMULTIPLY_ON");
         myOn.color = on.color;
         myOn.EnableKeyword("_EMISSION");
         myOn.SetColor("_EmissionColor", off.GetColor("_EmissionColor"));
@@ -84,19 +86,19 @@ public class Tile : MonoBehaviour
             switch (heldUnit.type)
             {
                 case Character.archetype.Attacker:
-                    myOn.color = new Color(0.7924528f, 0.1831613f, 0.2159052f);
+                    myOn.color = new Color(0.7924528f, 0.1831613f, 0.2159052f, 0.3f);
                     myOn.SetColor("_EmissionColor", new Color(0.7924528f, 0.1831613f, 0.2159052f)*1.5f);
                     break;
                 case Character.archetype.Tank:
-                    myOn.color = new Color(0.4298683f, 0.6714197f, 0.7924528f);
+                    myOn.color = new Color(0.4298683f, 0.6714197f, 0.7924528f, 0.3f);
                     myOn.SetColor("_EmissionColor", new Color(0.4298683f, 0.6714197f, 0.7924528f)*1.5f);
                     break;
                 case Character.archetype.Assassin:
-                    myOn.color = new Color(0.5283019f, 0.2815949f, 0.4347313f);
+                    myOn.color = new Color(0.5283019f, 0.2815949f, 0.4347313f, 0.3f);
                     myOn.SetColor("_EmissionColor", new Color(0.5283019f, 0.2815949f, 0.4347313f)*1.5f);
                     break;
                 case Character.archetype.Support:
-                    myOn.color = new Color(0.3177287f, 0.7924528f, 0.4481168f);
+                    myOn.color = new Color(0.3177287f, 0.7924528f, 0.4481168f, 0.3f);
                     myOn.SetColor("_EmissionColor", new Color(0.3177287f, 0.7924528f, 0.4481168f)*1.5f);
                     break;
             }
