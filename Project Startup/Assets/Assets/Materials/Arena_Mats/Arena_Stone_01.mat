@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Arena_Cherries
+  m_Name: Arena_Stone_01
   m_Shader: {fileID: -6465566751694194690, guid: e87631564b11f44df856e594cea2c530,
     type: 3}
   m_ShaderKeywords: HARD_SHADING_ON
@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1052db6a00ed83b4bb10a81d6afd231f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
@@ -57,6 +57,6 @@ Material:
     - _Smoothness: 1
     m_Colors:
     - Color_C6678645: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.72156864, g: 0.34117648, b: 0.33333334, a: 0}
+    - _Color: {r: 0.2874409, g: 0.2874409, b: 0.2874409, a: 1}
     - _Specular: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0}
     - _TextureTiling: {r: 1, g: 1, b: 0, a: 0}
