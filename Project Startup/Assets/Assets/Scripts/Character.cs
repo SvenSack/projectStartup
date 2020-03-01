@@ -170,6 +170,10 @@ public class Character : MonoBehaviour
 
     public virtual IEnumerator FakeAttackAnimation(float animationLength)
     {
+        if (transform.position.y != 0.4f)
+        {
+            transform.LeanMoveY(0.4f, .2f);
+        }
         Vector3 direction = transform.forward * .3f;
         transform.LeanMove(transform.position - direction, animationLength/2);
         yield return new WaitForSeconds(animationLength/2);
@@ -180,6 +184,7 @@ public class Character : MonoBehaviour
             GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
             proj.GetComponent<Projectile>().target = aggroTarget.transform;
         }
+        healthBar.transform.parent.position = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1.5f, 0));
     }
 
     public virtual void Upgrade()
