@@ -97,7 +97,7 @@ public class InventCharButton : MonoBehaviour
         tmp.text = name;
         if (name.Length > 6)
         {
-            tmp.fontSize -= 4;
+            tmp.fontSize -= 6;
         }
         Image img = transform.GetChild(0).GetChild(1).gameObject.GetComponent<Image>();
         img.sprite = image;

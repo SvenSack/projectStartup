@@ -19,6 +19,10 @@ public class TeamManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!System.IO.File.Exists(Application.persistentDataPath + "/EnemyTeam.json"))
+        {
+            WriteTeamFile(true);
+        }
         ReadTeamFile();
         // get all characters, sort them into the teams according to their isOnYourTeam
         Character[] characters = FindObjectsOfType<Character>();
@@ -140,7 +144,7 @@ public class TeamManager : MonoBehaviour
         Tile[] tilesRow2 = enemyTileRows[1].GetComponentsInChildren<Tile>();
         Tile[] tilesRow3 = enemyTileRows[2].GetComponentsInChildren<Tile>();
         Tile[][] tileRows = new Tile[][]{tilesRow1,tilesRow2,tilesRow3};
-        string json = File.ReadAllText(Application.dataPath + "/EnemyTeam.json");
+        string json = File.ReadAllText(Application.persistentDataPath + "/EnemyTeam.json");
         TeamData teamData = JsonUtility.FromJson<TeamData>(json);
         TeamData.Entry[] data = teamData.data;
         for (int i = 0; i < data.Length; i++)
@@ -205,7 +209,7 @@ public class TeamManager : MonoBehaviour
         }
         string jsonData = JsonUtility.ToJson(dat);
         // print(jsonData);
-        File.WriteAllText(Application.dataPath + "/EnemyTeam.json", jsonData);
+        File.WriteAllText(Application.persistentDataPath + "/EnemyTeam.json", jsonData);
     }
     
     [System.Serializable] public class TeamData
