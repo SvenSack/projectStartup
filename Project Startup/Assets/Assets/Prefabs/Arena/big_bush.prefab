@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7148577115588269319
 Transform:
@@ -97,6 +97,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: background_Big_Bush
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5c659985301a0114d8a509d2adfa7b84,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 172678880773402042, guid: 5c659985301a0114d8a509d2adfa7b84,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8378112195138412545, guid: 5c659985301a0114d8a509d2adfa7b84,
         type: 3}
