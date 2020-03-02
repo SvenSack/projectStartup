@@ -21,7 +21,7 @@ public class MusicManager : MonoBehaviour
         if (!introMusic.isPlaying && !startedLoop)
         {
             loopMusic.Play();
-            Debug.Log("Done playing");
+            // Debug.Log("Done playing");
             startedLoop = true;
         }
     }

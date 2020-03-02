@@ -17,11 +17,15 @@ public class InventCharButton : MonoBehaviour
     private float defaultFontsize = 22;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        backDrop = transform.GetChild(0).GetComponent<RectTransform>();
+        stats = transform.GetChild(1).gameObject;
+    }
+
     void Start()
     {
         inventoryManager = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>();
-        backDrop = transform.GetChild(0).GetComponent<RectTransform>();
-        stats = transform.GetChild(1).gameObject;
         Character myCharacter = inventoryManager.possibleCharacters[charIndex].GetComponent<Character>();
         Slider[] sliders = stats.GetComponentsInChildren<Slider>();
         sliders[0].value = myCharacter.health;

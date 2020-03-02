@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.28345904, g: 0.3699292, b: 0.501073, a: 1}
+  m_IndirectSpecularColor: {r: 0.28345913, g: 0.36992958, b: 0.5010739, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4168,6 +4168,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1729957746}
+    - target: {fileID: 6716833319468765731, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -485.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716833319468765731, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.04999113
+      objectReference: {fileID: 0}
     - target: {fileID: 6716833320456891241, guid: e29dddb2bdf245a4fbf0480aed79d867,
         type: 3}
       propertyPath: m_fontColor.r
@@ -4212,6 +4222,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213361245853336962, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1919.6592
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213361245853336962, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1070.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213361245853336962, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.08678321
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213361245853336962, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9213361245853336962, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9213361246238085986, guid: e29dddb2bdf245a4fbf0480aed79d867,
         type: 3}
@@ -4348,7 +4383,8 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4279308561
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8886929482937961238, guid: e29dddb2bdf245a4fbf0480aed79d867, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e29dddb2bdf245a4fbf0480aed79d867, type: 3}
 --- !u!1001 &6727073658232739665
 PrefabInstance:

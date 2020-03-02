@@ -14,7 +14,7 @@ public class Tile : MonoBehaviour
     public Material myOn;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         placementSpot = transform.GetChild(0).GetChild(0);
         myOn = new Material(Shader.Find("Universal Render Pipeline/Lit"));

@@ -9,8 +9,8 @@ using Random = System.Random;
 
 public class TeamManager : MonoBehaviour
 {
-    [HideInInspector] public Character[] yourTeam = new Character[3]; // your currently placed units
-    [HideInInspector] public Character[] enemyTeam = new Character[3]; // the units on the enemy team
+    public Character[] yourTeam = new Character[3]; // your currently placed units
+    public Character[] enemyTeam = new Character[3]; // the units on the enemy team
     public GameObject[] yourTileRows;
     public GameObject[] enemyTileRows;
     public InventoryManager inventoryManager;

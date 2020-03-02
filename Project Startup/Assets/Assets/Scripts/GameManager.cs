@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     public GameObject stopFightMusicBtn;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         castMask = LayerMask.GetMask("Tiles");
         floorMask = LayerMask.GetMask("Floor");
@@ -59,16 +59,19 @@ public class GameManager : MonoBehaviour
         showInFight.SetActive(false);
         showOnWin.SetActive(false);
         
-        detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
-        detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
-        detailShower.SetActive(false);
-        
         music = GameObject.FindGameObjectWithTag("music");
         
         // Adding listeners to buttons
         startFightMusicBtn.GetComponent<Button>().onClick.AddListener(StartFMusic);
 
         stopFightMusicBtn.GetComponent<Button>().onClick.AddListener(StartMMusic);
+    }
+
+    void Start()
+    {
+        detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
+        detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
+        detailShower.SetActive(false);
     }
 
     private void StartFMusic()
@@ -88,13 +91,13 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
-            Debug.Log("You have activated pot of greed!");
+            // Debug.Log("You have activated pot of greed!");
             FightOver(true);
         }
         
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            Debug.Log("What does pot of greed do?!");
+            // Debug.Log("What does pot of greed do?!");
             FightOver(false);
         }
         
@@ -432,6 +435,14 @@ public class GameManager : MonoBehaviour
     {
         fightRunning = false;
         endScreen = true;
+        foreach (var unit in teamManager.enemyTeam)
+        {
+            unit.healthBar.transform.parent.gameObject.SetActive(true);
+        }
+        foreach (var unit in teamManager.yourTeam)
+        {
+            unit.healthBar.transform.parent.gameObject.SetActive(true);
+        }
         showInFight.SetActive(false);
         
         music.GetComponent<ChangingMusic>().StartWinMusic();
