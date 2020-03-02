@@ -39,10 +39,12 @@ public class GameManagerEditor : Editor
                     EditorGUILayout.ObjectField("Tile Board", myScript.tileBoard, typeof(Transform), true) as Transform;
                 myScript.detailShower =
                     EditorGUILayout.ObjectField("Detail Shower", myScript.detailShower, typeof(GameObject), true) as GameObject;
-                myScript.startFightMusicBtn =
-                    EditorGUILayout.ObjectField("Start Fight Btn", myScript.startFightMusicBtn, typeof(GameObject), true) as GameObject;
-                myScript.stopFightMusicBtn =
-                    EditorGUILayout.ObjectField("Retry Btn", myScript.stopFightMusicBtn, typeof(GameObject), true) as GameObject;
+                myScript.startFightBtn =
+                    EditorGUILayout.ObjectField("Start Fight Button", myScript.startFightBtn, typeof(GameObject), true) as GameObject;
+                myScript.retryBtn =
+                    EditorGUILayout.ObjectField("Retry Button", myScript.retryBtn, typeof(GameObject), true) as GameObject;
+                myScript.mainMenuBtn =
+                    EditorGUILayout.ObjectField("Return To Main Button", myScript.mainMenuBtn, typeof(GameObject), true) as GameObject;
                 myScript.uiScroll =
                     EditorGUILayout.ObjectField("UI Scroll", myScript.uiScroll, typeof(Transform), true) as Transform;
                 EditorGUI.indentLevel--;

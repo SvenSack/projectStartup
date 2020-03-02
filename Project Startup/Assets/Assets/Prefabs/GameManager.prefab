@@ -56,5 +56,6 @@ MonoBehaviour:
   inventoryButton: {fileID: 0}
   inventoryHover: {fileID: 0}
   tileBoard: {fileID: 0}
-  startFightMusicBtn: {fileID: 0}
-  stopFightMusicBtn: {fileID: 0}
+  startFightBtn: {fileID: 0}
+  retryBtn: {fileID: 0}
+  mainMenuBtn: {fileID: 0}
