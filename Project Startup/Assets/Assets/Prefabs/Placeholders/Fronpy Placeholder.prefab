@@ -19,7 +19,7 @@ MonoBehaviour:
   attackCooldown: 0.45
   defense: 1
   name: Jeremy
-  profilePic: {fileID: 21300000, guid: 43ad49a66f345144db6f42caadbb89a8, type: 3}
+  profilePic: {fileID: 21300000, guid: 72af7b6598103a3499035617b60b4714, type: 3}
   instanceNumber: 1
   fighting: 0
   attackCooldownValue: 0

@@ -126,7 +126,7 @@ PrefabInstance:
         type: 3}
       propertyPath: profilePic
       value: 
-      objectReference: {fileID: 21300000, guid: 43ad49a66f345144db6f42caadbb89a8,
+      objectReference: {fileID: 21300000, guid: e84ceaeac6743764481256cdbceb12f0,
         type: 3}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
