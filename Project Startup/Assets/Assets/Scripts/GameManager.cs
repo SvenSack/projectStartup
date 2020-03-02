@@ -245,8 +245,9 @@ public class GameManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(target);
         if ( Physics.Raycast (ray,out hit,100.0f, castMask))
         {
-            if (hit.transform.gameObject.GetComponent<Tile>().heldUnit != null &&
-                hit.transform.gameObject.GetComponent<Tile>().isYours)
+            Tile hitTile = hit.transform.gameObject.GetComponent<Tile>();
+            if (hitTile.heldUnit != null &&
+                hitTile.isYours)
             {
                 originTile = hit.transform.gameObject.GetComponent<Tile>();
                 fromTile = true;

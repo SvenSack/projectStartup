@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -1922,6 +1922,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1697628232}
     m_Modifications:
+    - target: {fileID: 566630332, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 566630332, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 581025260, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 581025260, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 715829250, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 715829250, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748069601, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 748069601, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716631872, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 1716631872, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 439656315177062129, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
         type: 3}
       propertyPath: m_fontAsset
@@ -2076,6 +2116,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 765.3
       objectReference: {fileID: 0}
+    - target: {fileID: 2610402376772704737, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 2610402377136091887, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 2610402377980646492, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
         type: 3}
       propertyPath: m_Name
@@ -2186,6 +2236,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2610402378446677065, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3475673336611353221, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2416,6 +2471,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 765.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874734199005950075, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 6874734199005950075, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874734200166871444, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 6874734200166871444, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874734200246170986, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 6874734200246170986, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874734200824327997, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 6874734200824327997, guid: 71cd5d056025a5a42bf6d4bb5fc31b30,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71cd5d056025a5a42bf6d4bb5fc31b30, type: 3}

@@ -82,7 +82,6 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 60;
         SortInventory();
         if (inventoryScreen)
             ShowUnit(inventory[0].GetComponent<Character>().instanceNumber, true);

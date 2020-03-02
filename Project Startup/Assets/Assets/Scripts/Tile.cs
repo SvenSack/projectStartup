@@ -12,6 +12,7 @@ public class Tile : MonoBehaviour
     public Material off;
     public Material on;
     public Material myOn;
+    private MeshRenderer meshRenderer;
     
     // Start is called before the first frame update
     void Awake()
@@ -31,7 +32,8 @@ public class Tile : MonoBehaviour
         // print(myOn.color);
         myOn.EnableKeyword("_EMISSION");
         myOn.SetColor("_EmissionColor", off.GetColor("_EmissionColor"));
-        gameObject.GetComponent<MeshRenderer>().material = off;
+        meshRenderer = gameObject.GetComponent<MeshRenderer>();
+        meshRenderer.material = off;
         
         CenterUnit();
     }
@@ -108,9 +110,9 @@ public class Tile : MonoBehaviour
                     myOn.SetColor("_EmissionColor", new Color(0.3177287f, 0.7924528f, 0.4481168f)*1.5f);
                     break;
             }
-            gameObject.GetComponent<MeshRenderer>().material = myOn;
+            meshRenderer.material = myOn;
         }
         else
-            gameObject.GetComponent<MeshRenderer>().material = off;
+            meshRenderer.material = off;
     }
 }
