@@ -31,9 +31,7 @@ public class Swiper : Character
         else // swipe
         {
             hitCount = 1;
-            
-            // TODO: Swipe SFX .Play();
-            
+
             StartCoroutine(FakeAttackAnimation2(.2f));
             if(isOnYourTeam)
                 foreach (var unit in teamManager.enemyTeam)
