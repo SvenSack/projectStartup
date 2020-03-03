@@ -59,4 +59,4 @@ Material:
     - Color_C6678645: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Specular: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0}
-    - _TextureTiling: {r: 3, g: 3, b: 0, a: 0}
+    - _TextureTiling: {r: 1, g: 1, b: 0, a: 0}
