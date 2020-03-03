@@ -440,11 +440,13 @@ public class GameManager : MonoBehaviour
         endScreen = true;
         foreach (var unit in teamManager.enemyTeam)
         {
-            unit.healthBar.transform.parent.gameObject.SetActive(true);
+            if(unit != null)
+                unit.healthBar.transform.parent.gameObject.SetActive(true);
         }
         foreach (var unit in teamManager.yourTeam)
         {
-            unit.healthBar.transform.parent.gameObject.SetActive(true);
+            if(unit != null)
+                unit.healthBar.transform.parent.gameObject.SetActive(true);
         }
         showInFight.SetActive(false);
         

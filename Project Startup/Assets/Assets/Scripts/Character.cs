@@ -245,7 +245,6 @@ public class Character : MonoBehaviour
                 
                 // DAMAGE FX HERE
                 int randomParticle = Random.Range(0, 2);
-                
                 Instantiate(damageParticle[randomParticle], transform.position, new Quaternion());
                 
                 textMesh.text = Mathf.RoundToInt(amount*10) + "!";

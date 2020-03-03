@@ -112,6 +112,9 @@ public class Friend : Character
             AttackText newText = newDamage.GetComponent<AttackText>();
             if (amount > 0)
             {
+                // DAMAGE FX HERE
+                int randomParticle = Random.Range(0, 2);
+                Instantiate(damageParticle[randomParticle], transform.position, new Quaternion());
                 // FindAggroTarget();
                 textMesh.text = Mathf.RoundToInt(amount*10) + " !";
                 textMesh.color = new Color(0.7924528f, 0.1831613f, 0.2159052f);
@@ -119,6 +122,8 @@ public class Friend : Character
             }
             else
             {
+                // BLOCK FX HERE
+                Instantiate(blockParticle, transform.position, new Quaternion());
                 textMesh.text = "Blocked !";
             }
             healthBar.value = health;

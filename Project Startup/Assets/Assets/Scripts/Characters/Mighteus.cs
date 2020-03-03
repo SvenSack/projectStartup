@@ -60,11 +60,6 @@ public class Mighteus : Character
 
     public override bool Damage(float amount)
     {
-        // DAMAGE FX HERE
-        int randomParticle = Random.Range(0, 2);
-
-        Instantiate(damageParticle[randomParticle], transform.position, new Quaternion());
-        
         smiteValue += defense / 3;
         return base.Damage(amount);
     }
