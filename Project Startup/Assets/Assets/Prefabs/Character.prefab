@@ -162,6 +162,10 @@ MonoBehaviour:
     type: 3}
   upgradeParticle: {fileID: 7281632597060137030, guid: 21377534d58705e4782596342b84ea84,
     type: 3}
+  healParticle: {fileID: 7788546155558250022, guid: 318b96398ab33144e8799eb15213daa4,
+    type: 3}
+  blockParticle: {fileID: 7739585371928327399, guid: 55c987ad58dd10f4c89417704895b4ed,
+    type: 3}
   rarity: 1
   type: 0
   damageText: {fileID: 0}
