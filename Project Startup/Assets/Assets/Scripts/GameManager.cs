@@ -455,18 +455,17 @@ public class GameManager : MonoBehaviour
         {
             // display victory screen
             showOnWin.SetActive(true);
-            showOnWin.GetComponent<Transform>().GetChild(0).GetComponent<TextMeshProUGUI>().text = "You have won!!";
+            showOnWin.GetComponent<Transform>().GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = "You have won!!";
             teamManager.WriteTeamFile(true);
             
             // Retry as a win
-            retryBtn.GetComponent<Button>().onClick.RemoveListener(Retry);
             retryBtn.GetComponent<Button>().onClick.AddListener(RetryOnWin);
         }
         else
         {
             // display loss text
             showOnWin.SetActive(true);
-            showOnWin.GetComponent<Transform>().GetChild(0).GetComponent<TextMeshProUGUI>().text = "You have lost...";
+            showOnWin.GetComponent<Transform>().GetChild(2).GetComponentInChildren<TextMeshProUGUI>().text = "You have lost...";
             
             // Retry as a loss
             retryBtn.GetComponent<Button>().onClick.AddListener(Retry);
@@ -486,12 +485,17 @@ public class GameManager : MonoBehaviour
         {
             if (tile.heldUnit != null)
             {
+                //Debug.Log("I am " + tile.heldUnit.name);
                 Character newChar = inventoryManager.NewCharacter(tile.heldUnit.instanceNumber);
                 bool oldAlignment = tile.heldUnit.isOnYourTeam;
                 newChar.isOnYourTeam = oldAlignment;
                 Destroy(tile.heldUnit.gameObject);
                 tile.UnitPlace(newChar, true);
                 teamManager.Add(newChar, !newChar.isOnYourTeam);
+            }
+            else
+            {
+                tile.CenterUnit();
             }
         }
     }

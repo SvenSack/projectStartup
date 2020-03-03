@@ -44,7 +44,6 @@ public class TeamManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void Remove(GameObject character)
@@ -140,6 +139,16 @@ public class TeamManager : MonoBehaviour
 
     public void ReadTeamFile()
     {
+        Tile[] tiles = GameObject.FindGameObjectWithTag("TileBoard").GetComponentsInChildren<Tile>();
+
+        foreach (var tile in tiles)
+        {
+            if (!tile.isYours)
+            {
+                tile.heldUnit = null;
+                tile.CenterUnit();
+            }
+        }
         Tile[] tilesRow1 = enemyTileRows[0].GetComponentsInChildren<Tile>();
         Tile[] tilesRow2 = enemyTileRows[1].GetComponentsInChildren<Tile>();
         Tile[] tilesRow3 = enemyTileRows[2].GetComponentsInChildren<Tile>();

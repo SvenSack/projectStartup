@@ -87,6 +87,7 @@ public class Tile : MonoBehaviour
 
     public void CenterUnit()
     {
+        meshRenderer.material = off;
         if (heldUnit != null)
         {
             heldUnit.transform.position = placementSpot.position;
@@ -98,25 +99,23 @@ public class Tile : MonoBehaviour
             {
                 case Character.archetype.Attacker:
                     myOn.color = new Color(0.7924528f, 0.1831613f, 0.2159052f, 10f / 255f);
-                    myOn.SetColor("_EmissionColor", new Color(0.7924528f, 0.1831613f, 0.2159052f)*.5f);
+                    myOn.SetColor("_EmissionColor", new Color(0.7924528f, 0.1831613f, 0.2159052f));
                     break;
                 case Character.archetype.Tank:
                     myOn.color = new Color(0.4298683f, 0.6714197f, 0.7924528f, 10f / 255f);
-                    myOn.SetColor("_EmissionColor", new Color(0.4298683f, 0.6714197f, 0.7924528f)*.5f);
+                    myOn.SetColor("_EmissionColor", new Color(0.4298683f, 0.6714197f, 0.7924528f));
                     break;
                 case Character.archetype.Assassin:
                     myOn.color = new Color(0.5283019f, 0.2815949f, 0.4347313f, 10f / 255f);
-                    myOn.SetColor("_EmissionColor", new Color(0.5283019f, 0.2815949f, 0.4347313f)*.5f);
+                    myOn.SetColor("_EmissionColor", new Color(0.5283019f, 0.2815949f, 0.4347313f));
                     break;
                 case Character.archetype.Support:
                     myOn.color = new Color(0.3177287f, 0.7924528f, 0.4481168f, 10f / 255f);
-                    myOn.SetColor("_EmissionColor", new Color(0.3177287f, 0.7924528f, 0.4481168f)*.5f);
+                    myOn.SetColor("_EmissionColor", new Color(0.3177287f, 0.7924528f, 0.4481168f));
                     break;
             }
             meshRenderer.material = myOn;
         }
-        else
-            meshRenderer.material = off;
     }
 
     private void ParticlePlay(GameObject particle, Transform target)

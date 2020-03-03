@@ -17,7 +17,7 @@ MonoBehaviour:
   health: 75
   attackDamage: 6.4
   attackCooldown: 1
-  defense: 4
+  defense: 3.5
   name: Sacerdote
   profilePic: {fileID: 21300000, guid: 73108b83b57916e4793e9b25e0b754e3, type: 3}
   instanceNumber: 2
@@ -51,7 +51,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   hitSfx: {fileID: 628841682088903412}
   deathSfx: {fileID: 6319868401910169576}
-  healRadius: 0
+  healRadius: 2.5
   healSfx: {fileID: 2097684536787653278}
 --- !u!1 &7026261242128546144
 GameObject:

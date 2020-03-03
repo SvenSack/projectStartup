@@ -225,7 +225,8 @@ public class Character : MonoBehaviour
         mat.color = myColor;
         mat.SetColor("_EmissionColor", myColor*2);
         pS.GetComponent<ParticleSystemRenderer>().trailMaterial = mat;
-        transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.2f);
+        if(!isDead)
+            transform.LeanScale(new Vector3(1.3f, 1.3f, 1.3f), 0.2f);
     }
 
     public virtual bool Damage(float amount)
