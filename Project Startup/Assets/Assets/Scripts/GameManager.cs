@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
@@ -45,8 +46,9 @@ public class GameManager : MonoBehaviour
     private Coroutine dragCheck;
 
     private GameObject music;
-    public GameObject startFightMusicBtn;
-    public GameObject stopFightMusicBtn;
+    public GameObject startFightBtn;
+    public GameObject retryBtn;
+    public GameObject mainMenuBtn;
     
     // Start is called before the first frame update
     void Awake()
@@ -62,9 +64,9 @@ public class GameManager : MonoBehaviour
         music = GameObject.FindGameObjectWithTag("music");
         
         // Adding listeners to buttons
-        startFightMusicBtn.GetComponent<Button>().onClick.AddListener(StartFMusic);
-
-        stopFightMusicBtn.GetComponent<Button>().onClick.AddListener(StartMMusic);
+        startFightBtn.GetComponent<Button>().onClick.AddListener(StartFMusic);
+        retryBtn.GetComponent<Button>().onClick.AddListener(StartMMusic);
+        mainMenuBtn.GetComponent<Button>().onClick.AddListener(StartMMusic);
     }
 
     void Start()
@@ -455,8 +457,8 @@ public class GameManager : MonoBehaviour
             teamManager.WriteTeamFile(true);
             
             // Retry as a win
-            stopFightMusicBtn.GetComponent<Button>().onClick.RemoveListener(Retry);
-            stopFightMusicBtn.GetComponent<Button>().onClick.AddListener(RetryOnWin);
+            retryBtn.GetComponent<Button>().onClick.RemoveListener(Retry);
+            retryBtn.GetComponent<Button>().onClick.AddListener(RetryOnWin);
         }
         else
         {
@@ -465,7 +467,7 @@ public class GameManager : MonoBehaviour
             showOnWin.GetComponent<Transform>().GetChild(0).GetComponent<TextMeshProUGUI>().text = "You have lost...";
             
             // Retry as a loss
-            stopFightMusicBtn.GetComponent<Button>().onClick.AddListener(Retry);
+            retryBtn.GetComponent<Button>().onClick.AddListener(Retry);
         }
     }
 

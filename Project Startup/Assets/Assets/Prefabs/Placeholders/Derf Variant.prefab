@@ -94,6 +94,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ce7b41bdf3b620342b94c9cefeb19991, type: 2}
     - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
         type: 3}
+      propertyPath: damageParticle.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
       propertyPath: isDead
       value: 0
       objectReference: {fileID: 0}
@@ -149,5 +154,23 @@ PrefabInstance:
       propertyPath: rarity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: damageParticle.Array.data[0]
+      value: 
+      objectReference: {fileID: 8302801022426209714, guid: eda72f1a1521e7d43a1bdf4141ed406d,
+        type: 3}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: damageParticle.Array.data[1]
+      value: 
+      objectReference: {fileID: 5685193839471844161, guid: ff821a465c0ffbf47a056bd5750eb16d,
+        type: 3}
+    - target: {fileID: 8447763477635213986, guid: 4cf03638832e8fa4f9140621fb57dd82,
+        type: 3}
+      propertyPath: damageParticle.Array.data[2]
+      value: 
+      objectReference: {fileID: 9093278664995899938, guid: 141431fdb0327c045966395bf7744b09,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf03638832e8fa4f9140621fb57dd82, type: 3}

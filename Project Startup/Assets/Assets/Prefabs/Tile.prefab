@@ -112,6 +112,8 @@ MonoBehaviour:
   off: {fileID: 2100000, guid: 4f9374515e1899944940eba1d92e5631, type: 2}
   on: {fileID: 2100000, guid: 68f12c2152aa3204caf2b561788e10e9, type: 2}
   myOn: {fileID: 0}
+  particleFx: {fileID: 3300358014007972389, guid: a3399cc142477624bb1171d452507c37,
+    type: 3}
 --- !u!1001 &7767023799287688108
 PrefabInstance:
   m_ObjectHideFlags: 0

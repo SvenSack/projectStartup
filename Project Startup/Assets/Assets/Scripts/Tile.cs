@@ -13,6 +13,8 @@ public class Tile : MonoBehaviour
     public Material on;
     public Material myOn;
     private MeshRenderer meshRenderer;
+
+    public GameObject particleFx;
     
     // Start is called before the first frame update
     void Awake()
@@ -38,12 +40,6 @@ public class Tile : MonoBehaviour
         CenterUnit();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public bool UnitPlace(Character unit, Tile origin)
     {
         // check if I am on your team, if yes then swap me
@@ -53,6 +49,11 @@ public class Tile : MonoBehaviour
             heldUnit = unit;
             origin.CenterUnit();
             CenterUnit();
+            
+            ParticlePlay(particleFx, placementSpot);
+            if(origin.heldUnit != null)
+                ParticlePlay(particleFx, origin.placementSpot);
+            
             return true;
         }
 
@@ -65,6 +66,8 @@ public class Tile : MonoBehaviour
         if (isYours)
         {
             heldUnit = unit;
+            ParticlePlay(particleFx, placementSpot);
+            
             CenterUnit();
             return true;
         }
@@ -114,5 +117,14 @@ public class Tile : MonoBehaviour
         }
         else
             meshRenderer.material = off;
+    }
+
+    private void ParticlePlay(GameObject particle, Transform target)
+    {
+        var part = Instantiate(particle);
+
+        part.transform.position = target.position;
+        
+        particle.GetComponentInChildren<ParticleSystem>().Play();
     }
 }

@@ -22,6 +22,10 @@ public class Character : MonoBehaviour
     public GameObject projectile;
     public GameObject deathParticle;
     public GameObject upgradeParticle;
+    public GameObject healParticle;
+    public GameObject blockParticle;
+    public GameObject[] damageParticle;
+    
     public int rarity = 1;
 
     public enum archetype {Attacker, Tank, Assassin, Support};
@@ -156,7 +160,7 @@ public class Character : MonoBehaviour
         StartCoroutine(FakeAttackAnimation(.2f));
         // Hit SFX
         hitSfx.Play();
-        
+
         // deal damage to the target mitigated by defense
         if (aggroTarget.Damage(attackDamage - aggroTarget.defense))
         {
@@ -238,13 +242,22 @@ public class Character : MonoBehaviour
             if (amount > 0)
             {
                 FindAggroTarget();
-                textMesh.text = Mathf.RoundToInt(amount*10) + " !";
+                
+                // DAMAGE FX HERE
+                int randomParticle = Random.Range(0, 2);
+                
+                Instantiate(damageParticle[randomParticle], transform.position, new Quaternion());
+                
+                textMesh.text = Mathf.RoundToInt(amount*10) + "!";
                 textMesh.color = new Color(0.7924528f, 0.1831613f, 0.2159052f);
                 newText.baseColor = new Color(0.7924528f, 0.1831613f, 0.2159052f);
             }
             else
             {
-                textMesh.text = "Blocked !";
+                // BLOCK FX HERE
+                Instantiate(blockParticle, transform.position, new Quaternion());
+                
+                textMesh.text = "Blocked!";
             }
             healthBar.value = health;
             return false;
@@ -408,10 +421,14 @@ public class Character : MonoBehaviour
         textMesh.text = Mathf.RoundToInt(amount*10) + " !";
         textMesh.color = new Color(0.3177287f, 0.7924528f, 0.4481168f);
         newText.baseColor = new Color(0.3177287f, 0.7924528f, 0.4481168f);
+        
+        // HEAL FX
+        Instantiate(healParticle, transform.position, new Quaternion());
+        
         health += amount;
         healthBar.value = health;
     }
-
+    
     public IEnumerator ClaimDeath()
     {
         yield return new WaitForSeconds(.5f);
