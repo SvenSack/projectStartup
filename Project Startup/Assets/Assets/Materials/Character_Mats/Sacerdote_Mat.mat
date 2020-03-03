@@ -57,6 +57,6 @@ Material:
     - _Smoothness: 1
     m_Colors:
     - Color_C6678645: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.9423222, g: 1, b: 0.7028302, a: 0}
+    - _Color: {r: 1.882353, g: 2, b: 1.4039216, a: 0}
     - _Specular: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0}
     - _TextureTiling: {r: 1, g: 1, b: 0, a: 0}
