@@ -18,7 +18,7 @@ MonoBehaviour:
   attackDamage: 9.6
   attackCooldown: 1
   defense: 2
-  name: Swiper
+  name: Arisu
   profilePic: {fileID: 21300000, guid: c8455ae0cdfccac44b2cd7821003c693, type: 3}
   instanceNumber: 6
   fighting: 0

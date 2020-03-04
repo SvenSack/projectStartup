@@ -18,7 +18,7 @@ MonoBehaviour:
   attackDamage: 6.4
   attackCooldown: 1
   defense: 3.5
-  name: Sacerdote
+  name: Sakiya
   profilePic: {fileID: 21300000, guid: 73108b83b57916e4793e9b25e0b754e3, type: 3}
   instanceNumber: 2
   fighting: 0
