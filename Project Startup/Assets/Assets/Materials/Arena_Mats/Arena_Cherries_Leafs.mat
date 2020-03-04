@@ -25,7 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: b2b87d0c28aab6d439cabb351f763d67, type: 3}
+        m_Texture: {fileID: 2800000, guid: 565f8dd816e7a1a4aa0a5106bca5df3c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTex:
@@ -52,11 +52,11 @@ Material:
     - _BacklightAmount: 2.3
     - _DabsRotation: 15
     - _DabsTiling: 10
-    - _NormalMult: 1
+    - _NormalMult: 10
     - _OcclusionMult: 1
     - _Smoothness: 1
     m_Colors:
     - Color_C6678645: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.72156864, g: 0.34117648, b: 0.33333334, a: 0}
     - _Specular: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 0}
-    - _TextureTiling: {r: 1, g: 1, b: 0, a: 0}
+    - _TextureTiling: {r: 5, g: 5, b: 0, a: 0}
