@@ -133,7 +133,7 @@ public class TeamManager : MonoBehaviour
         unitCount.transform.LeanScale(new Vector3(2, 2, 2), .3f);
         unitCount.color = new Color(0.7924528f, 0.1831613f, 0.2159052f);
         yield return new WaitForSeconds(0.3f);
-        unitCount.color = new Color(50f/255f, 50f/255f, 50f/255f);
+        unitCount.color = new Color(214f/255f, 214f/255f, 214f/255f);
         unitCount.transform.LeanScale(new Vector3(1, 1, 1), .1f);
     }
 

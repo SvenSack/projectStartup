@@ -16,7 +16,7 @@ public class DeathSplosion : MonoBehaviour
         mat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
         mat.EnableKeyword("_EMISSION");
         mat.color = myColor;
-        mat.SetColor("_EmissionColor", myColor*2);
+        mat.SetColor("_EmissionColor", myColor*1.5f);
         partSys.GetComponent<ParticleSystemRenderer>().trailMaterial = mat;
         ensureClaim = StartCoroutine(EnsureClaim());
     }

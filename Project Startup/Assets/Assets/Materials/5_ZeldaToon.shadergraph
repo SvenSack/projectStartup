@@ -88,7 +88,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"318917b2-b74c-4c34-9ee1-419a11604611\"\n    },\n    \"m_Name\": \"Dabs Tiling\",\n    \"m_DefaultReferenceName\": \"Vector1_A3ADAA29\",\n    \"m_OverrideReferenceName\": \"_DabsTiling\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 30.0,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": 1.0,\n        \"y\": 200.0\n    }\n}"
+            "JSONnodeData": "{\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"318917b2-b74c-4c34-9ee1-419a11604611\"\n    },\n    \"m_Name\": \"Dabs Tiling\",\n    \"m_DefaultReferenceName\": \"Vector1_A3ADAA29\",\n    \"m_OverrideReferenceName\": \"_DabsTiling\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Precision\": 0,\n    \"m_GPUInstanced\": false,\n    \"m_Hidden\": false,\n    \"m_Value\": 30.0,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 200.0\n    }\n}"
         },
         {
             "typeInfo": {
