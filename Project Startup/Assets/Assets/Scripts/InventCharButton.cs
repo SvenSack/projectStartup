@@ -20,19 +20,21 @@ public class InventCharButton : MonoBehaviour
     void Awake()
     {
         backDrop = transform.GetChild(0).GetComponent<RectTransform>();
-        stats = transform.GetChild(1).gameObject;
     }
 
     void Start()
     {
         inventoryManager = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<InventoryManager>();
         Character myCharacter = inventoryManager.possibleCharacters[charIndex].GetComponent<Character>();
+        
+        stats = transform.GetChild(1).gameObject;
         Slider[] sliders = stats.GetComponentsInChildren<Slider>();
         sliders[0].value = myCharacter.health;
         sliders[1].value = myCharacter.defense;
         sliders[2].value = myCharacter.attackDamage;
         sliders[3].value = 4.1f - myCharacter.attackCooldown;
         sliders[4].value = myCharacter.range;
+        
         stats.SetActive(false);
     }
 
