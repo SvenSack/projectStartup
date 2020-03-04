@@ -150,6 +150,8 @@ public class InventoryManager : MonoBehaviour
         statsBreakdown[3].text = tempText[0] + " " + (int)shownUnit.health * 10;
         tempText = statsBreakdown[4].text.Split(' ');
         statsBreakdown[4].text = tempText[0] + " " + (int)shownUnit.defense * 10;
+        tempText = statsBreakdown[5].text.Split(' ');
+        statsBreakdown[5].text = tempText[0] + " " + shownUnit.ability;
         shownUnit.enabled = false;
     }
     
