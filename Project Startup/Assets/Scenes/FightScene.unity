@@ -3712,6 +3712,11 @@ PrefabInstance:
       propertyPath: debugPopulate
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3913662777931254948, guid: 071343144b85fa54bbc94d15485e8e28,
+        type: 3}
+      propertyPath: uiScroll
+      value: 
+      objectReference: {fileID: 80920149}
     - target: {fileID: 7268194609761929249, guid: 071343144b85fa54bbc94d15485e8e28,
         type: 3}
       propertyPath: m_Name
@@ -4073,6 +4078,11 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 6716833321135083216}
+    - target: {fileID: 5978128859752290764, guid: e29dddb2bdf245a4fbf0480aed79d867,
+        type: 3}
+      propertyPath: detailShower
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6327908316047186545, guid: e29dddb2bdf245a4fbf0480aed79d867,
         type: 3}
       propertyPath: m_Sprite

@@ -71,8 +71,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
-        detailShower.GetComponent<InventCharButton>().stats.SetActive(true);
         detailShower.SetActive(false);
     }
 
